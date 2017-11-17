@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Bolt;
 using UnityEngine;
 
+using TurkeyWork.Actors;
 
-public class Player : MonoBehaviour { //EntityEventListener<IPlayerState> {
+public class Player : EntityEventListener<IPlayerState> {
 
     public float Speed = 4f;
     public float Smoothing = 2f;
@@ -17,69 +18,62 @@ public class Player : MonoBehaviour { //EntityEventListener<IPlayerState> {
     float minJumpVelocity;
     byte currentMultiJump;
 
-    CharacterController controller;
+    ActorMotor2D motor;
 
-    //IPlayerInputCommandInput input;
-    //PlayerInputCommand inputCommand;
+    ICmdPlayerMovementInput input;
+    CmdPlayerMovement inputCommand;
 
     Vector3 frameVelocity;
     float currentHorizontal;
 
     private void Awake () {
-        controller = GetComponent<CharacterController> ();
+        motor = GetComponent<ActorMotor2D> ();
         RecalculateJump ();
     }
 
-    /*
     public override void Attached () {
-        state.SetTransforms (state.Transform, transform);
+        state.SetTransforms (state.PlayerTransform, transform);
     }
 
     public override void SimulateController () {
-        input = PlayerInputCommand.Create ();
+        input = CmdPlayerMovement.Create ();
         input.Horizontal = Input.GetAxisRaw ("Horizontal");
-        input.Jump = Input.GetKeyDown (KeyCode.Space);
+        input.JumpFlag = Input.GetKeyDown (KeyCode.Space);
         entity.QueueInput (input);
     }
 
     public override void ExecuteCommand (Command command, bool resetState) {
-        inputCommand = command as PlayerInputCommand;
-        if (!inputCommand.IsFirstExecution)
+        if (!command.IsFirstExecution)
             return;
+
+        inputCommand = command as CmdPlayerMovement;
+        
         if (inputCommand) {
             if (resetState) {
                 
             }
             else {
-                var x = Mathf.SmoothDamp (controller.velocity.x, inputCommand.Input.Horizontal * Speed,
-                        ref currentHorizontal, Smoothing
-                        );
+                // Somehow this broke? Even when this is the exat code i use in other project. There, it works fine!
+                var x = Mathf.SmoothDamp (motor.Velocity.x, inputCommand.Input.Horizontal * Speed,
+                        ref currentHorizontal, Smoothing);
                 frameVelocity = new Vector3 (
-                    x,
-                    controller.velocity.y + Physics.gravity.y * BoltNetwork.frameDeltaTime * GravityScale
+                    inputCommand.Input.Horizontal * Speed,
+                    motor.Velocity.y + Physics2D.gravity.y * BoltNetwork.frameDeltaTime * GravityScale
                     );
                 CheckJump ();
-
-                if (frameVelocity.x > 0)
-                    transform.rotation = Quaternion.Euler (0, 90f, 0f);
-                else if (frameVelocity.x < 0)
-                    transform.rotation = Quaternion.Euler (0, -90f, 0f);
-
-                controller.Move (frameVelocity * BoltNetwork.frameDeltaTime);
+                motor.Move (frameVelocity * BoltNetwork.frameDeltaTime);
             }
         }
     }
-    */
-
         
     public void SetPosition (Vector3 position) {
-       // if (entity.isOwner)
-         //   transform.position = position;
+        if (entity.isOwner)
+            transform.position = position;
     }
-    /*
+    
     void CheckJump () {
-        if (controller.isGrounded) {
-            if (inputCommand.Input.Jump) {
+        if (motor.OnGround) {
+            if (inputCommand.Input.JumpFlag) {
                 if (currentMultiJump == 0) {
                     frameVelocity.y = maxJumpVelocity;
                     currentMultiJump++;
@@ -88,12 +82,12 @@ public class Player : MonoBehaviour { //EntityEventListener<IPlayerState> {
             else {
                 currentMultiJump = 0;
             }
-        } else if (inputCommand.Input.Jump && currentMultiJump <= MaxMultiJump) {
+        } else if (inputCommand.Input.JumpFlag && currentMultiJump <= MaxMultiJump) {
             frameVelocity.y = Mathf.Clamp (maxJumpVelocity, minJumpVelocity, frameVelocity.y + GetMultiJumpStrength (currentMultiJump));
             currentMultiJump++;
         }
     }
-    */
+    
     float GetMultiJumpStrength (byte multiJump) {
         return maxJumpVelocity * Mathf.Pow (JumpFallOff, multiJump);
     }

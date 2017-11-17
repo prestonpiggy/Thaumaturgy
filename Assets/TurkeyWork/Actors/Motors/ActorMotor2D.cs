@@ -15,7 +15,7 @@ namespace TurkeyWork.Actors {
         public LayerMask CollisionMask;
 
         // the actual ray count is this plus one
-        [SerializeField, Range (1, 20)] byte raysPerUnit = 10;
+        [SerializeField, Range (1, 20)] byte raysPerWorldUnit = 10;
 
         int horizontalRayCount;
         int verticalRayCount;
@@ -31,40 +31,39 @@ namespace TurkeyWork.Actors {
         public Vector3 Velocity => velocity;
         public MotorState State => state;
 
+        public bool OnGround => state.CollisionFlags.HasFlag (CollisionSides.Below);
+
         void Awake () {
+            parentActor = GetComponent<ActorBody> ();
             UpdateCollisionRaySpacing ();
         }
 
-        public MotorState Move (Vector2 velocity) {
-            return Move ((Vector3) velocity);
-        }
-
-        public MotorState Move (Vector3 velocity) {
-            var vy = CheckVertical (velocity.y);
-            var vx = CheckHorizontal (velocity.x);
+        public MotorState Move (Vector3 deltaPosition) {
+            print ("Moving" + deltaPosition);
+            var vy = CheckVertical (deltaPosition.y);
+            var vx = CheckHorizontal (deltaPosition.x);
             state.Velocity = new Vector3 (vx, vy);
             return state;
         }
 
-        float CheckHorizontal (float velocity) {
-            var direction = Mathf.Sign (velocity);
-            var rayLength = direction * velocity + SKIN_WIDTH;
+        float CheckHorizontal (float deltaPosition) {
+            var direction = Mathf.Sign (deltaPosition);
+            var rayLength = direction * deltaPosition + SKIN_WIDTH;
             var rayDirection = direction * Vector2.right;
             var bounds = parentActor.Bounds;
 
             if (rayLength < 2 * SKIN_WIDTH)
                 rayLength = 2 * SKIN_WIDTH;
 
-            var collisionFlag = direction == 1 ? CollisionFlag.Right : CollisionFlag.Left;
+            var collisionFlag = direction == 1 ? CollisionSides.Right : CollisionSides.Left;
             var rayOrigin = direction == 1 ? bounds.BottomRight : bounds.BottomLeft;
+            float angle;
 
-            if (CheckForWalkableSlopes (rayOrigin, rayDirection, rayLength)) {
-                print ("There is a walkable slope ahead!");
+            if (CheckForWalkableSlopes (rayOrigin, rayDirection, rayLength, out angle)) {
+                HandleSlopes (angle, deltaPosition * direction);
             }
 
             for (var i = 0; i < horizontalRayCount; i++) {
-                Debug.DrawRay (rayOrigin, rayDirection * rayLength, Color.cyan);
-
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDirection, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
 
@@ -74,25 +73,23 @@ namespace TurkeyWork.Actors {
                 rayLength = rayHit.distance;
                 state.CollisionFlags |= collisionFlag;
             }
-            velocity = (rayLength - SKIN_WIDTH) * direction;
-            return velocity;
+            deltaPosition = (rayLength - SKIN_WIDTH) * direction;
+            return deltaPosition;
         }
 
-        float CheckVertical (float velocity) {
-            var direction = Mathf.Sign (velocity);
-            var rayLength = direction * velocity + SKIN_WIDTH;
+        float CheckVertical (float deltaPosition) {
+            var direction = Mathf.Sign (deltaPosition);
+            var rayLength = direction * deltaPosition + SKIN_WIDTH;
             var rayDirection = direction * Vector2.up;
             var bounds = parentActor.Bounds;
 
             if (rayLength < 2 * SKIN_WIDTH)
                 rayLength = 2 * SKIN_WIDTH;
 
-            var collisionFlag = direction == 1 ? CollisionFlag.Above : CollisionFlag.Below;
+            var collisionFlag = direction == 1 ? CollisionSides.Above : CollisionSides.Below;
             var rayOrigin = direction == 1 ? bounds.TopLeft : bounds.BottomLeft;
 
             for (var i = 0; i < verticalRayCount; i++) {
-                Debug.DrawRay (rayOrigin, rayDirection * rayLength, Color.cyan);
-
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDirection, rayLength, CollisionMask);
                 rayOrigin.x += verticalRaySpacing;
 
@@ -102,13 +99,13 @@ namespace TurkeyWork.Actors {
                 rayLength = rayHit.distance;
                 state.CollisionFlags |= collisionFlag;
             }
-            velocity = (rayLength - SKIN_WIDTH) * direction;
-            return velocity;
+            deltaPosition = (rayLength - SKIN_WIDTH) * direction;
+            return deltaPosition;
         }
 
-        bool CheckForWalkableSlopes (Vector3 origin, Vector3 direction, float length) {
+        bool CheckForWalkableSlopes (Vector3 origin, Vector3 direction, float length, out float angle) {
             var rayHit = Physics2D.Raycast (origin, direction, length, CollisionMask);
-            var angle = Vector3.Angle (direction, rayHit.normal);
+            angle = Vector3.Angle (direction, rayHit.normal);
 
             if (angle > 0 && angle < MaxSlopeAngle) {
                 print (angle);
@@ -117,8 +114,15 @@ namespace TurkeyWork.Actors {
             return false;
         }
 
-        void HandleSlopes () {
+        void HandleSlopes (float angle, float distance) {
+            print ("Handling slope");
+            var climbVelocityY = Mathf.Sin (angle * Mathf.Deg2Rad) * distance;
 
+            if (state.Velocity.y <= climbVelocityY) {
+                velocity = new Vector3 (climbVelocityY, Mathf.Cos (angle * Mathf.Deg2Rad) * distance);
+                state.CollisionFlags |= CollisionSides.Below;
+                state.SlopeAngle = angle;
+            }
         }
 
         void UpdateCollisionRaySpacing () {
@@ -126,8 +130,8 @@ namespace TurkeyWork.Actors {
             var boundsWidth = bounds.Width + SKIN_WIDTH * -2;
             var boundsHeight = bounds.Height + SKIN_WIDTH * -2;
 
-            horizontalRayCount = Mathf.RoundToInt (boundsHeight / raysPerUnit);
-            verticalRayCount = Mathf.RoundToInt (boundsWidth / raysPerUnit);
+            horizontalRayCount = Mathf.RoundToInt (boundsHeight * raysPerWorldUnit);
+            verticalRayCount = Mathf.RoundToInt (boundsWidth * raysPerWorldUnit);
             horizontalRaySpacing = bounds.Height / (horizontalRayCount - 1);
             verticalRaySpacing = bounds.Width / (verticalRayCount - 1);
         }

@@ -8,11 +8,17 @@ namespace TurkeyWork.Actors {
 
         public IActorMotor Motor;
 
-        [SerializeField] ActorBounds boundingVolume;
+        [SerializeField] ActorBounds boundingVolume = new ActorBounds (
+            new Vector2(-.5f, 2),
+            new Vector2(.5f, 2),
+            new Vector2(.5f, 0),
+            new Vector2(-.5f, 0)
+            );
         ActorBounds actorBounds;
         public ActorBounds Bounds => actorBounds;
 
         private void Awake () {
+            UpdateBounds ();
             Motor = GetComponent<IActorMotor> ();
         }
 

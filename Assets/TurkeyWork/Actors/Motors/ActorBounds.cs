@@ -12,6 +12,13 @@ namespace TurkeyWork.Actors {
         public float Height => Mathf.Abs (BottomLeft.y - TopLeft.y);
         public float Width => Mathf.Abs (BottomLeft.x - BottomRight.x);
 
+        public ActorBounds (Vector2 topLeft, Vector2 topRight, Vector2 bottomRight, Vector2 bottomLeft) {
+            TopLeft = topLeft;
+            TopRight = topRight;
+            BottomRight = bottomRight;
+            BottomLeft = bottomLeft;
+        }
+
         public ActorBounds CenterOnPosition (Vector3 position) {
             var actorBounds = new ActorBounds () {
                 TopLeft = new Vector2 (position.x + TopLeft.x, position.y + TopLeft.y),

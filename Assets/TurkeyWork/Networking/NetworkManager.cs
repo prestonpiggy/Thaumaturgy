@@ -57,7 +57,7 @@ namespace TurkeyWork.Networking {
         public override void BoltStartDone () {
             InGame = true;
             if (BoltNetwork.isServer) {
-                BoltNetwork.LoadScene ("Level-1");
+                BoltNetwork.LoadScene ("Test-Level");
             } else {
                 BoltNetwork.Connect (UdpKit.UdpEndPoint.Parse ("127.0.0.1:27000"));
             }

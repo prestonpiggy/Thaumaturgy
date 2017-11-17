@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Thauma/Scenes/Main Menu.unity
+    guid: b59a1f0a63b2685428e4ca43f8e1284f
+  - enabled: 1
+    path: Assets/Thauma/Scenes/Test-Level.unity
+    guid: cc9966c4fcc608544a2d9960399112d0
