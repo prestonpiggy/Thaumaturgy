@@ -84,6 +84,7 @@ public class Player : EntityEventListener<IActorState> {
             else {
                 ParentActor.UpdateBounds ();
                 UpdateFrameDeltaMove ();
+
                 motorState = Motor.Move (frameDeltaMove);
 
                 if (motorState.CollidingAboveOrBelow) {

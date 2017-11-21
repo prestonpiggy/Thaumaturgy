@@ -6,13 +6,13 @@ using TurkeyWork.AI.State;
 [CreateAssetMenu(menuName = "AI/States/Chase state")]
 public class ChaseState : State
 {
-    public override void Execute(AIController aI)
+    public override void Execute(AIController ai)
     {
-        var direction = Mathf.Sign(aI.transform.position.x - aI.target.transform.position.x);
-        aI.GetComponent<Rigidbody2D>().velocity = new Vector2(direction < 0 ? 2.0f : -2.0f, 0);
+        var direction = Mathf.Sign(ai.transform.position.x - ai.target.transform.position.x);
+        ai.transform.Translate (new Vector2 (direction < 0 ? 2.0f : -2.0f, 0) * Time.deltaTime);
     }
 
-    public override void OnStateEnter(AIController aI)
+    public override void OnStateEnter(AIController ai)
     {
     }
 

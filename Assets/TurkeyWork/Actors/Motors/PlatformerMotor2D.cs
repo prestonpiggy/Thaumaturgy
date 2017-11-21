@@ -39,13 +39,14 @@ namespace TurkeyWork.Actors {
         }
 
         public MotorState Move (Vector3 deltaPosition) {
+            motorState.ResetAll ();
+
             collisions = CollisionInfo.None;
             velocity = deltaPosition;
 
             CheckHorizontal ();
             CheckVertical ();
 
-            motorState.ResetAll ();
             motorState.Velocity = velocity;
             motorState.CollisionState = collisions;
             transform.Translate (velocity);
@@ -66,6 +67,8 @@ namespace TurkeyWork.Actors {
             var rayOrigin = directionX == 1 ? parentActor.Bounds.BottomRight : parentActor.Bounds.BottomLeft;
 
             for (var i = 0; i < horizontalRayCount; i++) {
+                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10);
+
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
 
@@ -92,7 +95,6 @@ namespace TurkeyWork.Actors {
 */
                 rayLength = rayHit.distance;
                 moveX = (rayLength - SKIN_WIDTH) * directionX;
-
                 collisions |= collisionFlag;
             }
             velocity.x =  moveX;

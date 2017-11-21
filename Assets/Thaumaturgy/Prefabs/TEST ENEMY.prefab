@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114898326698658364}
   - component: {fileID: 114511776580836290}
   - component: {fileID: 50797697432519452}
+  - component: {fileID: 114289855134976884}
   m_Layer: 10
   m_Name: TEST ENEMY
   m_TagString: Untagged
@@ -90,6 +91,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 0.34}
   m_EdgeRadius: 0
+--- !u!114 &114289855134976884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014353210871486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d1a60d264270847a6ac4238f56d1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepHeight: 0.2
+  MaxSlopeAngle: 60
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  raysPerWorldUnit: 6
 --- !u!114 &114511776580836290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +122,12 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: aca5d2f22fcaed045be9224e42eaca93, type: 2}
   rayOffSet: 0.5
   raycastDistance: 5
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 256
   stateMachine: {fileID: 11400000, guid: a83b6739a2b8804488587e845daf9c58, type: 2}
+  motor: {fileID: 114289855134976884}
+  Actor: {fileID: 114940635138842848}
   mSpeed: 3
   cdTimer: 0
   damage: 1

@@ -27,6 +27,8 @@ public class AIController : MonoBehaviour
     public GameObject[] PlayersInInstance { get; set; }
     [AssetsOnly]
     public StateMachine stateMachine;
+    public TurkeyWork.Actors.PlatformerMotor2D motor;
+    public TurkeyWork.Actors.ActorBody Actor;
     public float mSpeed;
     public RaycastHit2D[] raycastHits;
     public float cdTimer;
@@ -68,6 +70,7 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
+        Actor.UpdateBounds ();
         currentState = Simulate(currentState);
     }
 
