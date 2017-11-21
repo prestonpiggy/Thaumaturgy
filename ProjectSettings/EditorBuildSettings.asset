@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Thauma/Scenes/Main Menu.unity
+    path: Assets/Thaumaturgy/Scenes/Start Scene.unity
+    guid: c0f943495514ab84ba1ecf854c83a948
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/Logic.unity
+    guid: 3cc55cb7b99e1c542ab91697270cde8e
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/Main Menu.unity
     guid: b59a1f0a63b2685428e4ca43f8e1284f
   - enabled: 1
-    path: Assets/Thauma/Scenes/Test-Level.unity
+    path: Assets/Thaumaturgy/Scenes/Test-Level.unity
     guid: cc9966c4fcc608544a2d9960399112d0

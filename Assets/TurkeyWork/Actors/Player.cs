@@ -1,47 +1,76 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Bolt;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 using TurkeyWork.Actors;
+using TurkeyWork.Abilities;
 
-public class Player : EntityEventListener<IPlayerState> {
+public class Player : EntityEventListener<IActorState> {
 
-    public float Speed = 4f;
-    public float Smoothing = 2f;
-    public float JumpHeight = 2.4f;
+    [MinValue (0)]
+    public float AccelerationTime = 2f;
     public float GravityScale = 3f;
-    public byte MaxMultiJump = 1;
+    [Range(0, 1)]
+    public float AirControl = 0.7f;
+    [MinValue (0)]
+    public byte MaxJumps = 1;
     [Range (0f, 1f)] public float JumpFallOff = 0.9f;
 
     float maxJumpVelocity;
     float minJumpVelocity;
     byte currentMultiJump;
 
-    ActorMotor2D motor;
+    [AssetsOnly]
+    public Ability TestAbility;
+    private IEnumerator<AbilityInfo> abilityRoutine;
+
+    public ActorMotor2D Motor { get; protected set; }
+    public ActorBody ParentActor { get; protected set; }
+    public ActorAttributes Attributes { get; protected set; }
 
     ICmdPlayerMovementInput input;
     CmdPlayerMovement inputCommand;
 
     Vector3 frameVelocity;
+    Vector3 frameDeltaMove;
+
     float currentHorizontal;
+    bool abilityOverride;
 
     private void Awake () {
-        motor = GetComponent<ActorMotor2D> ();
+        ParentActor = GetComponent<ActorBody> ();
+        Motor = GetComponent<ActorMotor2D> ();
+        Attributes = GetComponent<ActorAttributes> ();
         RecalculateJump ();
     }
 
     public override void Attached () {
-        state.SetTransforms (state.PlayerTransform, transform);
+        state.SetTransforms (state.ActorTransform, transform);
     }
 
     public override void SimulateController () {
+        if (abilityRoutine != null) {
+               
+            if (abilityOverride = abilityRoutine.Current.IsDone) {
+                abilityRoutine = null;
+            }
+        }
+        else if (Input.GetKeyDown (KeyCode.Mouse0)) {
+            if (abilityRoutine == null) {
+                abilityRoutine = TestAbility.Use (this);
+                StartCoroutine (abilityRoutine);
+            }         
+        }
+
         input = CmdPlayerMovement.Create ();
         input.Horizontal = Input.GetAxisRaw ("Horizontal");
         input.JumpFlag = Input.GetKeyDown (KeyCode.Space);
-        entity.QueueInput (input);
+        entity.QueueInput (input);      
     }
 
+    MotorState motorState;
     public override void ExecuteCommand (Command command, bool resetState) {
         if (!command.IsFirstExecution)
             return;
@@ -53,15 +82,15 @@ public class Player : EntityEventListener<IPlayerState> {
                 
             }
             else {
-                // Somehow this broke? Even when this is the exat code i use in other project. There, it works fine!
-                var x = Mathf.SmoothDamp (motor.Velocity.x, inputCommand.Input.Horizontal * Speed,
-                        ref currentHorizontal, Smoothing);
-                frameVelocity = new Vector3 (
-                    inputCommand.Input.Horizontal * Speed,
-                    motor.Velocity.y + Physics2D.gravity.y * BoltNetwork.frameDeltaTime * GravityScale
-                    );
-                CheckJump ();
-                motor.Move (frameVelocity * BoltNetwork.frameDeltaTime);
+                ParentActor.UpdateBounds ();
+                UpdateFrameDeltaMove ();
+                motorState = Motor.Move (frameDeltaMove);
+
+                if (motorState.CollidingAboveOrBelow) {
+                    frameVelocity.y = 0;
+                }
+
+               inputCommand.Result.Velocity = motorState.Velocity;
             }
         }
     }
@@ -70,9 +99,27 @@ public class Player : EntityEventListener<IPlayerState> {
         if (entity.isOwner)
             transform.position = position;
     }
+
+    void UpdateFrameDeltaMove () {
+        frameVelocity = new Vector3 (
+                    GetHorizontalMove (),
+                    frameVelocity.y + Physics2D.gravity.y * GravityScale * BoltNetwork.frameDeltaTime
+                    );
+        CheckJump ();
+        frameDeltaMove = frameVelocity * BoltNetwork.frameDeltaTime; 
+    }
+
+    float GetHorizontalMove () {
+        var effectiveAcceleration = Motor.OnGround ? AccelerationTime : AccelerationTime / AirControl;
+        return Mathf.SmoothDamp (
+                        frameVelocity.x,
+                        inputCommand.Input.Horizontal * Attributes.MovementSpeed.Value001,
+                        ref currentHorizontal, effectiveAcceleration
+                        );
+    }
     
     void CheckJump () {
-        if (motor.OnGround) {
+        if (Motor.OnGround) {
             if (inputCommand.Input.JumpFlag) {
                 if (currentMultiJump == 0) {
                     frameVelocity.y = maxJumpVelocity;
@@ -82,9 +129,9 @@ public class Player : EntityEventListener<IPlayerState> {
             else {
                 currentMultiJump = 0;
             }
-        } else if (inputCommand.Input.JumpFlag && currentMultiJump <= MaxMultiJump) {
-            frameVelocity.y = Mathf.Clamp (maxJumpVelocity, minJumpVelocity, frameVelocity.y + GetMultiJumpStrength (currentMultiJump));
-            currentMultiJump++;
+        } else if (inputCommand.Input.JumpFlag && currentMultiJump < MaxJumps) {
+            //frameVelocity.y = Mathf.Clamp (maxJumpVelocity, minJumpVelocity, frameVelocity.y + GetMultiJumpStrength (currentMultiJump));
+            //currentMultiJump++;
         }
     }
     
@@ -96,7 +143,7 @@ public class Player : EntityEventListener<IPlayerState> {
         var gravityY = Physics2D.gravity.y * GravityScale;
         var gravitySign = Mathf.Sign (gravityY);
         var absGravity = gravitySign * gravityY;
-        var timeToApex = Mathf.Sqrt (2 * JumpHeight / absGravity);
+        var timeToApex = Mathf.Sqrt (2 * Attributes.JumpHeight.Value001 / absGravity);
 
         maxJumpVelocity = absGravity * timeToApex;
         minJumpVelocity = -gravitySign * Mathf.Sqrt (2 * gravitySign * gravityY * timeToApex);

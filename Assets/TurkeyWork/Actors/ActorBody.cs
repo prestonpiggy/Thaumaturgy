@@ -6,34 +6,23 @@ namespace TurkeyWork.Actors {
 
     public class ActorBody : MonoBehaviour {
 
-        public IActorMotor Motor;
-
         [SerializeField] ActorBounds boundingVolume = new ActorBounds (
-            new Vector2(-.5f, 2),
-            new Vector2(.5f, 2),
-            new Vector2(.5f, 0),
-            new Vector2(-.5f, 0)
+            new Vector2 (0, 1), new Vector2 (1, 2)
             );
-        ActorBounds actorBounds;
-        public ActorBounds Bounds => actorBounds;
+        public ActorBounds Bounds => boundingVolume;
 
         private void Awake () {
-            UpdateBounds ();
-            Motor = GetComponent<IActorMotor> ();
-        }
-
-        private void Update () {
             UpdateBounds ();
         }
 
         public void UpdateBounds () {
-            actorBounds = boundingVolume.CenterOnPosition (transform.position);
+            boundingVolume.SetOrigin (transform.position);
         }
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected () {
             UpdateBounds ();
-            actorBounds.DrawSceneGizmos ();
+            boundingVolume.DrawSceneGizmos ();
         }
 #endif
     }

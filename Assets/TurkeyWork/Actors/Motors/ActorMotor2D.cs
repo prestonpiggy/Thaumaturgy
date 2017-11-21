@@ -23,15 +23,13 @@ namespace TurkeyWork.Actors {
         float horizontalRaySpacing;
         float verticalRaySpacing;
 
-        MotorState state;
+        MotorState motorState;
         Vector3 velocity;
+        CollisionSide collisions;
 
         ActorBody parentActor;
 
-        public Vector3 Velocity => velocity;
-        public MotorState State => state;
-
-        public bool OnGround => state.CollisionFlags.HasFlag (CollisionSides.Below);
+        public bool OnGround => motorState.CollisionFlags.HasFlag (CollisionSide.Below);
 
         void Awake () {
             parentActor = GetComponent<ActorBody> ();
@@ -39,71 +37,78 @@ namespace TurkeyWork.Actors {
         }
 
         public MotorState Move (Vector3 deltaPosition) {
-            print ("Moving" + deltaPosition);
-            var vy = CheckVertical (deltaPosition.y);
-            var vx = CheckHorizontal (deltaPosition.x);
-            state.Velocity = new Vector3 (vx, vy);
-            return state;
+            collisions = CollisionSide.None;
+            velocity = new Vector3 (CheckHorizontal(deltaPosition.x), CheckVertical (deltaPosition.y), 0f);
+            motorState.Velocity = velocity;
+            motorState.CollisionFlags = collisions;
+            transform.Translate (velocity);
+            return motorState;
         }
 
         float CheckHorizontal (float deltaPosition) {
-            var direction = Mathf.Sign (deltaPosition);
-            var rayLength = direction * deltaPosition + SKIN_WIDTH;
-            var rayDirection = direction * Vector2.right;
-            var bounds = parentActor.Bounds;
+            var moveX = deltaPosition;
+            var rayLength = Mathf.Abs(moveX) + SKIN_WIDTH;
 
             if (rayLength < 2 * SKIN_WIDTH)
                 rayLength = 2 * SKIN_WIDTH;
 
-            var collisionFlag = direction == 1 ? CollisionSides.Right : CollisionSides.Left;
-            var rayOrigin = direction == 1 ? bounds.BottomRight : bounds.BottomLeft;
-            float angle;
+            var directionX = Mathf.Sign (moveX);
+            var rayDir = directionX * Vector2.right;
 
-            if (CheckForWalkableSlopes (rayOrigin, rayDirection, rayLength, out angle)) {
-                HandleSlopes (angle, deltaPosition * direction);
-            }
+            var collisionFlag = directionX == 1 ? CollisionSide.Right : CollisionSide.Left;
+            var rayOrigin = directionX == 1 ? parentActor.Bounds.BottomRight : parentActor.Bounds.BottomLeft;
+            rayOrigin.y -= horizontalRaySpacing;
 
             for (var i = 0; i < horizontalRayCount; i++) {
-                var rayHit = Physics2D.Raycast (rayOrigin, rayDirection, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
 
-                if (!rayHit)
-                    continue;           
+                Debug.DrawRay (rayOrigin, rayDir * rayLength, Color.cyan);
 
-                rayLength = rayHit.distance;
-                state.CollisionFlags |= collisionFlag;
-            }
-            deltaPosition = (rayLength - SKIN_WIDTH) * direction;
-            return deltaPosition;
-        }
-
-        float CheckVertical (float deltaPosition) {
-            var direction = Mathf.Sign (deltaPosition);
-            var rayLength = direction * deltaPosition + SKIN_WIDTH;
-            var rayDirection = direction * Vector2.up;
-            var bounds = parentActor.Bounds;
-
-            if (rayLength < 2 * SKIN_WIDTH)
-                rayLength = 2 * SKIN_WIDTH;
-
-            var collisionFlag = direction == 1 ? CollisionSides.Above : CollisionSides.Below;
-            var rayOrigin = direction == 1 ? bounds.TopLeft : bounds.BottomLeft;
-
-            for (var i = 0; i < verticalRayCount; i++) {
-                var rayHit = Physics2D.Raycast (rayOrigin, rayDirection, rayLength, CollisionMask);
-                rayOrigin.x += verticalRaySpacing;
+                var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
 
                 if (!rayHit)
                     continue;
 
                 rayLength = rayHit.distance;
-                state.CollisionFlags |= collisionFlag;
+                moveX = (rayLength - SKIN_WIDTH) * directionX;
+
+                collisions |= collisionFlag;
             }
-            deltaPosition = (rayLength - SKIN_WIDTH) * direction;
-            return deltaPosition;
+            return moveX;
         }
 
-        bool CheckForWalkableSlopes (Vector3 origin, Vector3 direction, float length, out float angle) {
+        float CheckVertical (float deltaPosition) {
+            var moveY = deltaPosition;
+            var rayLength = Mathf.Abs (moveY) + SKIN_WIDTH;
+
+            if (rayLength < 2 * SKIN_WIDTH)
+                rayLength = 2 * SKIN_WIDTH;
+
+            var directionY = Mathf.Sign (moveY);
+            var rayDir = directionY * Vector2.up;
+
+            var collisionFlag = directionY == 1 ? CollisionSide.Above : CollisionSide.Below;
+            var rayOrigin = directionY == 1 ? parentActor.Bounds.TopLeft : parentActor.Bounds.BottomLeft;
+            rayOrigin.x -= verticalRaySpacing;
+
+            for (var i = 0; i < verticalRayCount; i++) {
+                rayOrigin.x += verticalRaySpacing;
+
+                Debug.DrawRay (rayOrigin, rayDir * rayLength, Color.cyan);
+
+                var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
+
+                if (!rayHit)
+                    continue;
+
+                rayLength = rayHit.distance;
+                moveY = (rayLength - SKIN_WIDTH) * directionY;
+                collisions |= collisionFlag;
+            }
+            return moveY;
+        }
+
+        bool SlopeCheck (Vector3 origin, Vector3 direction, float length, out float angle) {
             var rayHit = Physics2D.Raycast (origin, direction, length, CollisionMask);
             angle = Vector3.Angle (direction, rayHit.normal);
 
@@ -118,10 +123,10 @@ namespace TurkeyWork.Actors {
             print ("Handling slope");
             var climbVelocityY = Mathf.Sin (angle * Mathf.Deg2Rad) * distance;
 
-            if (state.Velocity.y <= climbVelocityY) {
+            if (motorState.Velocity.y <= climbVelocityY) {
                 velocity = new Vector3 (climbVelocityY, Mathf.Cos (angle * Mathf.Deg2Rad) * distance);
-                state.CollisionFlags |= CollisionSides.Below;
-                state.SlopeAngle = angle;
+                collisions |= CollisionSide.Below;
+                motorState.SlopeAngle = angle;
             }
         }
 

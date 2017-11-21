@@ -1,27 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TurkeyWork.Actors;
 
 namespace TurkeyWork.Abilities {
 
-    [CreateAssetMenu (menuName = "Game/Ability")]
-    public class Ability : ScriptableObject {
+    public abstract class Ability : ScriptableObject {
 
-        public float Cooldown;
-        public int Cost;
+        public float MovementSpeedMultiplier = 1;
+        public float SpeedMultiplierDuration = 1;
 
-        public AbilityState[] State;
+        public abstract IEnumerator<AbilityInfo> Use (Player player);
 
-        public GameObject EffectPrefab;
-        public Projectile ProjectilePrefab;
+        protected void LogStart (Player player) {
+            Debug.Log ($"{player.name}: Started using an ability. ({Time.time})");          
+        }
 
-        public void Use (Player player) {
-            Debug.Log ($"{player.name} used Ability {name}");
+        protected void LogFinish (Player player) {
+            Debug.Log ($"{player.name}:Finished using an ability. ({Time.time})");
+        }
 
-            if (EffectPrefab != null)
-                Instantiate (EffectPrefab, player.transform.position, player.transform.rotation);
-            if (ProjectilePrefab != null)
-                ProjectilePrefab.Create (player, player.transform.position, player.transform.rotation);
+        // this should probably be something othre than ActorBody
+        protected List<ActorBody> DamageHitTargets (RaycastHit2D[] hits) {
+            var hitActors = new List<ActorBody> ();
+            foreach (var hit in hits) {
+                var actor = hit.transform.GetComponent<ActorBody> ();
+
+                if (actor != null) {
+                    hitActors.Add (actor);
+                    Debug.Log (actor.name);
+                }
+            }
+            return hitActors;
+        }
+
+        protected List<ActorBody> DamageHitTargets (Collider2D[] hitColliders) {
+            Debug.Log (hitColliders.Length);
+            var hitActors = new List<ActorBody> ();
+            foreach (var hit in hitColliders) {
+                var actor = hit.transform.GetComponent<ActorBody> ();
+
+                if (actor != null) {
+                    hitActors.Add (actor);
+                    Debug.Log (actor.name);
+                }
+            }
+            return hitActors;
         }
     }
 
