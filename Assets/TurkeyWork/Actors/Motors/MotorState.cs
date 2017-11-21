@@ -5,26 +5,27 @@ using UnityEngine;
 namespace TurkeyWork.Actors {
 
     [System.Flags]
-    public enum CollisionSide : byte { None = 0, Below = 1, Above = 2, Left = 4, Right = 8, Front = 16, Back = 32 }
+    public enum CollisionInfo : byte { None = 0, Below = 1, Above = 2, Left = 4, Right = 8, Front = 16, Back = 32, OnSlope = 64 }
 
     public struct MotorState {
         public Vector3 Velocity;
-        public float SlopeAngle, SlopeAnglePrevious;
-        public CollisionSide CollisionFlags;
+        public float SurfaceAngle, SurfaceAngleOld;
+        public CollisionInfo CollisionState;
 
-        public bool OnGround => CollisionFlags.HasFlag (CollisionSide.Below);
-        public bool CollidingAboveOrBelow => CollisionFlags.HasFlag (CollisionSide.Below) || CollisionFlags.HasFlag (CollisionSide.Above);
+        public bool ClimbingSlope => CollisionState.HasFlag (CollisionInfo.OnSlope);
+        public bool OnGround => CollisionState.HasFlag (CollisionInfo.Below);
+        public bool CollidingAboveOrBelow => CollisionState.HasFlag (CollisionInfo.Below) || CollisionState.HasFlag (CollisionInfo.Above);
 
         public void ResetAll () {
             Velocity = Vector3.zero;
-            SlopeAnglePrevious = SlopeAngle;
-            SlopeAngle = 0f;
+            SurfaceAngleOld = SurfaceAngle;
+            SurfaceAngle = 0f;
             ResetCollisions ();
         }
 
         public void ResetCollisions () {
             Debug.Log ("Reset?");
-            CollisionFlags = 0;
+            CollisionState = 0;
         }
     }
 

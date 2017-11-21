@@ -26,7 +26,7 @@ public class Player : EntityEventListener<IActorState> {
     public Ability TestAbility;
     private IEnumerator<AbilityInfo> abilityRoutine;
 
-    public ActorMotor2D Motor { get; protected set; }
+    public PlatformerMotor2D Motor { get; protected set; }
     public ActorBody ParentActor { get; protected set; }
     public ActorAttributes Attributes { get; protected set; }
 
@@ -41,7 +41,7 @@ public class Player : EntityEventListener<IActorState> {
 
     private void Awake () {
         ParentActor = GetComponent<ActorBody> ();
-        Motor = GetComponent<ActorMotor2D> ();
+        Motor = GetComponent<PlatformerMotor2D> ();
         Attributes = GetComponent<ActorAttributes> ();
         RecalculateJump ();
     }

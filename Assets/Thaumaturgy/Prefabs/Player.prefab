@@ -160,10 +160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health:
     Current: 100
-    Percent: 0.8064516
+    Percent: 1
     MaxValue:
-      Base: 124
-      Value: 124
+      Base: 100
+      Value: 100
       buffs: []
     Regen:
       Base: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
     lastExpenditure: 0
   Stamina:
     Current: 100
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
@@ -192,7 +192,7 @@ MonoBehaviour:
     lastExpenditure: 0
   Mana:
     Current: 100
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
