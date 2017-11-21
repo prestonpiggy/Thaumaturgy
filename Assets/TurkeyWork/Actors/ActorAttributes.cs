@@ -27,7 +27,6 @@ namespace TurkeyWork.Actors {
 
         private void Update () {
             if (!buffUpdateDone) {
-                Debug.Log ("Updating buffs");
                 for (int i = 0; i < timedBuffs.Count; i++) {
                     if (timedBuffs[i].Buff.ExpireTime <= Time.time) {
                         timedBuffs[i].RemoveBuff ();
