@@ -54,6 +54,10 @@ namespace TurkeyWork.Networking {
             return instance.players.Find (player => player.Connection == connection);
         }
 
+        public static NetworkPlayer GetLocalPlayer () {
+            return instance.players.Find (player => player.IsLocal);
+        }
+
         public override void BoltStartDone () {
             InGame = true;
             if (BoltNetwork.isServer) {

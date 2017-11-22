@@ -11,6 +11,7 @@ namespace TurkeyWork.Networking {
 
         public bool IsServer { get { return Connection == null; } }
         public bool IsClient { get { return Connection != null; } }
+        public bool IsLocal { get { return PlayerEntity.isControlled; } }
 
         public BoltEntity SpawnPlayer () {
             if (PlayerEntity == null) {

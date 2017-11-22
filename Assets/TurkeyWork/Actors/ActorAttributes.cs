@@ -4,6 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 using TurkeyWork.Abilities;
+using TurkeyWork.Events;
 
 namespace TurkeyWork.Actors {
 
@@ -12,6 +13,9 @@ namespace TurkeyWork.Actors {
 
         static List<BuffStatLink> timedBuffs = new List<BuffStatLink> ();
         static bool buffUpdateDone;
+
+        [AssetsOnly]
+        public GameEvent OnDeathEvent;
 
         [FoldoutGroup ("HEALTH", expanded: false), HideLabel]
         public Resource Health;
@@ -35,6 +39,13 @@ namespace TurkeyWork.Actors {
                     }
                 }
                 buffUpdateDone = true;
+            }
+
+            if (Health.Current <= 0) {
+                Health.Current = 0;
+                OnDeathEvent.Raise ();
+                gameObject.SetActive (false);
+                return;
             }
 
             Health.Regenerate (Time.deltaTime);
