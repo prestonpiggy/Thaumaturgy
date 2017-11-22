@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneGuid: c36cb0ae-bac3-4ec0-89b4-5a90bd43ac44
+  _sceneGuid: 
   _serializerGuid: 50225ad5-aeaf-4008-8dde-ead468a9283c
   _prefabId: 1
   _updateRate: 1

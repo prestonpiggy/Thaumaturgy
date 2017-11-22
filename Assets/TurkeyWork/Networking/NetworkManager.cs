@@ -61,7 +61,7 @@ namespace TurkeyWork.Networking {
         public override void BoltStartDone () {
             InGame = true;
             if (BoltNetwork.isServer) {
-                BoltNetwork.LoadScene ("Test-Level");
+                BoltNetwork.LoadScene ("Hirame-Test-Level");
             } else {
                 BoltNetwork.Connect (UdpKit.UdpEndPoint.Parse ("127.0.0.1:27000"));
             }
