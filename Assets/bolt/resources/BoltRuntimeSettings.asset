@@ -20,11 +20,11 @@ MonoBehaviour:
     scopeMode: 0
     logTargets: 3
     disableDejitterBuffer: 0
-    clientSendRate: 3
+    clientSendRate: 2
     clientDejitterDelay: 6
     clientDejitterDelayMin: 3
     clientDejitterDelayMax: 9
-    serverSendRate: 3
+    serverSendRate: 2
     serverDejitterDelay: 6
     serverDejitterDelayMin: 3
     serverDejitterDelayMax: 9

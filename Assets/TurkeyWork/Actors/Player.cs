@@ -136,8 +136,8 @@ public class Player : EntityEventListener<IActorState> {
                 currentMultiJump = 0;
             }
         } else if (inputCommand.Input.JumpFlag && currentMultiJump < MaxJumps) {
-            //frameVelocity.y = Mathf.Clamp (maxJumpVelocity, minJumpVelocity, frameVelocity.y + GetMultiJumpStrength (currentMultiJump));
-            //currentMultiJump++;
+            frameVelocity.y = Mathf.Clamp (maxJumpVelocity, minJumpVelocity, frameVelocity.y + GetMultiJumpStrength (currentMultiJump));
+            currentMultiJump++;
         }
     }
     
