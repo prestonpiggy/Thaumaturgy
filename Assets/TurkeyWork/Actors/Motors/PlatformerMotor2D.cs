@@ -69,8 +69,9 @@ namespace TurkeyWork.Actors {
             var rayOrigin = directionX == 1 ? parentActor.Bounds.BottomRight : parentActor.Bounds.BottomLeft;
             rayOrigin.y += StepHeight;
             for (var i = 0; i < horizontalRayCount; i++) {
-                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10);
-
+#if DEBUG
+                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+#endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
 
@@ -116,6 +117,9 @@ namespace TurkeyWork.Actors {
             var rayOrigin = directionY == 1 ? parentActor.Bounds.TopLeft : parentActor.Bounds.BottomLeft;
 
             for (var i = 0; i < verticalRayCount; i++) {
+#if DEBUG
+                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+#endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.x += verticalRaySpacing;
 
@@ -144,6 +148,9 @@ namespace TurkeyWork.Actors {
             var bounds = parentActor.Bounds;
             var boundsWidth = bounds.Width + SKIN_WIDTH * -2;
             var boundsHeight = bounds.Height + SKIN_WIDTH * -2 - StepHeight;
+
+            if (boundsHeight < StepHeight)
+                Debug.LogWarning ("Actors collision volume is very small. This may lead to inaccurate collision detection!");
 
             horizontalRayCount = Mathf.RoundToInt (boundsHeight * raysPerWorldUnit);
             verticalRayCount = Mathf.RoundToInt (boundsWidth * raysPerWorldUnit);
