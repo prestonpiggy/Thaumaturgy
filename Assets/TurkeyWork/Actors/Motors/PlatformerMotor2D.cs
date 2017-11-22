@@ -67,7 +67,7 @@ namespace TurkeyWork.Actors {
 
             var collisionFlag = directionX == 1 ? CollisionInfo.Right : CollisionInfo.Left;
             var rayOrigin = directionX == 1 ? parentActor.Bounds.BottomRight : parentActor.Bounds.BottomLeft;
-
+            rayOrigin.y += StepHeight;
             for (var i = 0; i < horizontalRayCount; i++) {
                 Debug.DrawRay (rayOrigin, rayDir * rayLength * 10);
 
@@ -143,7 +143,7 @@ namespace TurkeyWork.Actors {
         void UpdateCollisionRaySpacing () {
             var bounds = parentActor.Bounds;
             var boundsWidth = bounds.Width + SKIN_WIDTH * -2;
-            var boundsHeight = bounds.Height + SKIN_WIDTH * -2;
+            var boundsHeight = bounds.Height + SKIN_WIDTH * -2 - StepHeight;
 
             horizontalRayCount = Mathf.RoundToInt (boundsHeight * raysPerWorldUnit);
             verticalRayCount = Mathf.RoundToInt (boundsWidth * raysPerWorldUnit);
