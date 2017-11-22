@@ -23,7 +23,7 @@ namespace TurkeyWork.Actors {
         float horizontalRaySpacing;
         float verticalRaySpacing;
 
-        MotorState motorState;
+        MotorState state;
 
         // Methods in this class assing to this variable.
         Vector3 velocity;
@@ -31,7 +31,9 @@ namespace TurkeyWork.Actors {
 
         ActorBody parentActor;
 
-        public bool OnGround => motorState.CollisionState.HasFlag (CollisionInfo.Below);
+        public Vector3 Velocity => velocity;
+        public MotorState State => state;
+        public bool OnGround => state.CollisionState.HasFlag (CollisionInfo.Below);
 
         void Awake () {
             parentActor = GetComponent<ActorBody> ();
@@ -39,7 +41,7 @@ namespace TurkeyWork.Actors {
         }
 
         public MotorState Move (Vector3 deltaPosition) {
-            motorState.ResetAll ();
+            state.ResetAll ();
 
             collisions = CollisionInfo.None;
             velocity = deltaPosition;
@@ -47,10 +49,10 @@ namespace TurkeyWork.Actors {
             CheckHorizontal ();
             CheckVertical ();
 
-            motorState.Velocity = velocity;
-            motorState.CollisionState = collisions;
+            state.Velocity = velocity;
+            state.CollisionState = collisions;
             transform.Translate (velocity);
-            return motorState;
+            return state;
         }
 
         void CheckHorizontal () {
@@ -128,11 +130,11 @@ namespace TurkeyWork.Actors {
         }
 
         void ClimpSlope (float surfaceAngle) {
-            motorState.SurfaceAngle = surfaceAngle;
+            state.SurfaceAngle = surfaceAngle;
 
             var climbVelocityY = Mathf.Sin (surfaceAngle * Mathf.Deg2Rad) * Mathf.Abs (velocity.x);
 
-            if (motorState.Velocity.y <= climbVelocityY) {
+            if (state.Velocity.y <= climbVelocityY) {
                 velocity = new Vector3 (climbVelocityY, Mathf.Cos (surfaceAngle * Mathf.Deg2Rad) * velocity.x);
                 collisions |= CollisionInfo.Below ^ CollisionInfo.OnSlope;
             }
