@@ -16,6 +16,7 @@ namespace TurkeyWork.Events {
             GameEvent gameEvent;
             if (gameEvents.TryGetValue (eventName, out gameEvent))
                 gameEvent.Raise ();
+            Debug.Log ($"Raised Event {gameEvent?.name}");
         }
 
         [Button]

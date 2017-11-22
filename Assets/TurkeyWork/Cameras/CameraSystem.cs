@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Sirenix.OdinInspector;
 
 using TurkeyWork.Actors;
+using TurkeyWork.Events;
 
 namespace TurkeyWork.Cameras
 {
@@ -21,6 +23,10 @@ namespace TurkeyWork.Cameras
 
         public CinemachineVirtualCamera cam;
         public CinemachineTransposer cam1;
+
+        [AssetsOnly]
+        public GameEvent LocalPlayerCreated;
+
         GameObject player;
         Camera mainCamera;
         Vector3 actorVelocity;
@@ -35,35 +41,30 @@ namespace TurkeyWork.Cameras
             cam1.GetComponent<Cinemachine.CinemachineComposer> ().m_TrackedObjectOffset = LookOffset;
             mainCamera = Camera.main;
 
-            /* tän otin toistaseksi pois kun mikään ei oikeastaan hoida tätä
-            if (GameManager.Instance.PlayerActor) {
-                OnPlayerCreated (GameManager.Instance.PlayerActor);
-            }
-            else {
-                GameManager.Instance.PlayerCreated += OnPlayerCreated;
+            player = Networking.NetworkManager.GetLocalPlayer ().PlayerEntity.gameObject;
+
+            if (player == null) {
                 enabled = false;
             }
-            */
         }
 
-        void OnPlayerCreated (GameObject player) {
-            /*
-            player = playerIndentity.gameObject;
+        // This should be called when the Local Player Created GameEvent is raised.
+        // A bit stupid way of doing this. Works for now.
+        public void OnPlayerCreated () {
+            player = Networking.NetworkManager.GetLocalPlayer ().PlayerEntity.gameObject;
+            actorMotor = player.GetComponent<IActorMotor> ();
+
             enabled = true;
             cam.m_Follow = player.transform;      
-            cam.m_Lens.OrthographicSize = OrthographicSize;
-            */
+            cam.m_Lens.OrthographicSize = OrthographicSize;          
         }
 
         // Late update to ensure that the player is already updated this frame.
         // I different solution maybe in order.
         void LateUpdate () {
-            // This should be moved somewhere else.
-            // Thou it can stay for now.
-            actorMotor = player.GetComponent<IActorMotor> ();
-
             // Replaced controller.PossibleDeltaMove with IActorMotor.Velocity
             actorVelocity = actorMotor.Velocity;
+
 
             //Debug.Log(x + "... " + y);
             //x = Input.mousePosition.x;   Used when camera on mouse

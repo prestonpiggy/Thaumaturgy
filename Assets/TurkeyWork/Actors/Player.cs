@@ -6,6 +6,7 @@ using UnityEngine;
 
 using TurkeyWork.Actors;
 using TurkeyWork.Abilities;
+using TurkeyWork.Events;
 
 public class Player : EntityEventListener<IActorState> {
 
@@ -48,6 +49,10 @@ public class Player : EntityEventListener<IActorState> {
 
     public override void Attached () {
         state.SetTransforms (state.ActorTransform, transform);
+    }
+
+    public override void ControlGained () {
+        GameEvent.RaiseEvent ("Local Player Created");
     }
 
     public override void SimulateController () {
