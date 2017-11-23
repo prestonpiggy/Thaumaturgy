@@ -63,7 +63,7 @@ namespace TurkeyWork.Cameras
         // I different solution maybe in order.
         void LateUpdate () {
             // Replaced controller.PossibleDeltaMove with IActorMotor.Velocity
-            actorVelocity = actorMotor.Velocity;
+            actorVelocity = actorMotor.MovementDelta;
 
 
             //Debug.Log(x + "... " + y);

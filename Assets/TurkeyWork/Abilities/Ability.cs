@@ -12,6 +12,12 @@ namespace TurkeyWork.Abilities {
 
         public abstract IEnumerator<AbilityInfo> Use (Player player);
 
+        protected int abilityID;
+
+        private void OnEnable () {
+            abilityID = GetInstanceID ();
+        }
+
         protected void LogStart (Player player) {
             Debug.Log ($"{player.name}: Started using an ability. ({Time.time})");          
         }

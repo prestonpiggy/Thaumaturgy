@@ -205,9 +205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0a45c2d80e8b94da6d7323615550e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundingVolume:
-    offset: {x: 0, y: 0.47}
-    expands: {x: 0.37, y: 0.46}
+  actorBounds:
+    m_Center: {x: 0, y: 1, z: 0}
+    m_Extent: {x: 0.5, y: 1, z: 0}
+  Collider: {fileID: 61532827412422054}
 --- !u!114 &114509348475354874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneGuid: 41268a39-8a7b-4e6d-a785-c51c9b5b3add
+  _sceneGuid: 
   _serializerGuid: 50225ad5-aeaf-4008-8dde-ead468a9283c
   _prefabId: 1
   _updateRate: 1
@@ -330,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9259a9dd9af2354d92227343fae27c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeathEvent: {fileID: 0}
+  OnDeathEvent: {fileID: 11400000, guid: d67099ace44b7db4ca1ddcbe4488dc81, type: 2}
   Health:
     Current: 100
     Percent: 1

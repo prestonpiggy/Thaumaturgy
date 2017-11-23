@@ -13,7 +13,7 @@ namespace TurkeyWork.World {
                 player.OnLadder = true;
         }
 
-        private void Exit2D (Collider2D other) {
+        private void OnTriggerExit2D (Collider2D other) {
             var player = other.GetComponent<Player> ();
 
             if (player != null)

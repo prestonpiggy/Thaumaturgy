@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using Sirenix.OdinInspector;
 
-namespace TurkeyWork.Abilities {
+namespace TurkeyWork.Stats {
 
     [System.Serializable]
     public class Resource {

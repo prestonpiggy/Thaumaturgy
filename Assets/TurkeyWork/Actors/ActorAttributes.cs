@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-using TurkeyWork.Abilities;
 using TurkeyWork.Events;
+using TurkeyWork.Stats;
 
 namespace TurkeyWork.Actors {
 
@@ -28,6 +28,8 @@ namespace TurkeyWork.Actors {
         public Stat MovementSpeed = new Stat (300);
         [FoldoutGroup ("Movement"), Title ("Jump Height"), HideLabel]
         public Stat JumpHeight = new Stat (240);
+        [FoldoutGroup ("Movement"), Title ("Gravity Scale"), HideLabel]
+        public Stat GravityScale = new Stat (200);
 
         private void Update () {
             if (!buffUpdateDone) {
@@ -61,7 +63,7 @@ namespace TurkeyWork.Actors {
             Health.Percent = Health.Current / (float) Health.MaxValue.Value;
         }
 
-        public void RegisterTimedBuff (Stat stat, Buff buff) {
+        public void RegisterTimedBuff (Stat stat, Modifier buff) {
             if (buff.IsPermanent)
                 return;
             timedBuffs.Add (new BuffStatLink (stat, buff));
@@ -69,9 +71,9 @@ namespace TurkeyWork.Actors {
 
         struct BuffStatLink {
             public readonly Stat Stat;
-            public readonly Buff Buff;
+            public readonly Modifier Buff;
 
-            public BuffStatLink (Stat stat, Buff buff) {
+            public BuffStatLink (Stat stat, Modifier buff) {
                 Stat = stat;
                 Buff = buff;
             }

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelExit : MonoBehaviour {
+namespace TurkeyWork.World {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public class LevelExit : MonoBehaviour {
+
+        private void OnTriggerEnter2D (Collider2D other) {
+            
+        }
+
+    }
+
 }
