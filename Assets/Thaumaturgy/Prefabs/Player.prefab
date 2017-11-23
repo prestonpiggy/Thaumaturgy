@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 114254544078228040}
   - component: {fileID: 114603784349848816}
   - component: {fileID: 114969154430776104}
+  - component: {fileID: 50703089605241448}
+  - component: {fileID: 61532827412422054}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -71,7 +73,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568726939661336}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000008726646, w: 1}
   m_LocalPosition: {x: -0.404, y: 0.108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -147,6 +149,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318162925929056}
   m_Mesh: {fileID: 0}
+--- !u!50 &50703089605241448
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568726939661336}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61532827412422054
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568726939661336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.52}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63, y: 0.79}
+  m_EdgeRadius: 0
 --- !u!114 &114254544078228040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneGuid: 
+  _sceneGuid: 41268a39-8a7b-4e6d-a785-c51c9b5b3add
   _serializerGuid: 50225ad5-aeaf-4008-8dde-ead468a9283c
   _prefabId: 1
   _updateRate: 1
@@ -269,9 +316,9 @@ MonoBehaviour:
   uv_Scale: {x: 0.38, y: 0.38}
   vertexWorking: 0
   RangeAngle: 360
-  staticScene: 1
+  staticScene: 0
   doNotRenderMesh: 0
-  lastLight2DType: 0
+  lastLight2DType: 1
 --- !u!114 &114969154430776104
 MonoBehaviour:
   m_ObjectHideFlags: 1

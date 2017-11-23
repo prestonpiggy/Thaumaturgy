@@ -77,25 +77,9 @@ namespace TurkeyWork.Actors {
 
                 if (!rayHit)
                     continue;
-                /*
-                var surfaceAngle = Vector2.Angle (rayHit.normal, Vector2.up);
+               
+                // Propbably implement some slopstuff here?
 
-                if (i == 0 && surfaceAngle <= MaxSlopeAngle) {
-                    print (surfaceAngle);
-
-                    var distanceToSlope = 0f;
-
-                    if (surfaceAngle != motorState.SurfaceAngleOld) {
-                        distanceToSlope = rayHit.distance - SKIN_WIDTH;
-                        velocity.x = moveX -= distanceToSlope * directionX;
-                    }
-                    ClimpSlope (surfaceAngle);
-                    moveX += distanceToSlope * directionX;
-                }
-                
-                if (collisions.HasFlag (CollisionInfo.OnSlope) || surfaceAngle > MaxSlopeAngle)
-                    continue;
-*/
                 rayLength = rayHit.distance;
                 moveX = (rayLength - SKIN_WIDTH) * directionX;
                 collisions |= collisionFlag;
@@ -133,6 +117,7 @@ namespace TurkeyWork.Actors {
             velocity.y = moveY;
         }
 
+        // Wurks?
         void ClimpSlope (float surfaceAngle) {
             state.SurfaceAngle = surfaceAngle;
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TurkeyWork.World;
+
 namespace TurkeyWork.Networking {
 
     public class NetworkPlayer {

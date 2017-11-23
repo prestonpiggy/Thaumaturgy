@@ -40,6 +40,9 @@ public class Player : EntityEventListener<IActorState> {
     float currentHorizontal;
     bool abilityOverride;
 
+    // Shit implementation. For now.
+    [System.NonSerialized] public bool OnLadder;
+
     private void Awake () {
         ParentActor = GetComponent<ActorBody> ();
         Motor = GetComponent<PlatformerMotor2D> ();
@@ -70,7 +73,7 @@ public class Player : EntityEventListener<IActorState> {
         }
 
         input = CmdPlayerMovement.Create ();
-        input.Horizontal = Input.GetAxisRaw ("Horizontal");
+        input.Direction = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
         input.JumpFlag = Input.GetKeyDown (KeyCode.Space);
         entity.QueueInput (input);      
     }
@@ -109,7 +112,7 @@ public class Player : EntityEventListener<IActorState> {
     void UpdateFrameDeltaMove () {
         frameVelocity = new Vector3 (
                     GetHorizontalMove (),
-                    frameVelocity.y + Physics2D.gravity.y * GravityScale * BoltNetwork.frameDeltaTime
+                    GetVerticalMove ()
                     );
         CheckJump ();
         frameDeltaMove = frameVelocity * BoltNetwork.frameDeltaTime; 
@@ -119,9 +122,16 @@ public class Player : EntityEventListener<IActorState> {
         var effectiveAcceleration = Motor.OnGround ? AccelerationTime : AccelerationTime / AirControl;
         return Mathf.SmoothDamp (
                         frameVelocity.x,
-                        inputCommand.Input.Horizontal * Attributes.MovementSpeed.Value001,
+                        inputCommand.Input.Direction.x * Attributes.MovementSpeed.Value001,
                         ref currentHorizontal, effectiveAcceleration
                         );
+    }
+
+    float GetVerticalMove () {
+        return OnLadder ?
+            inputCommand.Input.Direction.y * Attributes.MovementSpeed.Value001 * 0.7f 
+            : 
+            frameVelocity.y + Physics2D.gravity.y * GravityScale * BoltNetwork.frameDeltaTime;
     }
     
     void CheckJump () {
