@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TurkeyWork.Entities;
+
 namespace TurkeyWork.Abilities {
 
     [CreateAssetMenu (menuName = "TurkeyWork/Abilties/Ranged Attack")]

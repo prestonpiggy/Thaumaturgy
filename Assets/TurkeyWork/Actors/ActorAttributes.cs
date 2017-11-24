@@ -14,6 +14,9 @@ namespace TurkeyWork.Actors {
         static List<BuffStatLink> timedBuffs = new List<BuffStatLink> ();
         static bool buffUpdateDone;
 
+        // This will probably get replaced with a static string to int table and a list for all actors containen indexed references 
+        Dictionary<string, Stat> statsRegistry = new Dictionary<string, Stat> ();
+
         [AssetsOnly]
         public GameEvent OnDeathEvent;
 
@@ -30,6 +33,10 @@ namespace TurkeyWork.Actors {
         public Stat JumpHeight = new Stat (240);
         [FoldoutGroup ("Movement"), Title ("Gravity Scale"), HideLabel]
         public Stat GravityScale = new Stat (200);
+
+        public bool TryGetStat (string name, out Stat stat) {
+            return statsRegistry.TryGetValue (name, out stat);
+        }
 
         private void Update () {
             if (!buffUpdateDone) {

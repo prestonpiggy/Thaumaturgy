@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 using TurkeyWork.Actors;
 
 namespace TurkeyWork.Abilities {
 
-    public abstract class Ability : ScriptableObject {
+    [CreateAssetMenu (menuName = "TurkeyWork/Ability/Modular Ability")]
+    public class Ability : ScriptableObject {
 
         public float MovementSpeedMultiplier = 1;
         public float SpeedMultiplierDuration = 1;
 
-        public abstract IEnumerator<AbilityInfo> Use (Player player);
+        [SerializeField] AbilityState[] States;
+
+        public virtual IEnumerator<AbilityInfo> Use (Player player) {
+            var abilityInfo = new AbilityInfo ();
+
+            yield return abilityInfo;
+        }
 
         protected int abilityID;
 
