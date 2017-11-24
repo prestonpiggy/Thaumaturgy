@@ -92,27 +92,27 @@ namespace TurkeyWork.Actors {
                 { "Health Current", Health.Current },
                 { "Health Max", Health.MaxValue },
                 { "Health Regen", Health.Regen },
-                { "Health Regen Start Delay", Health.RegenStartDelay },
+                { "Health Regen Delay", Health.RegenStartDelay },
 
                 { "Mana Current", Mana.Current },
                 { "Mana Max", Mana.MaxValue },
                 { "Mana Regen", Mana.Regen },
-                { "Mana Regen Start Delay", Mana.RegenStartDelay },
+                { "Mana Regen Delay", Mana.RegenStartDelay },
 
                 { "Stamina Current", Stamina.Current },
                 { "Stamina Max", Stamina.MaxValue },
                 { "Stamina Regen", Stamina.Regen },
-                { "Stamina Regen Start Delay", Stamina.RegenStartDelay },
+                { "Stamina Regen Delay", Stamina.RegenStartDelay },
 
                 { "Armor Current", Armor.Current },
                 { "Armor Max", Armor.MaxValue },
                 { "Armor Regen", Armor.Regen },
-                { "Armor Regen Start Delay", Armor.RegenStartDelay },
+                { "Armor Regen Delay", Armor.RegenStartDelay },
 
                 { "Aegis Current", Aegis.Current },
                 { "Aegis Max", Aegis.MaxValue },
                 { "Aegis Regen", Aegis.Regen },
-                { "Aegis Regen Start Delay", Aegis.RegenStartDelay },
+                { "Aegis Regen Delay", Aegis.RegenStartDelay },
 
                 { "Movement Speed", MovementSpeed },
                 { "Jump Height", JumpHeight },

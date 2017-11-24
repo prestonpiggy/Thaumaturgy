@@ -7,6 +7,7 @@ using TurkeyWork.Actors;
 
 namespace TurkeyWork.Abilities {
 
+    [System.Serializable]
     public class AdjustStats : AbilityState {
 
         public enum ModifierType { Flat, Multiplier }

@@ -1,22 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TurkeyWork.Actors;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-using TurkeyWork.Actors;
-using TurkeyWork.Stats;
-
 namespace TurkeyWork.Abilities {
 
-    [CreateAssetMenu (menuName = "TurkeyWork/Abilities/Melee Attack")]
-    public class MeleeAttack : Ability {
-
-        public enum HitAreaType { Arc, Box, Circle }
-        [SerializeField] HitAreaType hitShape;
+    [System.Serializable]
+    public class HitCheck : AbilityState {
 
         public LayerMask HitMask;
 
-        public float DamageDelay;
+        public enum HitAreaType { Arc, Box, Circle }
+        [SerializeField] HitAreaType hitShape;
 
         [HideIf ("hitShape", HitAreaType.Box)]
         public float AttackRange;
@@ -25,33 +21,10 @@ namespace TurkeyWork.Abilities {
         [ShowIf ("hitShape", HitAreaType.Box)]
         public Vector2 BoxShape = new Vector2 (2f, 0.5f);
 
-        public string AnimationName;
+        public override void ResolveState (ActorBody actor, ref AbilityInfo abilityInfo) {
+            
+        }
 
-        public override IEnumerator<AbilityInfo> Use (Player player) {
-            LogStart (player);
-
-            var attributes = player.Attributes;
-            var buff = new Modifier (abilityID) {
-                Multiplier = MovementSpeedMultiplier,
-                ExpireTime = Time.time + SpeedMultiplierDuration
-            };
-
-            attributes.RegisterTimedBuff (attributes.MovementSpeed, buff);
-            attributes.MovementSpeed.AddBuffAndRecalculate (buff);
-
-            var wait = new AbilityInfo () {
-                WaitUntil = Time.time + DamageDelay
-            };
-            yield return wait;
-
-            DoHitDetection (player);
-
-            wait.IsDone = true;
-
-            LogFinish (player);
-            yield return wait;
-        }    
-        
         public List<ActorBody> DoHitDetection (Player player) {
             var hitMask = HitMask ^ player.gameObject.layer;
             Collider2D[] hitColliders;
@@ -68,7 +41,6 @@ namespace TurkeyWork.Abilities {
             }
             return null;
         }
-       
 
         [System.Serializable]
         public struct Arc {

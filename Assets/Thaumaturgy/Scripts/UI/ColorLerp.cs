@@ -7,19 +7,15 @@ namespace Thauma {
 
     public class ColorLerp : UIEffect {
 
-        public bool FadeAtStart = true;
-
         public float Duration = 2f;
-        public Color StartColor = new Color (1, 1, 1, 0);
-        public Color TargetColor = Color.white;
-        public AnimationCurve FadeCurve = AnimationCurve.EaseInOut (0, 0, 1, 1);
+        public Gradient Color;
 
         Coroutine fade;
         Image image;
 
         private void Start () {
             image = GetComponent<Image> ();
-            if (FadeAtStart)
+            if (PlayAtStart)
                 fade = StartCoroutine (DoFade ());
         }
 
@@ -34,14 +30,14 @@ namespace Thauma {
 
             var timeFinished = Time.time + Duration;
             var time = 0f;
-            image.color = StartColor;
+            image.color = Color.Evaluate (0);
 
             while (timeFinished > Time.time) {
                 time += Time.deltaTime / Duration;
-                image.color = Color.Lerp (StartColor, TargetColor, FadeCurve.Evaluate (time));
+                image.color = Color.Evaluate (time);
                 yield return null;
             }
-            image.color = TargetColor;
+            image.color = Color.Evaluate (1);
             fade = null;
             this.enabled = false;
             OnEffectPlayed.Invoke ();
