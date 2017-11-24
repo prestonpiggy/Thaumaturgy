@@ -1,0 +1,1529 @@
+fileFormatVersion: 2
+guid: 6a0031c39db7371439e3e1315594fce4
+timeCreated: 1511526240
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: luola31
+    21300002: luola25
+    21300004: luola19
+    21300006: luola13
+    21300008: luola7
+    21300010: luola1
+    21300012: luolaplatform6
+    21300014: luolaplatform1
+    21300016: luolaplatform2
+    21300018: luolaplatform3
+    21300020: luolaplatform4
+    21300022: luolaplatform5
+    21300024: luolaplatform7
+    21300026: luolaplatform8
+    21300028: luolaplatform9
+    21300030: luolaplatform10
+    21300032: luola2
+    21300034: luola3
+    21300036: luola4
+    21300038: luola5
+    21300040: luola6
+    21300042: luola12
+    21300044: luola18
+    21300046: luola24
+    21300048: luola30
+    21300050: luola36
+    21300052: luola35
+    21300054: luola34
+    21300056: luola33
+    21300058: luola32
+    21300060: luola26
+    21300062: luola27
+    21300064: luola28
+    21300066: luola29
+    21300068: luola20
+    21300070: luola21
+    21300072: luola22
+    21300074: luola23
+    21300076: luola17
+    21300078: luola16
+    21300080: luola15
+    21300082: luola14
+    21300084: luola8
+    21300086: luola9
+    21300088: luola10
+    21300090: luola11
+    21300092: stepRight2
+    21300094: stepRight1
+    21300096: stepLeft2
+    21300098: stepLeft1
+    21300100: luola2b
+    21300102: luola3b
+    21300104: luola4b
+    21300106: luola10b
+    21300108: luola5b
+    21300110: luola16b
+    21300112: luola15b
+    21300114: luola22b
+    21300116: luola23b
+    21300118: luola04_59
+    21300120: luola04_60
+    21300122: luola04_61
+    21300124: luola04_62
+    21300126: luola04_63
+    21300128: luola04_64
+    21300130: luola04_65
+    21300132: luola04_66
+    21300134: luola04_67
+    21300136: luola04_68
+    21300138: luola04_69
+    21300140: luola04_70
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 56
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: luola31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -13}
+        - {x: -25, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 939
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -22, y: 28}
+        - {x: -22, y: 26}
+        - {x: -18, y: 22}
+        - {x: -4, y: 22}
+        - {x: 5, y: 23}
+        - {x: 6, y: 26}
+        - {x: 6, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 995
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 1.1540527}
+        - {x: -28, y: -24}
+        - {x: -24, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 1.2128906}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 995
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 1}
+        - {x: -28, y: 1.1992188}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 995
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 1}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 995
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 1}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 995
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 1}
+        - {x: -28, y: -28}
+        - {x: 18, y: -28}
+        - {x: 24, y: -20}
+        - {x: 28, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 939
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -11, y: 28}
+        - {x: -11, y: 23}
+        - {x: -6, y: 21}
+        - {x: 6, y: 21}
+        - {x: 15, y: 25}
+        - {x: 15, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 939
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 28}
+        - {x: 2, y: 25}
+        - {x: 5, y: 24}
+        - {x: 28, y: 24}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform9
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 939
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: 24}
+        - {x: -22, y: 24}
+        - {x: -18, y: 27}
+        - {x: -18, y: 28}
+      - - {x: -3, y: 28}
+        - {x: -2, y: 25}
+        - {x: 8, y: 24}
+        - {x: 22, y: 24}
+        - {x: 25, y: 27}
+        - {x: 25, y: 28}
+      - - {x: -14, y: 28}
+        - {x: -13, y: 25}
+        - {x: -6, y: 25}
+        - {x: -4, y: 27}
+        - {x: -4, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luolaplatform10
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 939
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 19, y: 28}
+        - {x: -27, y: 28}
+        - {x: -27, y: 25}
+        - {x: -21, y: 22}
+        - {x: 12, y: 22}
+        - {x: 17, y: 23}
+        - {x: 19, y: 27}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola12
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola18
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola24
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola30
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola36
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 14, y: -28}
+        - {x: 28, y: -13}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola35
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola34
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola33
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola32
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 603
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola26
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola28
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola29
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 659
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola21
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola22
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola23
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola16
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola14
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola8
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola10
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stepRight2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 435
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stepRight1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 435
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 4}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 4}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stepLeft2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 435
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stepLeft1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 435
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola2b
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola3b
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola4b
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola10b
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 827
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola5b
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 883
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 2}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 2}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola16b
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: 2}
+        - {x: -22, y: -1}
+        - {x: -13, y: -1}
+        - {x: -8, y: -26}
+        - {x: -5, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola15b
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 771
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: -5, y: 0}
+        - {x: 6, y: 0}
+        - {x: 10, y: -27}
+        - {x: 28, y: -5}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola22b
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: 28}
+        - {x: -28, y: -28}
+        - {x: -18, y: -28}
+        - {x: -17, y: -7}
+        - {x: -17, y: 9}
+        - {x: -20, y: 28}
+      - - {x: 5, y: -21}
+        - {x: -1, y: -26}
+        - {x: -1, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: -24}
+        - {x: 17, y: -21}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola23b
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 715
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: 28}
+        - {x: 15, y: 17}
+        - {x: 16, y: 12}
+        - {x: 14, y: -1}
+        - {x: 6, y: -18}
+        - {x: -22, y: -20}
+        - {x: -28, y: -24}
+        - {x: -28, y: -28}
+        - {x: 28, y: -28}
+        - {x: 28, y: 28}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_59
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 284
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 128, y: -93.5}
+        - {x: 123, y: -108.5}
+        - {x: 122, y: -156.5}
+        - {x: 122, y: -151.5}
+        - {x: 118, y: -58.5}
+        - {x: 104, y: -9.5}
+        - {x: 37, y: 179.5}
+        - {x: 19, y: 194.5}
+        - {x: -140, y: 194.5}
+        - {x: -95, y: -0.5}
+        - {x: -97, y: -15.5}
+        - {x: -96, y: 0.5}
+        - {x: -105, y: 24.5}
+        - {x: -109, y: 28.5}
+        - {x: -117, y: 25.5}
+        - {x: -142, y: -81.5}
+        - {x: -142, y: -194.5}
+        - {x: 142, y: -194.5}
+        - {x: 142, y: -130.5}
+        - {x: 135, y: -86.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_60
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 279
+        height: 413
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 123.5, y: -32.5}
+        - {x: 52.5, y: 206.5}
+        - {x: 1.5, y: 206.5}
+        - {x: -59.5, y: 168.5}
+        - {x: -139.5, y: -141.5}
+        - {x: -139.5, y: -206.5}
+        - {x: 139.5, y: -206.5}
+        - {x: 139.5, y: -186.5}
+        - {x: 134.5, y: -121.5}
+        - {x: 130.5, y: -117.5}
+        - {x: 123.5, y: -115.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_61
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 0
+        width: 235
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 93.5, y: 192.5}
+        - {x: 67.5, y: 217.5}
+        - {x: 1.5, y: 217.5}
+        - {x: -90.5, y: 138.5}
+        - {x: -96.5, y: 103.5}
+        - {x: -117.5, y: -180.5}
+        - {x: -117.5, y: -217.5}
+        - {x: 117.5, y: -217.5}
+        - {x: 117.5, y: -90.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_62
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 659
+        width: 615
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -307.5, y: 308}
+        - {x: -307.5, y: -308}
+        - {x: 307.5, y: -308}
+        - {x: 307.5, y: 308}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_63
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1074
+        width: 36
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -18, y: 100.5}
+        - {x: -18, y: 36.5}
+        - {x: -1, y: -100.5}
+        - {x: 9, y: -100.5}
+        - {x: 17, y: -17.5}
+        - {x: 18, y: 23.5}
+        - {x: 18, y: 100.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_64
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 1119
+        width: 25
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: 78}
+        - {x: -12.5, y: 15}
+        - {x: -6.5, y: -78}
+        - {x: 5.5, y: -78}
+        - {x: 12.5, y: -8}
+        - {x: 12.5, y: 78}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_65
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1095
+        width: 24
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: 90}
+        - {x: -12, y: 44}
+        - {x: -10, y: -3}
+        - {x: -2, y: -90}
+        - {x: 6, y: -90}
+        - {x: 11, y: -39}
+        - {x: 12, y: 9}
+        - {x: 12, y: 90}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_66
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 1188
+        width: 14
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 43.5}
+        - {x: -7, y: -9.5}
+        - {x: -6, y: -25.5}
+        - {x: -3, y: -43.5}
+        - {x: 5, y: -43.5}
+        - {x: 7, y: -2.5}
+        - {x: 7, y: 43.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_67
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 1192
+        width: 20
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 41.5}
+        - {x: -10, y: 19.5}
+        - {x: -3, y: -41.5}
+        - {x: 4, y: -41.5}
+        - {x: 5, y: -37.5}
+        - {x: 10, y: 25.5}
+        - {x: 10, y: 41.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_68
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1182
+        width: 104
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -52, y: 46.5}
+        - {x: -52, y: -46.5}
+        - {x: 0, y: -30.5}
+        - {x: 30, y: -27.5}
+        - {x: 52, y: -9.5}
+        - {x: 52, y: 46.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_69
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1215
+        width: 10
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 30}
+        - {x: -5, y: -16}
+        - {x: -2, y: -30}
+        - {x: 3, y: -30}
+        - {x: 5, y: 3}
+        - {x: 5, y: 30}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: luola04_70
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1202
+        width: 12
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: 36.5}
+        - {x: -6, y: -16.5}
+        - {x: -5, y: -36.5}
+        - {x: 2, y: -36.5}
+        - {x: 6, y: 0.5}
+        - {x: 6, y: 36.5}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
