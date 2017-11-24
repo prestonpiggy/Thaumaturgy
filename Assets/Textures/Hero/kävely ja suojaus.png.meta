@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 07d52f259ab914c4890be1e866444368
+timeCreated: 1510053853
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "k\xE4vely ja suojaus_0"
+    21300002: "k\xE4vely ja suojaus_1"
+    21300004: "k\xE4vely ja suojaus_2"
+    21300006: "k\xE4vely ja suojaus_3"
+    21300008: "k\xE4vely ja suojaus_4"
+    21300010: "k\xE4vely ja suojaus_5"
+    21300012: "k\xE4vely ja suojaus_6"
+    21300014: "k\xE4vely ja suojaus_7"
+    21300016: "k\xE4vely ja suojaus_8"
+    21300018: "k\xE4vely ja suojaus_9"
+    21300020: "k\xE4vely ja suojaus_10"
+    21300022: "k\xE4vely ja suojaus_11"
+    21300024: "k\xE4vely ja suojaus_12"
+    21300026: "k\xE4vely ja suojaus_13"
+    21300028: "k\xE4vely ja suojaus_14"
+    21300030: "k\xE4vely ja suojaus_15"
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 56
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_0"
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 5
+        width: 64
+        height: 75
+      alignment: 9
+      pivot: {x: 0.57580924, y: 0.10466835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_1"
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 5
+        width: 73
+        height: 76
+      alignment: 9
+      pivot: {x: 0.58861697, y: 0.10987008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_2"
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 6
+        width: 65
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5497617, y: 0.106611006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_3"
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 8
+        width: 63
+        height: 71
+      alignment: 9
+      pivot: {x: 0.6054799, y: 0.11225045}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_4"
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 9
+        width: 73
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5910302, y: 0.10986945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_5"
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 9
+        width: 66
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5143835, y: 0.12562096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_6"
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 6
+        width: 47
+        height: 74
+      alignment: 9
+      pivot: {x: 0.54039615, y: 0.11514129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_7"
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 5
+        width: 45
+        height: 75
+      alignment: 9
+      pivot: {x: 0.54219157, y: 0.120273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_8"
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 5
+        width: 50
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5569592, y: 0.13082065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_9"
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 5
+        width: 53
+        height: 72
+      alignment: 9
+      pivot: {x: 0.53582305, y: 0.14400561}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_10"
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 6
+        width: 54
+        height: 70
+      alignment: 9
+      pivot: {x: 0.51757926, y: 0.16095772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_11"
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 8
+        width: 50
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5189868, y: 0.16494672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_12"
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 9
+        width: 50
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5379712, y: 0.16494653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_13"
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 9
+        width: 52
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5182542, y: 0.12306485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_14"
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 6
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "k\xE4vely ja suojaus_15"
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5
+        width: 48
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
