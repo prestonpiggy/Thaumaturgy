@@ -27,16 +27,16 @@ namespace TurkeyWork.Actors {
         [FoldoutGroup ("MANA", expanded: false), HideLabel]
         public Resource Mana;
 
-        [FoldoutGroup ("Defenses"), Title ("Armor"), HideLabel]
+        [FoldoutGroup ("ARMOR", expanded: false), HideLabel]
         public Resource Armor;
-        [FoldoutGroup ("Defenses"), Title ("Aegis"), HideLabel]
+        [FoldoutGroup ("AEGIS", expanded: false), HideLabel]
         public Resource Aegis; // Like magic resistance
 
-        [FoldoutGroup ("Movement"), Title ("Speed"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Speed"), HideLabel]
         public Stat MovementSpeed = new Stat (300);
-        [FoldoutGroup ("Movement"), Title ("Jump Height"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Jump Height"), HideLabel]
         public Stat JumpHeight = new Stat (240);
-        [FoldoutGroup ("Movement"), Title ("Gravity Scale"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Gravity Scale"), HideLabel]
         public Stat GravityScale = new Stat (200); 
 
         public bool TryGetStat (string name, out Stat stat) {

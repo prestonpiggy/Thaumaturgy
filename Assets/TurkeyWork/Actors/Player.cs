@@ -124,7 +124,7 @@ public class Player : EntityEventListener<IActorState> {
         return OnLadder ?
             inputCommand.Input.Direction.y * Attributes.MovementSpeed.Value001 * 0.7f 
             : 
-            frameVelocity.y + Physics2D.gravity.y * Attributes.GravityScale.Value * BoltNetwork.frameDeltaTime;
+            frameVelocity.y + Physics2D.gravity.y * Attributes.GravityScale.Value001 * BoltNetwork.frameDeltaTime;
     }
     
     void CheckJump () {
@@ -149,7 +149,7 @@ public class Player : EntityEventListener<IActorState> {
     }
 
     void RecalculateJump () {
-        var gravityY = Physics2D.gravity.y * Attributes.GravityScale.Value;
+        var gravityY = Physics2D.gravity.y * Attributes.GravityScale.Value001;
         var gravitySign = Mathf.Sign (gravityY);
         var absGravity = gravitySign * gravityY;
         var timeToApex = Mathf.Sqrt (2 * Attributes.JumpHeight.Value001 / absGravity);
