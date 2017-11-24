@@ -1,30 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace TurkeyWork.Actors {
 
     public class ActorBody : MonoBehaviour {
 
-        [SerializeField] ActorBounds boundingVolume = new ActorBounds (
+        [SerializeField, HideIf ("HasCollider")] Bounds actorBounds = new Bounds (
             new Vector2 (0, 1), new Vector2 (1, 2)
             );
-        public ActorBounds Bounds => boundingVolume;
+        public Bounds Bounds => Collider ? Collider.bounds : actorBounds;
 
-        private void Awake () {
-            UpdateBounds ();
-        }
+        public BoxCollider2D Collider;
 
-        public void UpdateBounds () {
-            boundingVolume.SetOrigin (transform.position);
-        }
-
-#if UNITY_EDITOR
-        private void OnDrawGizmosSelected () {
-            UpdateBounds ();
-            boundingVolume.DrawSceneGizmos ();
-        }
-#endif
+        public bool HasCollider => Collider != null;
     }
 
 }

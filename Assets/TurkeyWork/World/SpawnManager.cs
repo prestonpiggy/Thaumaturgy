@@ -2,35 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[BoltGlobalBehaviour]
-public class SpawnManager : Bolt.GlobalEventListener {
+namespace TurkeyWork.World {
 
-    static SpawnManager instance;
+    [BoltGlobalBehaviour]
+    public class SpawnManager : Bolt.GlobalEventListener {
 
-    List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
-    int spawnIndex;
+        static SpawnManager instance;
 
-    private void Awake () {
-        if (instance == null) {
-            instance = this;
+        List<SpawnPoint> spawnPoints = new List<SpawnPoint> ();
+        int spawnIndex;
+
+        private void Awake () {
+            if (instance == null) {
+                instance = this;
+            }
+        }
+
+        public static void RegisterSpawnPoint (SpawnPoint spawnPoint) {
+            instance.spawnPoints.Add (spawnPoint);
+        }
+
+        public static void UnregisterSpawnPoint (SpawnPoint spawnPoint) {
+            instance.spawnPoints.Remove (spawnPoint);
+        }
+
+        public static Vector3 GetSpawnPoint (bool allowUnsafe = false) {
+            if (allowUnsafe)
+                return instance.spawnPoints[Random.Range (0, instance.spawnPoints.Count)].transform.position;
+            return instance.spawnPoints[instance.NextSpawnPoint ()].transform.position;
+        }
+
+        int NextSpawnPoint () {
+            return spawnIndex++ % spawnPoints.Count;
         }
     }
 
-    public static void RegisterSpawnPoint (SpawnPoint spawnPoint) {
-        instance.spawnPoints.Add (spawnPoint);
-    }
-
-    public static void UnregisterSpawnPoint (SpawnPoint spawnPoint) {
-        instance.spawnPoints.Remove (spawnPoint);
-    }
-
-    public static Vector3 GetSpawnPoint (bool allowUnsafe = false) {
-        if (allowUnsafe)
-            return instance.spawnPoints[Random.Range (0, instance.spawnPoints.Count)].transform.position;
-        return instance.spawnPoints[instance.NextSpawnPoint ()].transform.position;
-    }
-
-    int NextSpawnPoint () {
-        return spawnIndex++ % spawnPoints.Count;
-    }
 }

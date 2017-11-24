@@ -13,8 +13,7 @@ public class MovementState : State
             ai.mSpeed = -2.0f;
             */
         //ai.transform.Translate (new Vector2 (ai.mSpeed * Time.deltaTime, 0));
-        var state = ai.motor.Move (new Vector2 (ai.mSpeed * Time.deltaTime, 0));
-        Debug.Log (state.CollisionState);
+        var state = ai.motor.Move (new Vector2 (ai.mSpeed, 0), BoltNetwork.frameDeltaTime);
         if (state.CollisionState.HasFlag (CollisionInfo.Left))
             ai.mSpeed = 2.0f;
         else if (state.CollisionState.HasFlag (CollisionInfo.Right))

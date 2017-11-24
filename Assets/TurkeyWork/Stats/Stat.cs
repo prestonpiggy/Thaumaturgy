@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace TurkeyWork.Abilities {
+namespace TurkeyWork.Stats {
 
     [System.Serializable]
     public class Stat {
@@ -13,29 +13,28 @@ namespace TurkeyWork.Abilities {
 
         public float Value001 => Value / 100f;
 
-        public List<Buff> buffs;
+        public List<Modifier> Modifiers = new List<Modifier>();
 
         public Stat (int baseValue) {
             Base = baseValue;
             Value = baseValue;
-            buffs = new List<Buff> ();
         }
 
-        public void AddBuff (Buff buff) {
-            buffs.Add (buff);
+        public void AddBuff (Modifier mod) {
+            Modifiers.Add (mod);
         }
 
-        public void RemoveBuff (Buff buff) {
-            buffs.Remove (buff);
+        public void RemoveBuff (Modifier mod) {
+            Modifiers.Remove (mod);
         }
 
-        public void AddBuffAndRecalculate (Buff buff) {
-            buffs.Add (buff);
+        public void AddBuffAndRecalculate (Modifier mod) {
+            Modifiers.Add (mod);
             Recalculate ();
         }
 
-        public void RemoveBuffAndRecalculate (Buff buff) {
-            buffs.Remove (buff);
+        public void RemoveBuffAndRecalculate (Modifier mod) {
+            Modifiers.Remove (mod);
             Recalculate ();
         }
 
@@ -46,17 +45,17 @@ namespace TurkeyWork.Abilities {
         }
 
         void ApplyFlat () {
-            foreach (var buff in buffs) {
-                Value += buff.FlatAmount;
+            foreach (var mod in Modifiers) {
+                Value += mod.FlatAmount;
             }
         }
 
         void ApplyMult () {           
-            if (buffs.Count > 0) {
+            if (Modifiers.Count > 0) {
                 float mult = 0;
 
-                foreach (var buff in buffs) {
-                    mult += buff.Multiplier;
+                foreach (var mod in Modifiers) {
+                    mult += mod.Multiplier;
                 }
                 Value = (int) (Value * Mathf.Clamp (mult, 0, float.MaxValue));
             }         

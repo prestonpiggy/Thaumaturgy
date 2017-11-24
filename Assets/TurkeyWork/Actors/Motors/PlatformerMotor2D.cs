@@ -24,14 +24,19 @@ namespace TurkeyWork.Actors {
         float verticalRaySpacing;
 
         MotorState state;
+        Bounds actorBounds;
 
         // Methods in this class assing to this variable.
-        Vector3 velocity;
+        Vector3 movementDelta;
+        float deltaTime;
+
         CollisionInfo collisions;
 
         ActorBody parentActor;
 
-        public Vector3 Velocity => velocity;
+        public Vector3 MovementDelta => movementDelta;
+        public Vector3 Velocity => movementDelta / deltaTime;
+
         public MotorState State => state;
         public bool OnGround => state.CollisionState.HasFlag (CollisionInfo.Below);
 
@@ -40,23 +45,26 @@ namespace TurkeyWork.Actors {
             UpdateCollisionRaySpacing ();
         }
 
-        public MotorState Move (Vector3 deltaPosition) {
+        public MotorState Move (Vector3 velocity, float deltaTime) {
+            UpdateCollisionRaySpacing ();
             state.ResetAll ();
 
+            this.deltaTime = deltaTime;
             collisions = CollisionInfo.None;
-            velocity = deltaPosition;
+            movementDelta = velocity * deltaTime;
 
             CheckHorizontal ();
             CheckVertical ();
 
-            state.Velocity = velocity;
+            transform.Translate (movementDelta);
+
+            state.Velocity = movementDelta / deltaTime;
             state.CollisionState = collisions;
-            transform.Translate (velocity);
             return state;
         }
 
         void CheckHorizontal () {
-            var moveX = velocity.x;
+            var moveX = movementDelta.x;
             var rayLength = Mathf.Abs(moveX) + SKIN_WIDTH;
 
             //if (rayLength < 2 * SKIN_WIDTH)
@@ -66,44 +74,29 @@ namespace TurkeyWork.Actors {
             var rayDir = directionX * Vector2.right;
 
             var collisionFlag = directionX == 1 ? CollisionInfo.Right : CollisionInfo.Left;
-            var rayOrigin = directionX == 1 ? parentActor.Bounds.BottomRight : parentActor.Bounds.BottomLeft;
+            var rayOrigin = directionX == 1 ? actorBounds.BottmRight () : actorBounds.BottomLeft ();
             rayOrigin.y += StepHeight;
             for (var i = 0; i < horizontalRayCount; i++) {
-                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10);
-
+#if DEBUG
+                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+#endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
 
                 if (!rayHit)
                     continue;
-                /*
-                var surfaceAngle = Vector2.Angle (rayHit.normal, Vector2.up);
+               
+                // Propbably implement some slopstuff here?
 
-                if (i == 0 && surfaceAngle <= MaxSlopeAngle) {
-                    print (surfaceAngle);
-
-                    var distanceToSlope = 0f;
-
-                    if (surfaceAngle != motorState.SurfaceAngleOld) {
-                        distanceToSlope = rayHit.distance - SKIN_WIDTH;
-                        velocity.x = moveX -= distanceToSlope * directionX;
-                    }
-                    ClimpSlope (surfaceAngle);
-                    moveX += distanceToSlope * directionX;
-                }
-                
-                if (collisions.HasFlag (CollisionInfo.OnSlope) || surfaceAngle > MaxSlopeAngle)
-                    continue;
-*/
                 rayLength = rayHit.distance;
                 moveX = (rayLength - SKIN_WIDTH) * directionX;
                 collisions |= collisionFlag;
             }
-            velocity.x =  moveX;
+            movementDelta.x =  moveX;
         }
 
         void CheckVertical () {
-            var moveY = velocity.y;
+            var moveY = movementDelta.y;
             var rayLength = Mathf.Abs (moveY) + SKIN_WIDTH;
 
             //if (rayLength < 2 * SKIN_WIDTH)
@@ -113,9 +106,12 @@ namespace TurkeyWork.Actors {
             var rayDir = directionY * Vector2.up;
 
             var collisionFlag = directionY == 1 ? CollisionInfo.Above : CollisionInfo.Below;
-            var rayOrigin = directionY == 1 ? parentActor.Bounds.TopLeft : parentActor.Bounds.BottomLeft;
+            var rayOrigin = directionY == 1 ? actorBounds.TopLeft () : actorBounds.BottomLeft ();
 
             for (var i = 0; i < verticalRayCount; i++) {
+#if DEBUG
+                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+#endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.x += verticalRaySpacing;
 
@@ -126,29 +122,35 @@ namespace TurkeyWork.Actors {
                 moveY = (rayLength - SKIN_WIDTH) * directionY;
                 collisions |= collisionFlag;
             }
-            velocity.y = moveY;
+            movementDelta.y = moveY;
         }
 
+        // Wurks?
         void ClimpSlope (float surfaceAngle) {
             state.SurfaceAngle = surfaceAngle;
 
-            var climbVelocityY = Mathf.Sin (surfaceAngle * Mathf.Deg2Rad) * Mathf.Abs (velocity.x);
+            var climbVelocityY = Mathf.Sin (surfaceAngle * Mathf.Deg2Rad) * Mathf.Abs (movementDelta.x);
 
             if (state.Velocity.y <= climbVelocityY) {
-                velocity = new Vector3 (climbVelocityY, Mathf.Cos (surfaceAngle * Mathf.Deg2Rad) * velocity.x);
+                movementDelta = new Vector3 (climbVelocityY, Mathf.Cos (surfaceAngle * Mathf.Deg2Rad) * movementDelta.x);
                 collisions |= CollisionInfo.Below ^ CollisionInfo.OnSlope;
             }
         }
 
         void UpdateCollisionRaySpacing () {
-            var bounds = parentActor.Bounds;
-            var boundsWidth = bounds.Width + SKIN_WIDTH * -2;
-            var boundsHeight = bounds.Height + SKIN_WIDTH * -2 - StepHeight;
+            actorBounds = parentActor.Bounds;
+            actorBounds.Expand (SKIN_WIDTH * -2);
+
+            var boundsWidth = actorBounds.size.x;
+            var boundsHeight = actorBounds.size.y - StepHeight;
+
+            if (boundsHeight < StepHeight)
+                Debug.LogWarning ("Actors collision volume is very small. This may lead to inaccurate collision detection!");
 
             horizontalRayCount = Mathf.RoundToInt (boundsHeight * raysPerWorldUnit);
             verticalRayCount = Mathf.RoundToInt (boundsWidth * raysPerWorldUnit);
-            horizontalRaySpacing = bounds.Height / (horizontalRayCount - 1);
-            verticalRaySpacing = bounds.Width / (verticalRayCount - 1);
+            horizontalRaySpacing = boundsWidth / (horizontalRayCount - 1);
+            verticalRaySpacing = boundsHeight / (verticalRayCount - 1);
         }
     }
 

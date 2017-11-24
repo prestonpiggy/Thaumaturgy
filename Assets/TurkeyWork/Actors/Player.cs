@@ -12,7 +12,6 @@ public class Player : EntityEventListener<IActorState> {
 
     [MinValue (0)]
     public float AccelerationTime = 2f;
-    public float GravityScale = 3f;
     [Range(0, 1)]
     public float AirControl = 0.7f;
     [MinValue (0)]
@@ -35,10 +34,13 @@ public class Player : EntityEventListener<IActorState> {
     CmdPlayerMovement inputCommand;
 
     Vector3 frameVelocity;
-    Vector3 frameDeltaMove;
+    //Vector3 frameDeltaMove;
 
     float currentHorizontal;
     bool abilityOverride;
+
+    // Shit implementation. For now.
+    [System.NonSerialized] public bool OnLadder;
 
     private void Awake () {
         ParentActor = GetComponent<ActorBody> ();
@@ -70,7 +72,7 @@ public class Player : EntityEventListener<IActorState> {
         }
 
         input = CmdPlayerMovement.Create ();
-        input.Horizontal = Input.GetAxisRaw ("Horizontal");
+        input.Direction = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
         input.JumpFlag = Input.GetKeyDown (KeyCode.Space);
         entity.QueueInput (input);      
     }
@@ -82,22 +84,16 @@ public class Player : EntityEventListener<IActorState> {
 
         inputCommand = command as CmdPlayerMovement;
         
-        if (inputCommand) {
-            if (resetState) {
-                
+        if (inputCommand && !resetState) {
+            UpdateFrameVelocity ();
+
+            motorState = Motor.Move (frameVelocity, BoltNetwork.frameDeltaTime);
+
+            if (motorState.CollidingAboveOrBelow) {
+                frameVelocity.y = 0;
             }
-            else {
-                ParentActor.UpdateBounds ();
-                UpdateFrameDeltaMove ();
 
-                motorState = Motor.Move (frameDeltaMove);
-
-                if (motorState.CollidingAboveOrBelow) {
-                    frameVelocity.y = 0;
-                }
-
-               inputCommand.Result.Velocity = motorState.Velocity;
-            }
+            inputCommand.Result.Velocity = motorState.Velocity;
         }
     }
         
@@ -106,22 +102,29 @@ public class Player : EntityEventListener<IActorState> {
             transform.position = position;
     }
 
-    void UpdateFrameDeltaMove () {
+    void UpdateFrameVelocity () {
         frameVelocity = new Vector3 (
                     GetHorizontalMove (),
-                    frameVelocity.y + Physics2D.gravity.y * GravityScale * BoltNetwork.frameDeltaTime
+                    GetVerticalMove ()
                     );
         CheckJump ();
-        frameDeltaMove = frameVelocity * BoltNetwork.frameDeltaTime; 
     }
 
     float GetHorizontalMove () {
         var effectiveAcceleration = Motor.OnGround ? AccelerationTime : AccelerationTime / AirControl;
         return Mathf.SmoothDamp (
                         frameVelocity.x,
-                        inputCommand.Input.Horizontal * Attributes.MovementSpeed.Value001,
-                        ref currentHorizontal, effectiveAcceleration
+                        inputCommand.Input.Direction.x * Attributes.MovementSpeed.Value001,
+                        ref currentHorizontal,
+                        effectiveAcceleration
                         );
+    }
+
+    float GetVerticalMove () {
+        return OnLadder ?
+            inputCommand.Input.Direction.y * Attributes.MovementSpeed.Value001 * 0.7f 
+            : 
+            frameVelocity.y + Physics2D.gravity.y * Attributes.GravityScale.Value * BoltNetwork.frameDeltaTime;
     }
     
     void CheckJump () {
@@ -146,7 +149,7 @@ public class Player : EntityEventListener<IActorState> {
     }
 
     void RecalculateJump () {
-        var gravityY = Physics2D.gravity.y * GravityScale;
+        var gravityY = Physics2D.gravity.y * Attributes.GravityScale.Value;
         var gravitySign = Mathf.Sign (gravityY);
         var absGravity = gravitySign * gravityY;
         var timeToApex = Mathf.Sqrt (2 * Attributes.JumpHeight.Value001 / absGravity);

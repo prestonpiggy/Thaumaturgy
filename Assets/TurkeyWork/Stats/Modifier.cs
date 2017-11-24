@@ -2,29 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurkeyWork.Abilities {
+namespace TurkeyWork.Stats {
 
     [System.Serializable]
-    public struct Buff : IEqualityComparer<Buff> {
-        public readonly System.Guid ID;
+    public struct Modifier : IEqualityComparer<Modifier> {
+        public readonly int ID;
+
         public float ExpireTime;
         public float Multiplier;
         public int FlatAmount;
 
         public bool IsPermanent => ExpireTime == -1;
 
-        public Buff (System.Guid id) {
+        public Modifier (int id) {
             ID = id;
             Multiplier = 1;
             FlatAmount = 0;
             ExpireTime = -1;
         }
 
-        public bool Equals (Buff x, Buff y) {
+        public bool Equals (Modifier x, Modifier y) {
             return x.ID == y.ID;
         }
 
-        public int GetHashCode (Buff obj) {
+        public int GetHashCode (Modifier obj) {
             return ID.GetHashCode ();
         }
     }

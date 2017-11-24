@@ -10,6 +10,7 @@ namespace TurkeyWork.Abilities {
         public bool IsDone;
         public float WaitUntil;
 
+        public AbilityState CurrentState;
         public ActorBody[] hitActors;
 
         public AbilityInfo () {

@@ -4,6 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 using TurkeyWork.Actors;
+using TurkeyWork.Stats;
 
 namespace TurkeyWork.Abilities {
 
@@ -30,7 +31,7 @@ namespace TurkeyWork.Abilities {
             LogStart (player);
 
             var attributes = player.Attributes;
-            var buff = new Buff (new System.Guid ()) {
+            var buff = new Modifier (abilityID) {
                 Multiplier = MovementSpeedMultiplier,
                 ExpireTime = Time.time + SpeedMultiplierDuration
             };

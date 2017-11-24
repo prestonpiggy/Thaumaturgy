@@ -70,7 +70,6 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        Actor.UpdateBounds ();
         currentState = Simulate(currentState);
     }
 
