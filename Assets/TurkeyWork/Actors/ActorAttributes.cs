@@ -15,7 +15,7 @@ namespace TurkeyWork.Actors {
         static bool buffUpdateDone;
 
         // This will probably get replaced with a static string to int table and a list for all actors containen indexed references 
-        Dictionary<string, Stat> statsRegistry = new Dictionary<string, Stat> ();
+        Dictionary<string, Stat> statsRegistry;
 
         [AssetsOnly]
         public GameEvent OnDeathEvent;
@@ -27,15 +27,32 @@ namespace TurkeyWork.Actors {
         [FoldoutGroup ("MANA", expanded: false), HideLabel]
         public Resource Mana;
 
+        [FoldoutGroup ("Defenses"), Title ("Armor"), HideLabel]
+        public Resource Armor;
+        [FoldoutGroup ("Defenses"), Title ("Aegis"), HideLabel]
+        public Resource Aegis; // Like magic resistance
+
         [FoldoutGroup ("Movement"), Title ("Speed"), HideLabel]
         public Stat MovementSpeed = new Stat (300);
         [FoldoutGroup ("Movement"), Title ("Jump Height"), HideLabel]
         public Stat JumpHeight = new Stat (240);
         [FoldoutGroup ("Movement"), Title ("Gravity Scale"), HideLabel]
-        public Stat GravityScale = new Stat (200);
+        public Stat GravityScale = new Stat (200); 
 
         public bool TryGetStat (string name, out Stat stat) {
             return statsRegistry.TryGetValue (name, out stat);
+        }
+
+        public void RegisterTimedBuff (Stat stat, Modifier buff) {
+            // Check if the buff is actually permanent and, thus, should not be added.
+            if (buff.IsPermanent)
+                return;
+            timedBuffs.Add (new BuffStatLink (stat, buff));
+        }
+
+        protected override void Awake () {
+            base.Awake ();
+            RegisterStats ();
         }
 
         private void Update () {
@@ -50,8 +67,8 @@ namespace TurkeyWork.Actors {
                 buffUpdateDone = true;
             }
 
-            if (Health.Current <= 0) {
-                Health.Current = 0;
+            if (Health.Current.Value <= 0) {
+                Health.Current.Value = 0;
                 OnDeathEvent.Raise ();
                 gameObject.SetActive (false);
                 return;
@@ -67,13 +84,40 @@ namespace TurkeyWork.Actors {
         }
 
         private void OnValidate () {
-            Health.Percent = Health.Current / (float) Health.MaxValue.Value;
+            Health.Percent = Health.Current.Value / (float) Health.MaxValue.Value;
         }
 
-        public void RegisterTimedBuff (Stat stat, Modifier buff) {
-            if (buff.IsPermanent)
-                return;
-            timedBuffs.Add (new BuffStatLink (stat, buff));
+        void RegisterStats () {
+            statsRegistry = new Dictionary<string, Stat> () {
+                { "Health Current", Health.Current },
+                { "Health Max", Health.MaxValue },
+                { "Health Regen", Health.Regen },
+                { "Health Regen Start Delay", Health.RegenStartDelay },
+
+                { "Mana Current", Mana.Current },
+                { "Mana Max", Mana.MaxValue },
+                { "Mana Regen", Mana.Regen },
+                { "Mana Regen Start Delay", Mana.RegenStartDelay },
+
+                { "Stamina Current", Stamina.Current },
+                { "Stamina Max", Stamina.MaxValue },
+                { "Stamina Regen", Stamina.Regen },
+                { "Stamina Regen Start Delay", Stamina.RegenStartDelay },
+
+                { "Armor Current", Armor.Current },
+                { "Armor Max", Armor.MaxValue },
+                { "Armor Regen", Armor.Regen },
+                { "Armor Regen Start Delay", Armor.RegenStartDelay },
+
+                { "Aegis Current", Aegis.Current },
+                { "Aegis Max", Aegis.MaxValue },
+                { "Aegis Regen", Aegis.Regen },
+                { "Aegis Regen Start Delay", Aegis.RegenStartDelay },
+
+                { "Movement Speed", MovementSpeed },
+                { "Jump Height", JumpHeight },
+                { "Gravity Scale", GravityScale }
+            };
         }
 
         struct BuffStatLink {

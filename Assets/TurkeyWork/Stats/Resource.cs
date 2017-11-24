@@ -8,7 +8,7 @@ namespace TurkeyWork.Stats {
 
     [System.Serializable]
     public class Resource {
-        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")] public int Current = 100;
+        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")] public Stat Current = new Stat (100);
         [ProgressBar (0, 1, ColorMember = "EDITOR_BarColor"), ReadOnly, HideLabel]
         [CustomContextMenu ("Blue", "ColorBlue"), CustomContextMenu ("Green", "ColorGreen"), CustomContextMenu ("Red", "ColorRed"), CustomContextMenu ("Yellow", "ColorYellow")]
         public float Percent;
@@ -29,14 +29,14 @@ namespace TurkeyWork.Stats {
             if (Time.time < lastExpenditure + RegenStartDelay.Value)
                 return;
 
-            Current = Mathf.Clamp (Current + (int) (Regen.Value * deltaTime), 0, MaxValue.Value);
-            Percent = Current / (float) MaxValue.Value;
+            Current.Value = Mathf.Clamp (Current.Value + (int) (Regen.Value * deltaTime), 0, MaxValue.Value);
+            Percent = Current.Value / (float) MaxValue.Value;
         }
 
         public void Recalculate () {
             MaxValue.Recalculate ();
-            Current = Mathf.Clamp (Current, 0, MaxValue.Value);
-            Percent = Current / (float) MaxValue.Value;
+            Current.Value = Mathf.Clamp (Current.Value, 0, MaxValue.Value);
+            Percent = Current.Value / (float) MaxValue.Value;
         }
 
 #if UNITY_EDITOR
