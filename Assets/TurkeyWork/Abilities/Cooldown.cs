@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityController : MonoBehaviour {
+namespace TurkeyWork.Abilities {
+
+    public class Cooldown {
 
 
+    }
 
 }

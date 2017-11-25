@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TurkeyWork.Actors;
 
 namespace TurkeyWork.Entities {
 
     public class Projectile : MonoBehaviour {
 
         public float Speed;
-        Player owner;
+        ActorBody owner;
 
-        public Projectile Create (Player player, Vector3 position, Quaternion rotation) {
+        public Projectile Create (ActorBody player, Vector3 position, Quaternion rotation) {
             var p = Instantiate (this, position, rotation);
             p.owner = player;
             return p;

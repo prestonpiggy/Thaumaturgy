@@ -1,39 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using TurkeyWork.Actors;
-using System.Linq;
 
 namespace TurkeyWork.Abilities {
 
-    [CreateAssetMenu (menuName = "TurkeyWork/Ability/Modular Ability")]
-    [ShowOdinSerializedPropertiesInInspector]
-    public class Ability : SerializedScriptableObject {
+    public class Ability : ScriptableObject {
 
-        [OdinSerialize] AbilityState[] States;
+        public AbilityInfo Use (MonoBehaviour user) {
+            var abilityInfo = new AbilityInfo () {
+                User = user
+            };
 
-        public virtual IEnumerator<AbilityInfo> Use (Player player) {
-            var abilityInfo = new AbilityInfo ();
-
-            yield return abilityInfo;
+            user.StartCoroutine (UseAbility (abilityInfo));
+            return abilityInfo;
         }
 
-        protected int abilityID;
-
-        private void OnEnable () {
-            abilityID = GetInstanceID ();
+        IEnumerator UseAbility (AbilityInfo abilityInfo) {
+            yield return null;
         }
 
-        protected void LogStart (Player player) {
-            Debug.Log ($"{player.name}: Started using an ability. ({Time.time})");          
-        }
+        void OnItrreupted (AbilityInfo info) {
 
-        protected void LogFinish (Player player) {
-            Debug.Log ($"{player.name}:Finished using an ability. ({Time.time})");
         }
-
         
     }
 
