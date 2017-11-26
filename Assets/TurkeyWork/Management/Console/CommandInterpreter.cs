@@ -12,8 +12,8 @@ namespace TurkeyWork.Management {
         public event System.Action OnCommandsUpated;
 
         private Dictionary<string, CommandBase> _commandDict = new Dictionary<string, CommandBase> ();
-        private Queue<string> _commandQueue = new Queue<string> ();
-        public List<string> commandHistory;
+        //private Queue<string> commandQueue = new Queue<string> ();
+        [NonSerialized] public List<string> commandHistory;
 
         public CommandConsole Console;
 

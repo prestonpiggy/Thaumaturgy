@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TurkeyWork.Management {
 
+    [RequireComponent (typeof (CommandInterpreter))]
     public sealed class CommandRegistryDisplay : MonoBehaviour {
 
         private CommandInterpreter interpreter;
@@ -15,23 +16,15 @@ namespace TurkeyWork.Management {
 
         void Awake () {
             interpreter = GetComponent<CommandInterpreter> ();
-            if (!interpreter) {
-                Debug.LogError ("Command Registry Display needs to be attached to the same GameObject with CommandInterpreter!");
-                return;
-            }
         }
 
         private void Start () {
             GetCommands ();
-            interpreter.OnCommandsUpated += OnCommandsUpdated;
-        }
-
-        private void OnCommandsUpdated () {
-            GetCommands ();
+            interpreter.OnCommandsUpated += GetCommands;
         }
 
         private void GetCommands () {
-            Commands = interpreter?.GetRegisteredCommands ();
+            Commands = interpreter.GetRegisteredCommands ();
         }
     }
 }
