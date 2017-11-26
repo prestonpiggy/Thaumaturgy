@@ -31,7 +31,7 @@ namespace TurkeyWork.World {
             }
         }
 
-        [RuntimeInitializeOnLoadMethod]
+        [RuntimeInitializeOnLoadMethod (RuntimeInitializeLoadType.AfterSceneLoad)]
         static void RuntimeInitialize () {
             Instance = FindActive ();
         }
