@@ -24,7 +24,6 @@ namespace TurkeyWork.Actors {
         }
 
         public void ResetCollisions () {
-            Debug.Log ("Reset?");
             CollisionState = 0;
         }
     }

@@ -9,6 +9,7 @@ using UdpKit;
 using System.Collections;
 using Bolt;
 
+#pragma warning disable 0618
 public interface IBoltPhotonCloudRoomProperties
 {
     ExitGames.Client.Photon.Hashtable CustomRoomProperties { get; }
@@ -109,21 +110,19 @@ public class PhotonPoller : Bolt.GlobalEventListener
     {
         public override void DebugReturn(DebugLevel level, string message)
         {
-            if (level == DebugLevel.ERROR)
-            {
-                Debug.LogError(message);
-            }
-            else if (level == DebugLevel.WARNING)
-            {
-                Debug.LogWarning(message);
-            }
-            else if (level == DebugLevel.INFO)
-            {
-                Debug.Log(message);
-            }
-            else if (level == DebugLevel.ALL)
-            {
-                Debug.Log(message);
+            switch (level) {
+            case DebugLevel.ERROR:
+                Debug.LogError (message);
+                break;
+            case DebugLevel.WARNING:
+                Debug.LogWarning (message);
+                break;
+            case DebugLevel.INFO:
+                Debug.Log (message);
+                break;
+            case DebugLevel.ALL:
+                Debug.Log (message);
+                break;
             }
         }
     }
@@ -359,10 +358,11 @@ public class PhotonPoller : Bolt.GlobalEventListener
             {
                 try
                 {
-                    PhotonSession session = new PhotonSession();
-                    session._roomName = r.Key;
-                    session._id = new Guid((r.Value.CustomProperties["UdpSessionId"] as String) ?? "");
-                    session._hostData = r.Value.CustomProperties["UserToken"] as Byte[];
+                    var session = new PhotonSession () {
+                        _roomName = r.Key,
+                        _id = new Guid ((r.Value.CustomProperties["UdpSessionId"] as String) ?? ""),
+                        _hostData = r.Value.CustomProperties["UserToken"] as Byte[],
+                    };
 
                     if (_config.UsePunchThrough)
                     {
@@ -881,3 +881,4 @@ public class PhotonPoller : Bolt.GlobalEventListener
     }
 
 }
+#pragma warning restore 0618

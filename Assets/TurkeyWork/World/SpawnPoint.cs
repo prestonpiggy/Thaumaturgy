@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour {
+namespace TurkeyWork.World {
 
-    public LayerMask CheckMask;
+    public class SpawnPoint : MonoBehaviour {
 
-    public bool CheckSafety () {
-        return CheckSafety (3f, true, CheckMask);
-    }
+        public LayerMask CheckMask;
 
-    public bool CheckSafety (float radius, bool allowVision) {
-        return CheckSafety (radius, allowVision, CheckMask);
-    }
+        public bool CheckSafety () {
+            return CheckSafety (3f, true, CheckMask);
+        }
 
-    public bool CheckSafety (float radius, bool allowVision, LayerMask checkMask) {
-        return Physics.CheckSphere (transform.position, radius, checkMask);
-    }
+        public bool CheckSafety (float radius, bool allowVision) {
+            return CheckSafety (radius, allowVision, CheckMask);
+        }
 
-    private void OnEnable () {
-        SpawnManager.RegisterSpawnPoint (this);
-    }
+        public bool CheckSafety (float radius, bool allowVision, LayerMask checkMask) {
+            return Physics.CheckSphere (transform.position, radius, checkMask);
+        }
 
-    private void OnDisable () {
-        SpawnManager.UnregisterSpawnPoint (this);
+        private void OnEnable () {
+            SpawnManager.RegisterSpawnPoint (this);
+        }
+
+        private void OnDisable () {
+            SpawnManager.UnregisterSpawnPoint (this);
+        }
+
     }
 
 }

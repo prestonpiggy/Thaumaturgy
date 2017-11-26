@@ -6,7 +6,12 @@ namespace TurkeyWork.Actors {
 
     public interface IActorMotor {
 
-        MotorState Move (Vector3 velocity);
+        Vector3 MovementDelta { get; }
+        Vector3 Velocity { get; }
+
+        MotorState State { get; }
+
+        MotorState Move (Vector3 velocity, float deltaTime);
     }
 
 }

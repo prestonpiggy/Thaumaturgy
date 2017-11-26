@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9259a9dd9af2354d92227343fae27c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeathEvent: {fileID: 0}
   Health:
     Current: 100
     Percent: 1
@@ -210,9 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0a45c2d80e8b94da6d7323615550e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundingVolume:
-    offset: {x: 0, y: 0.01}
-    expands: {x: 0.17, y: 0.21}
+  actorBounds:
+    m_Center: {x: 0, y: 1, z: 0}
+    m_Extent: {x: 0.5, y: 1, z: 0}
+  Collider: {fileID: 61758804040462318}
 --- !u!212 &212100221413153602
 SpriteRenderer:
   m_ObjectHideFlags: 1

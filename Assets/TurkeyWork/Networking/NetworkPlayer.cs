@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TurkeyWork.World;
+
 namespace TurkeyWork.Networking {
 
     public class NetworkPlayer {
@@ -11,6 +13,7 @@ namespace TurkeyWork.Networking {
 
         public bool IsServer { get { return Connection == null; } }
         public bool IsClient { get { return Connection != null; } }
+        public bool IsLocal { get { return PlayerEntity.isControlled; } }
 
         public BoltEntity SpawnPlayer () {
             if (PlayerEntity == null) {

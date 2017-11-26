@@ -54,10 +54,14 @@ namespace TurkeyWork.Networking {
             return instance.players.Find (player => player.Connection == connection);
         }
 
+        public static NetworkPlayer GetLocalPlayer () {
+            return instance.players.Find (player => player.IsLocal);
+        }
+
         public override void BoltStartDone () {
             InGame = true;
             if (BoltNetwork.isServer) {
-                BoltNetwork.LoadScene ("Test-Level");
+                World.WordLevelLayout.LoadLevelWithKey ("World Map");
             } else {
                 BoltNetwork.Connect (UdpKit.UdpEndPoint.Parse ("127.0.0.1:27000"));
             }

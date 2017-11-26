@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Blueprint<T> : ScriptableObject where T : BlueprintPart {
 
-	
+    	
 }

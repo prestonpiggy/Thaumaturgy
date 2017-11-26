@@ -6,6 +6,7 @@ namespace TurkeyWork.Actors {
 
     [RequireComponent (typeof (ActorBody))]
     public class ActorComponent : MonoBehaviour {
+
         private ActorBody parentActor;
         public ActorBody ParentActor => parentActor;
 
