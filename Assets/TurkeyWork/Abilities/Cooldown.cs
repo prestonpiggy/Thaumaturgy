@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blueprint<T> : ScriptableObject where T : BlueprintPart {
+namespace TurkeyWork.Abilities {
 
-    	
+    public class Cooldown {
+
+
+    }
+
 }

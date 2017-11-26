@@ -15,6 +15,9 @@ namespace TurkeyWork.Actors {
         public BoxCollider2D Collider;
 
         public bool HasCollider => Collider != null;
+
+        
+
     }
 
 }

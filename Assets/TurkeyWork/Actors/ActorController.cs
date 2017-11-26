@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bolt;
 
 namespace TurkeyWork.Actors {
 
-    [RequireComponent (typeof (ActorBody))]
-    public class ActorComponent : MonoBehaviour {
+    public abstract class ActorController : EntityEventListener<IActorState> {
 
         private ActorBody parentActor;
         public ActorBody ParentActor => parentActor;
@@ -15,5 +15,4 @@ namespace TurkeyWork.Actors {
         }
 
     }
-
 }
