@@ -13,6 +13,5 @@ public class InventorySlot : Slot
 
     public override void UpdateActor(Item item)
     {
-      
     }
 }

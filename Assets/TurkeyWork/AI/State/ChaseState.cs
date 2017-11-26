@@ -10,7 +10,7 @@ public class ChaseState : State
     public override void Execute(AIController ai)
     {
         ai.mSpeed = Mathf.Sign(ai.transform.position.x - ai.target.transform.position.x) < 0 ? 2.0f : -2.0f;
-        var state = ai.motor.Move(new Vector2(ai.mSpeed * Time.deltaTime, 0));
+        var state = ai.motor.Move(new Vector2(ai.mSpeed * Time.deltaTime, 0),Time.deltaTime);
         Debug.Log(state.CollisionState);
         if (state.CollisionState.HasFlag(CollisionInfo.Left))
             ai.mSpeed = 0f;

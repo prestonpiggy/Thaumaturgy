@@ -10,12 +10,9 @@ namespace TurkeyWork.Inventories
         public ActorAttributes actorAttributes;
         public Transform inventoryTransform;
 
-        private int currentInventory;
-
         public void Start()
         {
             Initialize();
-            currentInventory = 1;
         }
 
         /// <summary>
@@ -32,22 +29,25 @@ namespace TurkeyWork.Inventories
             {
                 inventoryItemSlots[i] = Instantiate(slotPrefabs[0], inventoryTransform.position, Quaternion.identity) as GameObject;
                 inventoryItemSlots[i].transform.SetParent(inventoryTransform);
-                inventoryItemSlots[i].GetComponent<Slot>().Initiliaze(actorInventories[currentInventory].InventoryItems[i], actorAttributes, actorInventories[currentInventory], actorInventories[0]);
+                inventoryItemSlots[i].GetComponent<Slot>().Initiliaze(actorInventories[1].InventoryItems[i], actorAttributes, actorInventories[1], actorInventories[0]);
             }
         }
 
         /// <summary>
-        /// Change displayed inventory
+        /// Update Inventory UI and display
         /// </summary>
         /// <param name="inventoryNumber"></param>
-        public void ChangeInventory(int inventoryNumber)
+        public void UpdateInventoryView(int inventoryNumber)
         {
-            currentInventory = inventoryNumber;
-            for (var i = 0; i < inventoryItemSlots.Length; i++)
-            {
-                inventoryItemSlots[i] = slotPrefabs[inventoryNumber-1];
-                inventoryItemSlots[i].GetComponent<Slot>().Initiliaze(actorInventories[inventoryNumber].InventoryItems[i], actorAttributes, actorInventories[inventoryNumber],actorInventories[0]);
-            }
+            var i = 0;
+
+            for (i = 0; i < equippedItemSlots.Length; i++)
+                equippedItemSlots[i].GetComponent<Slot>().Initiliaze(actorInventories[0].InventoryItems[i], actorAttributes, actorInventories[0], actorInventories[i + 1]);
+
+            for (i = 0; i < inventoryItemSlots.Length; i++)
+                inventoryItemSlots[i].GetComponent<Slot>().Initiliaze(actorInventories[inventoryNumber].InventoryItems[i], actorAttributes, actorInventories[inventoryNumber], actorInventories[0]);
+
+            Debug.Log(actorInventories[inventoryNumber].Name);
         }
     }
 }

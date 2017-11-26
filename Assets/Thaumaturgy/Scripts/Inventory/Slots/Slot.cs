@@ -25,7 +25,7 @@ namespace TurkeyWork.Inventories
         {
             image = gameObject.GetComponent<Image>();
             ItemInSlot = item;
-            ItemSprite = !item ? gameObject.GetComponent<Image>().sprite : null;
+            image.color = Random.ColorHSV(1.0f,1.0f,1.0f,1f);
             ParentInventory = pInventory;
             TargetInventory = tInventory;
         }
@@ -46,7 +46,7 @@ namespace TurkeyWork.Inventories
         /// </summary>
         /// <param name="item"></param>
         /// <param name="attributes"></param>
-        public void OnContentChange(Item item)
+        public int OnContentChange(Item item)
         {
             Item temp;
             if(TargetInventory.inventoryNumber == 0)
@@ -62,26 +62,8 @@ namespace TurkeyWork.Inventories
                 ParentInventory.RemoveFromInventory(ItemInSlot);
                 SetEmpty();
             }
-            /*
-            if (AllowedInput(item))
-            {
-                var returnItem = item;
-                if (IsEmpty())
-                {
-                    ItemInSlot = item;
-                    returnItem = null;
-                }
-                else
-                {
-                    var previous = ItemInSlot;
-                    SetEmpty();
-                    ItemInSlot = item;
-                    returnItem = previous;
-                }
-                UpdateActor(ItemInSlot);
-            }*/
+            return TargetInventory.inventoryNumber == 0 ? ParentInventory.inventoryNumber: TargetInventory.inventoryNumber;
         }
-
 
         public abstract bool AllowedInput(Item item);
 

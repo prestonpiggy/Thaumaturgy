@@ -18,6 +18,6 @@ public class InventoryTab : MonoBehaviour {
     /// <param name="inventoryNumber"></param>
     public void OnButtonPressed(int inventoryNumber)
     {
-        controller.ChangeInventory(inventoryNumber);
+        controller.UpdateInventoryView(inventoryNumber);
     }
 }
