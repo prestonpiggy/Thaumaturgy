@@ -11,7 +11,7 @@ namespace TurkeyWork.World {
 
         public static WordLevelLayout Instance { get; private set; }
 
-        [HideInInspector] private bool active;
+        [HideInInspector, SerializeField] private bool active;
 
         [OdinSerialize, InfoBox ("Active", "active")]
         public Dictionary<string, string> LevelLoadMap;
@@ -33,10 +33,10 @@ namespace TurkeyWork.World {
 
         [RuntimeInitializeOnLoadMethod]
         static void RuntimeInitialize () {
-            Instance = GetActiveLayout ();
+            Instance = FindActive ();
         }
 
-        static WordLevelLayout GetActiveLayout () {
+        static WordLevelLayout FindActive () {
             var all = Resources.LoadAll<WordLevelLayout> ("");
             foreach (var a in all)
                 if (a.active)
@@ -50,6 +50,11 @@ namespace TurkeyWork.World {
             foreach (var a in all)
                 a.active = false;
             active = true;
+        }
+
+        [UnityEditor.MenuItem ("TurkeyWork/Active Level Layout")]
+        static void SelectActive () {
+            UnityEditor.Selection.activeObject = FindActive ();
         }
 
     }
