@@ -286,7 +286,8 @@ GameObject:
   - component: {fileID: 1601553300}
   - component: {fileID: 1601553302}
   - component: {fileID: 1601553301}
-  m_Layer: 0
+  - component: {fileID: 1601553303}
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5376,6 +5377,19 @@ Tilemap:
     m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
+--- !u!19719996 &1601553303
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601553299}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1001 &2064106783
 Prefab:
   m_ObjectHideFlags: 0
