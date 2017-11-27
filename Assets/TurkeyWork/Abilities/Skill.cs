@@ -6,7 +6,7 @@ using Sirenix.Serialization;
 
 namespace TurkeyWork.Abilities {
 
-    [CreateAssetMenu (menuName = "TurkeyWork/Skill")]
+    [CreateAssetMenu (menuName = "TurkeyWork/Abilities/Skill")]
     public class Skill : SerializedScriptableObject {
 
         [HideIf ("hasCost")]

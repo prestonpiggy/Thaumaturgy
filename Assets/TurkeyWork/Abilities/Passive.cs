@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
-public class Passive : MonoBehaviour {
+namespace TurkeyWork.Abilities {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [CreateAssetMenu (menuName = "TurkeyWork/Abilities/Passive")]
+    public class Passive : SerializedScriptableObject {
+
+        
+    }
+
 }
