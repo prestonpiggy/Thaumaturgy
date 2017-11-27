@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace TurkeyWork.Abilities {
 
-    public class Cooldown {
+    [System.Serializable]
+    public struct Cooldown {
 
+        public int Duration;
+        public int StartFrame;
 
+        public bool IsActive => StartFrame + Duration < BoltNetwork.frame; 
     }
 
 }

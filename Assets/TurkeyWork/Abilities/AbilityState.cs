@@ -1,16 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-public class AbilityState : MonoBehaviour {
+namespace TurkeyWork.Abilities {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [System.Serializable]
+    internal abstract class AbilityState {
+
+        [System.Flags]
+        internal enum AbilityPropertyFlag { Animated = 1, Cancelable = 2, Interruptable = 4}
+
+        [SerializeField, EnumToggleButtons, Title ("Common")]
+        AbilityPropertyFlag propertyFlags;
+
+        [ShowIf ("IsAnimated")]
+        [SerializeField] string animation;
+
+        public bool IsInterruptable => propertyFlags.HasFlag (AbilityPropertyFlag.Interruptable);
+        public bool IsAnimated => propertyFlags.HasFlag (AbilityPropertyFlag.Animated);
+
+        public abstract void OnState (IAbilityUser user, ref AbilityInfo info);
+
+        public virtual void OnCancel (IAbilityUser user, ref AbilityInfo info) {
+
+        }
+
+        public virtual void OnInterrupt (IAbilityUser user, ref AbilityInfo info) {
+
+        }
+
+    }
+
 }
