@@ -206,6 +206,9 @@ GameObject:
   - component: {fileID: 697168051}
   - component: {fileID: 697168050}
   - component: {fileID: 697168049}
+  - component: {fileID: 697168054}
+  - component: {fileID: 697168053}
+  - component: {fileID: 697168052}
   m_Layer: 0
   m_Name: AnimTest
   m_TagString: Untagged
@@ -236,7 +239,7 @@ Animator:
   m_GameObject: {fileID: 697168048}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df82bbab5a7fc5a40a85882b6da78cdb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8caeaa0937135fc48917a81187ae3a1b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -258,6 +261,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697168052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697168048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f28e57689a7c84f936a7b48c6f016f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 0}
+  rayOffSet: 0.5
+  raycastDistance: 5
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  stateMachine: {fileID: 0}
+  motor: {fileID: 0}
+  Actor: {fileID: 0}
+  mSpeed: 0
+  cdTimer: 0
+  damage: 1
+  target: {fileID: 0}
+--- !u!114 &697168053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697168048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe8e9132534ac147964319910a57214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &697168054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 697168048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0a45c2d80e8b94da6d7323615550e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorBounds:
+    m_Center: {x: 0, y: 1, z: 0}
+    m_Extent: {x: 0.5, y: 1, z: 0}
+  Collider: {fileID: 0}
 --- !u!1 &942720549
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +459,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.1964285, y: 1.2678572}
+  m_Size: {x: 0.48214287, y: 0.76785713}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

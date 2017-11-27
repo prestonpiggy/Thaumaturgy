@@ -1,0 +1,617 @@
+fileFormatVersion: 2
+guid: b440d55b61c2bd4438cb21ff202812f0
+timeCreated: 1511791047
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "p\xE4\xE4kallo_kaikki_1"
+    21300002: "p\xE4\xE4kallo_kaikki_4"
+    21300004: "p\xE4\xE4kallo_kaikki_5"
+    21300006: "p\xE4\xE4kallo_kaikki_6"
+    21300008: "p\xE4\xE4kallo_kaikki_12"
+    21300010: "p\xE4\xE4kallo_kaikki_13"
+    21300012: "p\xE4\xE4kallo_kaikki_14"
+    21300014: "p\xE4\xE4kallo_kaikki_16"
+    21300016: "p\xE4\xE4kallo_kaikki_17"
+    21300018: "p\xE4\xE4kallo_kaikki_2"
+    21300020: "p\xE4\xE4kallo_kaikki_3"
+    21300022: "p\xE4\xE4kallo_kaikki_7"
+    21300024: "p\xE4\xE4kallo_kaikki_8"
+    21300026: "p\xE4\xE4kallo_kaikki_10"
+    21300028: "p\xE4\xE4kallo_kaikki_11"
+    21300030: "p\xE4\xE4kallo_kaikki_15"
+    21300032: "p\xE4\xE4kallo_kaikki_9"
+    21300034: "p\xE4\xE4kallo_kaikki_18"
+    21300036: "p\xE4\xE4kallo_kaikki_19"
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 56
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_1"
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 17
+        width: 19
+        height: 47
+      alignment: 9
+      pivot: {x: 0.56028384, y: 0.20516652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.123825, y: -10.073668}
+        - {x: -6.9002075, y: -7.498955}
+        - {x: -6.2001038, y: -22.52508}
+        - {x: 5.9252853, y: -23.012539}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_4"
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 17
+        width: 27
+        height: 46
+      alignment: 9
+      pivot: {x: 0.55273044, y: 0.16553651}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0.5, y: 23}
+        - {x: -13.5, y: 23}
+        - {x: -13.5, y: -23}
+        - {x: 7.5, y: -23}
+        - {x: 13.5, y: -13}
+        - {x: 13.5, y: 6}
+        - {x: 6.5, y: 16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_5"
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 17
+        width: 29
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5656128, y: 0.13667974}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 23}
+        - {x: -14.5, y: 12}
+        - {x: -14.5, y: 10}
+        - {x: -9.5, y: 6}
+        - {x: -12.5, y: 2}
+        - {x: -10.5, y: 4}
+        - {x: -12.5, y: 2}
+        - {x: -14.5, y: 2}
+        - {x: -14.5, y: -13}
+        - {x: -10.5, y: -23}
+        - {x: 14.5, y: -23}
+        - {x: 14.5, y: 19}
+        - {x: 4.5, y: 23}
+      - - {x: 10.5, y: 4}
+        - {x: 9.5, y: 1}
+        - {x: 11.5, y: -4}
+        - {x: 13.5, y: -6}
+        - {x: 14.5, y: -6}
+        - {x: 14.5, y: 2}
+        - {x: 12.5, y: 4}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_6"
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 17
+        width: 33
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4962699, y: 0.12964004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: 17}
+        - {x: -16.5, y: 14}
+        - {x: -16.5, y: -23}
+        - {x: 6.5, y: -23}
+        - {x: 11.5, y: -16}
+        - {x: 11.5, y: 1}
+        - {x: 1.5, y: 17}
+      - - {x: 9.5, y: -1}
+        - {x: 8.5, y: -5}
+        - {x: 10.5, y: -7}
+        - {x: 11.5, y: -7}
+        - {x: 14.5, y: -4}
+        - {x: 14.5, y: -2}
+        - {x: 12.5, y: 0}
+      - - {x: -7.5, y: 19}
+        - {x: -4.5, y: 20}
+        - {x: -4.5, y: 23}
+        - {x: -9.5, y: 23}
+        - {x: -9.5, y: 21}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_12"
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 17
+        width: 16
+        height: 51
+      alignment: 9
+      pivot: {x: 0.6363163, y: 0.1798043}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: 25.5}
+        - {x: -8, y: 16.5}
+        - {x: -8, y: 7.5}
+        - {x: -5, y: 4.5}
+        - {x: -8, y: 0.5}
+        - {x: -8, y: -25.5}
+        - {x: 8, y: -25.5}
+        - {x: 8, y: 20.5}
+        - {x: 2, y: 25.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_13"
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 17
+        width: 18
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5593228, y: 0.18609606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: 24}
+        - {x: -9, y: 22}
+        - {x: -9, y: -27}
+        - {x: 9, y: -27}
+        - {x: 9, y: 23}
+        - {x: 7, y: 24}
+      - - {x: 1, y: 25}
+        - {x: 1, y: 27}
+        - {x: -4, y: 27}
+        - {x: -2, y: 24}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_14"
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 17
+        width: 21
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5773548, y: 0.20357895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 27.5}
+        - {x: -10.5, y: -27.5}
+        - {x: 10.5, y: -27.5}
+        - {x: 10.5, y: 27.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_16"
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 17
+        width: 17
+        height: 66
+      alignment: 9
+      pivot: {x: 0.6656063, y: 0.18011764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1.5, y: 16}
+        - {x: -8.5, y: 10}
+        - {x: -8.5, y: -33}
+        - {x: 8.5, y: -33}
+        - {x: 8.5, y: 7}
+        - {x: 3.5, y: 16}
+      - - {x: -1.5, y: 31}
+        - {x: -2.5, y: 29}
+        - {x: -1.5, y: 26}
+        - {x: -7.5, y: 24}
+        - {x: -8.5, y: 23}
+        - {x: -8.5, y: 16}
+        - {x: 8.5, y: 16}
+        - {x: 8.5, y: 27}
+        - {x: 5.5, y: 31}
+      - - {x: -8.5, y: 33}
+        - {x: -8.5, y: 28}
+        - {x: -6.5, y: 28}
+        - {x: -3.5, y: 31}
+        - {x: -4.5, y: 33}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_17"
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 17
+        width: 17
+        height: 47
+      alignment: 9
+      pivot: {x: 0.64923453, y: 0.23506059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: 23.5}
+        - {x: -7.5, y: 15.5}
+        - {x: -8.5, y: 12.5}
+        - {x: -8.5, y: -23.5}
+        - {x: 8.5, y: -23.5}
+        - {x: 8.5, y: 14.5}
+        - {x: 4.5, y: 23.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_2"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 17
+        width: 27
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5601643, y: 0.19790454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5.5381393, y: -7.0977}
+        - {x: -7.325493, y: -19.38767}
+        - {x: 4.812958, y: -20.36259}
+        - {x: 7.975441, y: -8.975445}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_3"
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 17
+        width: 27
+        height: 44
+      alignment: 9
+      pivot: {x: 0.56016374, y: 0.17667016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1.5, y: 22}
+        - {x: -7.5, y: 22}
+        - {x: -13.5, y: 4}
+        - {x: -13.5, y: -7}
+        - {x: -11.5, y: -7}
+        - {x: -10.5, y: -22}
+        - {x: 10.5, y: -22}
+        - {x: 13.5, y: -14}
+        - {x: 13.5, y: 8}
+        - {x: 8.5, y: 18}
+      - - {x: -1.5, y: 13}
+        - {x: 0.5, y: 11}
+        - {x: 3.5, y: 12}
+        - {x: 3.5, y: 15}
+        - {x: 1.5, y: 17}
+        - {x: -1.5, y: 16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_7"
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 17
+        width: 19
+        height: 40
+      alignment: 9
+      pivot: {x: 0.6066252, y: 0.1116188}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -9.5, y: 20}
+        - {x: -9.5, y: -16}
+        - {x: -6.5, y: -20}
+        - {x: 7.5, y: -20}
+        - {x: 9.5, y: -19}
+        - {x: 9.5, y: 18}
+        - {x: 5.5, y: 20}
+      - - {x: -2.5, y: 14}
+        - {x: -4.5, y: 11}
+        - {x: -3.5, y: 10}
+        - {x: -2.5, y: 11}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_8"
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 17
+        width: 25
+        height: 42
+      alignment: 9
+      pivot: {x: 0.61753786, y: 0.1513962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: 21}
+        - {x: -12.5, y: -18}
+        - {x: -7.5, y: -21}
+        - {x: 12.5, y: -21}
+        - {x: 12.5, y: 21}
+      - - {x: -5.5, y: 15}
+        - {x: -4.5, y: 16}
+        - {x: 0.5, y: 16}
+        - {x: -1.5, y: 16}
+        - {x: -6.5, y: 12}
+        - {x: -5.5, y: 10}
+        - {x: -4.5, y: 11}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_10"
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 17
+        width: 31
+        height: 45
+      alignment: 9
+      pivot: {x: 0.5947886, y: 0.1838554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -15.5, y: 22.5}
+        - {x: -15.5, y: -16.5}
+        - {x: -11.5, y: -22.5}
+        - {x: 8.5, y: -22.5}
+        - {x: 15.5, y: -9.5}
+        - {x: 15.5, y: 9.5}
+        - {x: 11.5, y: 22.5}
+      - - {x: 10.5, y: -16.5}
+        - {x: 10.5, y: -17.5}
+        - {x: 13.5, y: -20.5}
+        - {x: 15.5, y: -19.5}
+        - {x: 15.5, y: -13.5}
+        - {x: 13.5, y: -13.5}
+      - - {x: -8.5, y: 11.5}
+        - {x: -3.5, y: 18.5}
+        - {x: -3.5, y: 12.5}
+        - {x: -5.5, y: 10.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_11"
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 17
+        width: 28
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5679561, y: 0.1863645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: 23}
+        - {x: -12, y: 23}
+        - {x: -14, y: 22}
+        - {x: -14, y: 14}
+        - {x: -13, y: 14}
+        - {x: -14, y: 14}
+        - {x: -14, y: -16}
+        - {x: -12, y: -23}
+        - {x: 8, y: -23}
+        - {x: 14, y: -11}
+        - {x: 14, y: 8}
+        - {x: 9, y: 20}
+      - - {x: 11, y: -19}
+        - {x: 13, y: -21}
+        - {x: 14, y: -21}
+        - {x: 14, y: -15}
+        - {x: 11, y: -16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_15"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 17
+        width: 21
+        height: 65
+      alignment: 9
+      pivot: {x: 0.6245059, y: 0.18067239}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 28.5}
+        - {x: -10.5, y: 24.5}
+        - {x: -10.5, y: -23.5}
+        - {x: -9.5, y: -32.5}
+        - {x: 10.5, y: -32.5}
+        - {x: 10.5, y: 28.5}
+      - - {x: -8.5, y: 27.5}
+        - {x: -10.5, y: 26.5}
+        - {x: -10.5, y: 21.5}
+        - {x: -8.5, y: 20.5}
+        - {x: -3.5, y: 20.5}
+        - {x: -2.5, y: 23.5}
+        - {x: -2.5, y: 24.5}
+        - {x: -3.5, y: 27.5}
+      - - {x: 2.5, y: 30.5}
+        - {x: 2.5, y: 32.5}
+        - {x: -2.5, y: 32.5}
+        - {x: -0.5, y: 29.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_9"
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 17
+        width: 30
+        height: 44
+      alignment: 9
+      pivot: {x: 0.6165029, y: 0.16195054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 9, y: 22}
+        - {x: -13, y: 22}
+        - {x: -14, y: 16}
+        - {x: -14, y: 9}
+        - {x: -9, y: 2}
+        - {x: -9, y: 3}
+        - {x: -15, y: 1}
+        - {x: -15, y: -11}
+        - {x: -5, y: -22}
+        - {x: 7, y: -22}
+        - {x: 15, y: -9}
+        - {x: 15, y: 14}
+        - {x: 13, y: 21}
+      - - {x: 10, y: -15}
+        - {x: 10, y: -17}
+        - {x: 13, y: -20}
+        - {x: 15, y: -20}
+        - {x: 15, y: -12}
+        - {x: 13, y: -12}
+      - - {x: -8, y: 11}
+        - {x: -4, y: 17}
+        - {x: 0, y: 17}
+        - {x: 2, y: 16}
+        - {x: 3, y: 16}
+        - {x: 2, y: 17}
+        - {x: -2, y: 17}
+        - {x: -6, y: 12}
+        - {x: -5, y: 10}
+        - {x: -5, y: 11}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_18"
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 17
+        width: 17
+        height: 43
+      alignment: 9
+      pivot: {x: 0.6682847, y: 0.2370519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4.5, y: 13.5}
+        - {x: 4.5, y: 7.5}
+        - {x: 4.5, y: 11.5}
+        - {x: 2.5, y: 15.5}
+        - {x: 1.5, y: 19.5}
+        - {x: 0.5, y: 21.5}
+        - {x: -8.5, y: 21.5}
+        - {x: -8.5, y: -21.5}
+        - {x: 7.5, y: -21.5}
+        - {x: 8.5, y: -19.5}
+        - {x: 8.5, y: 13.5}
+        - {x: 7.5, y: 14.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "p\xE4\xE4kallo_kaikki_19"
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 17
+        width: 17
+        height: 44
+      alignment: 9
+      pivot: {x: 0.66104305, y: 0.21389341}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.5, y: -22}
+        - {x: 8.5, y: -22}
+        - {x: 8.5, y: 9}
+        - {x: 4.5, y: 22}
+        - {x: -8.5, y: 22}
+      - - {x: 4.5, y: 13}
+        - {x: 4.5, y: 9}
+        - {x: 6.5, y: 7}
+        - {x: 8.5, y: 8}
+        - {x: 8.5, y: 13}
+        - {x: 7.5, y: 14}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
