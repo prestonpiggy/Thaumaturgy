@@ -8,7 +8,7 @@ AnimatorController:
   m_Name: Lurker AnimController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Speed
+  - m_Name: Velocity vertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -35,7 +35,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Velocity vertical
     m_EventTreshold: -0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102108071719276570}
@@ -59,7 +59,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Velocity vertical
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102688822772446230}
