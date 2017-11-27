@@ -24,22 +24,26 @@ namespace TurkeyWork.Actors {
         float minJumpVelocity;
         byte currentMultiJump;
 
-        public PlatformerMotor2D Motor { get; protected set; }
+        public IActorMotor Motor { get; protected set; }
         public ActorAttributes Attributes { get; protected set; }
 
         ICmdPlayerMovementInput input;
         CmdPlayerMovement inputCommand;
 
         Vector3 frameVelocity;
+        MotorState motorState;
 
         float currentHorizontal;
         bool abilityOverride;
 
+        Vector2 directionInput;
+        bool jumpFlag;
+
         // Shit implementation. For now.
         [System.NonSerialized] public bool OnLadder;
 
-        protected override void Awake () {
-            Motor = GetComponent<PlatformerMotor2D> ();
+        void Start () {
+            Motor = GetComponent<IActorMotor> ();
             Attributes = GetComponent<ActorAttributes> ();
             RecalculateJump ();
         }
@@ -52,14 +56,23 @@ namespace TurkeyWork.Actors {
             GameEvent.RaiseEvent ("Local Player Created");
         }
 
-        public override void SimulateController () {
-            input = CmdPlayerMovement.Create ();
-            input.Direction = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-            input.JumpFlag = Input.GetKeyDown (KeyCode.Space);
-            entity.QueueInput (input);
+        private void Update () {
+            if (directionInput == Vector2.zero)
+                directionInput = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+            if (jumpFlag == false)
+                jumpFlag = Input.GetKeyDown (KeyCode.Space);
         }
 
-        MotorState motorState;
+        public override void SimulateController () {
+            input = CmdPlayerMovement.Create ();
+            input.Direction = directionInput;
+            input.JumpFlag = jumpFlag;
+
+            entity.QueueInput (input);
+
+            ResetInputs ();
+        }
+
         public override void ExecuteCommand (Command command, bool resetState) {
             if (!command.IsFirstExecution)
                 return;
@@ -93,7 +106,7 @@ namespace TurkeyWork.Actors {
         }
 
         float GetHorizontalMove () {
-            var effectiveAcceleration = Motor.OnGround ? AccelerationTime : AccelerationTime / AirControl;
+            var effectiveAcceleration = motorState.OnGround ? AccelerationTime : AccelerationTime / AirControl;
             return Mathf.SmoothDamp (
                             frameVelocity.x,
                             inputCommand.Input.Direction.x * Attributes.MovementSpeed.Value001,
@@ -110,7 +123,7 @@ namespace TurkeyWork.Actors {
         }
 
         void CheckJump () {
-            if (Motor.OnGround) {
+            if (motorState.OnGround) {
                 if (inputCommand.Input.JumpFlag) {
                     if (currentMultiJump == 0) {
                         frameVelocity.y = maxJumpVelocity;
@@ -137,6 +150,11 @@ namespace TurkeyWork.Actors {
 
             maxJumpVelocity = absGravity * timeToApex;
             minJumpVelocity = -gravitySign * Mathf.Sqrt (2 * gravitySign * gravityY * timeToApex);
+        }
+
+        void ResetInputs () {
+            directionInput = Vector2.zero;
+            jumpFlag = false;
         }
     }
 

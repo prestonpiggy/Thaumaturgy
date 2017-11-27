@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1568726939661336
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 256
-  raysPerWorldUnit: 6
+  raysPerWorldUnit: 10
 --- !u!114 &114722374393230596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,6 +349,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 1, g: 0, b: 0, a: 1}
   Stamina:
     Current:
       Base: 100
@@ -368,6 +369,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
   Mana:
     Current:
       Base: 100
@@ -387,12 +389,13 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
   Armor:
     Current:
       Base: 100
       Value: 100
       Modifiers: []
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
@@ -406,12 +409,13 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
   Aegis:
     Current:
       Base: 100
       Value: 100
       Modifiers: []
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
@@ -425,6 +429,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
   MovementSpeed:
     Base: 300
     Value: 300
@@ -471,13 +476,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 193e42d0a687a4e30a740ef7383101ba, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 84e5a589ada284540a3e39dc4c408c99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.85}
+  m_Size: {x: 0.98214287, y: 1.3214285}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0

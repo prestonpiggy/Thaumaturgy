@@ -10,8 +10,9 @@ namespace TurkeyWork.Abilities {
         public Cooldown Cooldown;
 
         public bool IsInterruptable;
+        public bool IsCancelable;
         public bool IsDone;
-
+        public bool IsReady;
     }
 
 }

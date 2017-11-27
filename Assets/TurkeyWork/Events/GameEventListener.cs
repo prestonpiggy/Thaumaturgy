@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
 
 namespace TurkeyWork.Events {
 
     public class GameEventListener : MonoBehaviour, IEqualityComparer<GameEventListener> {
 
+        [AssetsOnly]
         [SerializeField] GameEvent gameEvent;
         [SerializeField] UnityEvent onEvent;
 

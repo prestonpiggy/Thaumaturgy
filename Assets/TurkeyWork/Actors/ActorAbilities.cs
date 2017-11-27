@@ -9,6 +9,8 @@ namespace TurkeyWork.Actors {
 
         public AbilitySlot[] AbilitySlots;
 
+        public List<Passive> PassiveAbilities;
+
         private void OnControllerUpdate () {
             /*
             if (abilityRoutine != null) {
@@ -27,7 +29,7 @@ namespace TurkeyWork.Actors {
 
         [System.Serializable]
         public struct AbilitySlot {
-            public Ability Ability;
+            public Skill Ability;
             public AbilityInfo Status;
         }
 

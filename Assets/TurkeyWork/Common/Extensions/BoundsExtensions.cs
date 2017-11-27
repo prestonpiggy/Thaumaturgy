@@ -18,7 +18,7 @@ namespace TurkeyWork {
             return new Vector3 (bounds.min.x, bounds.min.y);
         }
 
-        public static Vector3 BottmRight (this Bounds bounds) {
+        public static Vector3 BottomRight (this Bounds bounds) {
             return new Vector3 (bounds.max.x, bounds.min.y);
         }
     }
