@@ -13,6 +13,7 @@ namespace TurkeyWork.Stats {
 
         public float Value001 => Value / 100f;
 
+        [ReadOnly]
         public List<Modifier> Modifiers = new List<Modifier>();
 
         public Stat (int baseValue) {
@@ -26,6 +27,11 @@ namespace TurkeyWork.Stats {
 
         public void RemoveBuff (Modifier mod) {
             Modifiers.Remove (mod);
+        }
+
+        public void ClearAllBuffs () {
+            Modifiers.Clear ();
+            Recalculate ();
         }
 
         public void AddBuffAndRecalculate (Modifier mod) {

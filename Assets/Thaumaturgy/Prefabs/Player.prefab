@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1568726939661336
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 256
-  raysPerWorldUnit: 6
+  raysPerWorldUnit: 10
 --- !u!114 &114722374393230596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,6 +349,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 1, g: 0, b: 0, a: 1}
   Stamina:
     Current:
       Base: 100
@@ -368,6 +369,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
   Mana:
     Current:
       Base: 100
@@ -387,6 +389,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
   Armor:
     Current:
       Base: 100
@@ -406,6 +409,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
   Aegis:
     Current:
       Base: 100
@@ -425,6 +429,7 @@ MonoBehaviour:
       Value: 0
       Modifiers: []
     lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
   MovementSpeed:
     Base: 300
     Value: 300

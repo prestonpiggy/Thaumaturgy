@@ -68,3 +68,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  hasCost: 1
+  cost:
+    Stat: Mana Current
+    Amount: 20

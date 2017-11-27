@@ -85,6 +85,10 @@ namespace TurkeyWork.Actors {
 
         private void OnValidate () {
             Health.Percent = Health.Current.Value / (float) Health.MaxValue.Value;
+            Mana.Percent = Health.Current.Value / (float) Mana.MaxValue.Value;
+            Stamina.Percent = Health.Current.Value / (float) Stamina.MaxValue.Value;
+            Armor.Percent = Health.Current.Value / (float) Armor.MaxValue.Value;
+            Aegis.Percent = Health.Current.Value / (float) Aegis.MaxValue.Value;
         }
 
         void RegisterStats () {
