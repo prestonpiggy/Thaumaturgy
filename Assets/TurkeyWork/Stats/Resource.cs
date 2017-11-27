@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using Sirenix.OdinInspector;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace TurkeyWork.Stats {
 

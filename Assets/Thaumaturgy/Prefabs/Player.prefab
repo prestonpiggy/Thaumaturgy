@@ -395,7 +395,7 @@ MonoBehaviour:
       Base: 100
       Value: 100
       Modifiers: []
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
@@ -415,7 +415,7 @@ MonoBehaviour:
       Base: 100
       Value: 100
       Modifiers: []
-    Percent: 0
+    Percent: 1
     MaxValue:
       Base: 100
       Value: 100
@@ -476,13 +476,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 193e42d0a687a4e30a740ef7383101ba, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 84e5a589ada284540a3e39dc4c408c99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.85}
+  m_Size: {x: 0.98214287, y: 1.3214285}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
