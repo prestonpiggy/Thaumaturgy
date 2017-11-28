@@ -12,6 +12,8 @@ namespace TurkeyWork.Abilities {
 
         void OnAbilityInterrupted ();
 
+        bool DeductStat (StatCost statCost);
+
     }
 
 }

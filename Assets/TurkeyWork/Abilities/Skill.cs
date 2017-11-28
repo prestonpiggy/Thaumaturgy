@@ -12,14 +12,17 @@ namespace TurkeyWork.Abilities {
         [HideIf ("hasCost")]
         [SerializeField] bool hasCost;
 
-        [HideLabel, ShowIf ("hasCost"), Header ("Resource Cost"), CustomContextMenu ("Remove", "RemoveCost")]
-        [SerializeField] AbilityCost cost;
+        [HideLabel, ShowIf ("hasCost"), Header ("Resource Cost"), CustomContextMenu ("Remove", "EDITOR_RemoveCost")]
+        [SerializeField] StatCost cost;
 
         [OdinSerialize] AbilityState[] states = new AbilityState[0];
 
         public bool HasCost => hasCost;
 
         public bool Use (IAbilityUser user, ref AbilityInfo abilityInfo) {
+            if (hasCost && !user.DeductStat (cost))
+                return false;
+
             user.Behaviour.StartCoroutine (UseAbility (abilityInfo));
             return true;
         }
@@ -32,15 +35,11 @@ namespace TurkeyWork.Abilities {
 
         }
 
-        void RemoveCost () {
+#if UNITY_EDITOR
+        void EDITOR_RemoveCost () {
             hasCost = false;
         }
-        
-        [System.Serializable]
-        struct AbilityCost {
-            public string Stat;
-            public int Amount;
-        }
+#endif
     }
 
 }
