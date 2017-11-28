@@ -1,30 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+
+using TurkeyWork.Stats;
 using TurkeyWork.Abilities;
 
 namespace TurkeyWork.Actors {
 
-    public class ActorAbilities : ActorComponent {
+    public class ActorAbilities : ActorComponent, IAbilityUser {
+
+        ActorAttributes attributes;
 
         public AbilitySlot[] AbilitySlots;
 
         public List<Passive> PassiveAbilities;
 
-        private void OnControllerUpdate () {
-            /*
-            if (abilityRoutine != null) {
+        public MonoBehaviour Behaviour => this;
 
-                if (abilityOverride = abilityRoutine.Current.IsDone) {
-                    abilityRoutine = null;
-                }
-            } else if (Input.GetKeyDown (KeyCode.Mouse0)) {
-                if (abilityRoutine == null) {
-                    AbilityInfo = TestAbility.Use (this);
-                    StartCoroutine (abilityRoutine);
-                }
-            }
-            */
+        public bool DeductStat (StatCost statCost) {
+            Stat stat;
+
+            if (!attributes.TryGetStat (statCost.StatName, out stat))
+                return false;
+
+            return true;
+        }
+
+        public void OnAbilityCanceled () {
+            throw new System.NotImplementedException ();
+        }
+
+        public void OnAbilityInterrupted () {
+            throw new System.NotImplementedException ();
+        }
+
+        private void OnControllerUpdate () {
+            // Handler Ability Usage
+        }
+
+        protected override void Awake () {
+            base.Awake ();
+            attributes = GetComponent<ActorAttributes> ();
         }
 
         [System.Serializable]
