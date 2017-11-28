@@ -7,16 +7,16 @@ namespace TurkeyWork.Actors {
 
     public class ActorBody : MonoBehaviour {
 
-        [SerializeField, HideIf ("HasCollider")] Bounds actorBounds = new Bounds (
-            new Vector2 (0, 1), new Vector2 (1, 2)
-            );
-        public Bounds Bounds => Collider ? Collider.bounds : actorBounds;
+        public Bounds Bounds => Collider.bounds;
 
+        [Required, CustomContextMenu ("Find", "FindCollider")]
         public BoxCollider2D Collider;
 
         public bool HasCollider => Collider != null;
 
-        
+        void FindCollider () {
+            Collider = GetComponent<BoxCollider2D> ();
+        }
 
     }
 

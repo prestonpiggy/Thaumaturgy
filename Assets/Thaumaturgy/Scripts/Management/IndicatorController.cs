@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TurkeyWork.Actors;
 using TurkeyWork.HUD;
 using TurkeyWork.Stats;
+using TurkeyWork.Networking;
 
 public class IndicatorController : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class IndicatorController : MonoBehaviour {
         Foreground.color = IndicatorTemplate.colorGradients[0];
         Background.sprite = IndicatorTemplate.background ? IndicatorTemplate.background : Background.sprite;
 
-        targetActor = FindObjectOfType<PlayerController>();
+        targetActor = NetworkManager.GetLocalPlayer ().PlayerEntity.GetComponent<PlayerController> ();  
         actorAttributes = targetActor?.Attributes;
 
         switch (attributeName.ToLower())

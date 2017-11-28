@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 114969154430776104}
   - component: {fileID: 50703089605241448}
   - component: {fileID: 61532827412422054}
+  - component: {fileID: 95713077044768464}
+  - component: {fileID: 114790967161082120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -61,7 +63,7 @@ GameObject:
   - component: {fileID: 4556535960898192}
   - component: {fileID: 212007759357125132}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568726939661336}
   m_LocalRotation: {x: 0, y: 0, z: 0.000008726646, w: 1}
-  m_LocalPosition: {x: -0.404, y: 0.108, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4556535960898192}
@@ -194,6 +196,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.79}
   m_EdgeRadius: 0
+--- !u!95 &95713077044768464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568726939661336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df82bbab5a7fc5a40a85882b6da78cdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114254544078228040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,9 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0a45c2d80e8b94da6d7323615550e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorBounds:
-    m_Center: {x: 0, y: 1, z: 0}
-    m_Extent: {x: 0.5, y: 1, z: 0}
   Collider: {fileID: 61532827412422054}
 --- !u!114 &114509348475354874
 MonoBehaviour:
@@ -261,9 +277,9 @@ MonoBehaviour:
   _allowInstantiateOnClient: 1
   _persistThroughSceneLoads: 0
   _sceneObjectDestroyOnDetach: 0
-  _sceneObjectAutoAttach: 1
+  _sceneObjectAutoAttach: 0
   _alwaysProxy: 0
-  _detachOnDisable: 1
+  _detachOnDisable: 0
   _allowFirstReplicationWhenFrozen: 0
   _autoRemoveChildEntities: 0
 --- !u!114 &114731812019563846
@@ -318,6 +334,18 @@ MonoBehaviour:
   staticScene: 0
   doNotRenderMesh: 0
   lastLight2DType: 1
+--- !u!114 &114790967161082120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568726939661336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe44df360609784a8f100521e032b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95713077044768464}
 --- !u!114 &114969154430776104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,6 +469,14 @@ MonoBehaviour:
   GravityScale:
     Base: 200
     Value: 200
+    Modifiers: []
+  DamagePhysical:
+    Base: 10
+    Value: 10
+    Modifiers: []
+  DamageMagical:
+    Base: 10
+    Value: 10
     Modifiers: []
 --- !u!212 &212007759357125132
 SpriteRenderer:
