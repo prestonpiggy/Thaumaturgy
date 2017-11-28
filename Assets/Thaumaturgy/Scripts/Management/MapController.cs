@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TurkeyWork.World;
 
 public class MapController : MonoBehaviour {
 
@@ -53,8 +54,7 @@ public class MapController : MonoBehaviour {
     private void ChangeArea(Area loadArea)
     {
         Debug.Log(loadArea.AreaName + " LOADING");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(loadArea.AreaName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("WorldMap");
+        WordLevelLayout.LoadLevelWithKey(loadArea.AreaName);
     }
 
     // Update areas and assosiated components visibility and availability
@@ -138,4 +138,5 @@ public class MapController : MonoBehaviour {
         _areaDescription.GetComponentsInChildren<Text>()[0].text = selectedArea.AreaName;
         _areaDescription.GetComponentsInChildren<Text>()[1].text = selectedArea.AreaInfo;
     }
+
 }

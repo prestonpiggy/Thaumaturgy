@@ -67,6 +67,17 @@ namespace TurkeyWork.Inventories
 
         public abstract bool AllowedInput(Item item);
 
-        public abstract void UpdateActor(Item item);
+        public virtual void UpdateActor(Item item)
+        {
+            foreach (var mod in item.statAttributes)
+            {
+                TurkeyWork.Stats.Stat stat;
+                if (actorAttributes.TryGetStat(mod.TargetStat, out stat))
+                {
+                    stat.AddBuffAndRecalculate(mod.GetAsModifier ());
+                }
+            }
+            
+        }
     }
 }

@@ -17,6 +17,6 @@ public class WeaponSetSlot : Slot {
 
     public override void UpdateActor(Item item)
     {
-        throw new System.NotImplementedException();
+       
     }
 }

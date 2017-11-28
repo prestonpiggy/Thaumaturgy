@@ -17,22 +17,12 @@ public class IndicatorController : MonoBehaviour {
     private PlayerController targetActor;
     private Resource resource;
 
-    private void Awake()
+    private void Start()
     {
         Foreground.sprite = IndicatorTemplate.foreground ? IndicatorTemplate.foreground : Foreground.sprite;
         Foreground.color = IndicatorTemplate.colorGradients[0];
         Background.sprite = IndicatorTemplate.background ? IndicatorTemplate.background : Background.sprite;
 
-        /*if (GameManager.Instance.PlayerActor != null)
-        {
-            targetActor = GameManager.Instance.PlayerActor.Actor;
-            actorAttributes = targetActor.GetComponent<ActorAttributes>()?.GetAttribute<ActorAttributes>(attributeName);
-        }
-        else
-        {
-            enabled = false;
-            GameManager.Instance.PlayerCreated += OnPlayerCreated;
-        }*/
         targetActor = FindObjectOfType<PlayerController>();
         actorAttributes = targetActor?.Attributes;
 
@@ -52,7 +42,7 @@ public class IndicatorController : MonoBehaviour {
             default:
                 break;
         }
-        
+        Debug.Log(resource);
     }
 
     private void Reset()
@@ -70,16 +60,11 @@ public class IndicatorController : MonoBehaviour {
         previousPercent = resourcePercentage;
         resourcePercentage = resource.Percent;
 
+        Debug.Log(resource.Percent);
         // Setting fillAmount evaluate according to resources percentage
         // Curve sampled in editor
         // Percentage implements time
         Foreground.fillAmount = IndicatorTemplate.animationCurve.Evaluate(resourcePercentage);
-    }
-
-    void OnPlayerCreated(PlayerController player)
-    {
-        //actorAttributes = player.GetComponent<ActorAttributes>()?.GetAttribute<ActorAttributes>(attributeName);
-        enabled = true;
     }
 
     void OnActorDeath()

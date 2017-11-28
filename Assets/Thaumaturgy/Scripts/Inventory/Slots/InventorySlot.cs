@@ -8,7 +8,7 @@ public class InventorySlot : Slot
 {
     public override bool AllowedInput(Item item)
     {
-        return item ? true : false;
+        return item != null;
     }
 
     public override void UpdateActor(Item item)
