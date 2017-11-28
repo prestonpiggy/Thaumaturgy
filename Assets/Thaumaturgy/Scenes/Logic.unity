@@ -236,7 +236,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118733060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -258,10 +258,11 @@ GameObject:
   - component: {fileID: 857218023}
   - component: {fileID: 857218022}
   - component: {fileID: 857218021}
-  - component: {fileID: 857218025}
   - component: {fileID: 857218026}
   - component: {fileID: 857218027}
   - component: {fileID: 857218028}
+  - component: {fileID: 857218029}
+  - component: {fileID: 857218025}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -339,9 +340,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 857218020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9bb6183a07fd7f40b9de037c798bf94, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a27178ee1b2ca047a51523bb6c46890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedCamera: {fileID: 857218023}
 --- !u!114 &857218026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +454,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &857218029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857218020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bb6183a07fd7f40b9de037c798bf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1807880375
 GameObject:
   m_ObjectHideFlags: 0

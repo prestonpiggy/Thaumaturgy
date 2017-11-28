@@ -7,11 +7,12 @@ using Sirenix.Serialization;
 namespace TurkeyWork.World {
 
     [CreateAssetMenu (menuName = "TurkeyWork/World/Level Map")]
+    [HideMonoScript]
     public class WordLevelLayout : SerializedScriptableObject {
 
         public static WordLevelLayout Instance { get; private set; }
 
-        [HideInInspector] private bool active;
+        [HideInInspector, SerializeField] private bool active;
 
         [OdinSerialize, InfoBox ("Active", "active")]
         public Dictionary<string, string> LevelLoadMap;
@@ -31,19 +32,20 @@ namespace TurkeyWork.World {
             }
         }
 
-        [RuntimeInitializeOnLoadMethod]
+        [RuntimeInitializeOnLoadMethod (RuntimeInitializeLoadType.AfterSceneLoad)]
         static void RuntimeInitialize () {
-            Instance = GetActiveLayout ();
+            Instance = FindActive ();
         }
 
-        static WordLevelLayout GetActiveLayout () {
+        static WordLevelLayout FindActive () {
             var all = Resources.LoadAll<WordLevelLayout> ("");
             foreach (var a in all)
                 if (a.active)
                     return a;
-            throw new System.NullReferenceException ("World Layout reference not found!");
+            throw new System.NullReferenceException ("WorldLevelLayout reference not found!");
         }
 
+#if UNITY_EDITOR
         [HideIf ("active"), Button ("Set Active")]
         void DisableOthers () {
             var all = Resources.LoadAll<WordLevelLayout> ("");
@@ -51,6 +53,12 @@ namespace TurkeyWork.World {
                 a.active = false;
             active = true;
         }
+
+        [UnityEditor.MenuItem ("TurkeyWork/Active Level Layout")]
+        static void SelectActive () {
+            UnityEditor.Selection.activeObject = FindActive ();
+        }
+#endif
 
     }
 

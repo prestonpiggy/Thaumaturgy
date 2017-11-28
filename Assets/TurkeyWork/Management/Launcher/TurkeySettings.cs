@@ -19,7 +19,7 @@ namespace TurkeyWork.Launcher {
 
         public bool LoadFromStart;
 
-        [MenuItem ("Thaumaturkey/Turkey Settings")]
+        [MenuItem ("TurkeyWork/Turkey Settings")]
         public static void OpenTurkeySettings () {
             Debug.Log ("asd");
         }

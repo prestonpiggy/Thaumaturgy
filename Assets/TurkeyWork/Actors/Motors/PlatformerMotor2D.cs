@@ -67,18 +67,15 @@ namespace TurkeyWork.Actors {
             var moveX = movementDelta.x;
             var rayLength = Mathf.Abs(moveX) + SKIN_WIDTH;
 
-            //if (rayLength < 2 * SKIN_WIDTH)
-            //    rayLength = 2 * SKIN_WIDTH;
-
             var directionX = Mathf.Sign (moveX);
             var rayDir = directionX * Vector2.right;
 
             var collisionFlag = directionX == 1 ? CollisionInfo.Right : CollisionInfo.Left;
-            var rayOrigin = directionX == 1 ? actorBounds.BottmRight () : actorBounds.BottomLeft ();
+            var rayOrigin = directionX == 1 ? actorBounds.BottomRight () : actorBounds.BottomLeft ();
             rayOrigin.y += StepHeight;
             for (var i = 0; i < horizontalRayCount; i++) {
 #if DEBUG
-                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+                Debug.DrawRay (rayOrigin, rayDir * rayLength, Color.yellow);
 #endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.y += horizontalRaySpacing;
@@ -97,20 +94,17 @@ namespace TurkeyWork.Actors {
 
         void CheckVertical () {
             var moveY = movementDelta.y;
-            var rayLength = Mathf.Abs (moveY) + SKIN_WIDTH;
-
-            //if (rayLength < 2 * SKIN_WIDTH)
-            //    rayLength = 2 * SKIN_WIDTH;
+            var rayLength = Mathf.Abs (moveY) + SKIN_WIDTH + StepHeight;
 
             var directionY = Mathf.Sign (moveY);
             var rayDir = directionY * Vector2.up;
 
             var collisionFlag = directionY == 1 ? CollisionInfo.Above : CollisionInfo.Below;
-            var rayOrigin = directionY == 1 ? actorBounds.TopLeft () : actorBounds.BottomLeft ();
+            var rayOrigin = directionY == 1 ? actorBounds.TopLeft () : actorBounds.BottomLeft () + Vector3.up * StepHeight;
 
             for (var i = 0; i < verticalRayCount; i++) {
 #if DEBUG
-                Debug.DrawRay (rayOrigin, rayDir * rayLength * 10, Color.yellow);
+                Debug.DrawRay (rayOrigin, rayDir * rayLength, Color.yellow);
 #endif
                 var rayHit = Physics2D.Raycast (rayOrigin, rayDir, rayLength, CollisionMask);
                 rayOrigin.x += verticalRaySpacing;
@@ -119,13 +113,13 @@ namespace TurkeyWork.Actors {
                     continue;
 
                 rayLength = rayHit.distance;
-                moveY = (rayLength - SKIN_WIDTH) * directionY;
+                moveY = (rayLength - SKIN_WIDTH - StepHeight) * directionY;
                 collisions |= collisionFlag;
             }
             movementDelta.y = moveY;
         }
 
-        // Wurks?
+        // Wurks? Well, not used :D
         void ClimpSlope (float surfaceAngle) {
             state.SurfaceAngle = surfaceAngle;
 
