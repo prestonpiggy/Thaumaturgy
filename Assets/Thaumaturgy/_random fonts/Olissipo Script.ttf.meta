@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b332fd48fb106244984f1ffe115f5b23
+timeCreated: 1511821319
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Olissipo Script
+  fontNames:
+  - Olissipo Script
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

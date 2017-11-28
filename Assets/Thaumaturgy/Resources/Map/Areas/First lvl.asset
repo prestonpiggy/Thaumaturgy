@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c22e7c3aff100e49aeebf9c01624cbe, type: 3}
+  m_Name: First lvl
+  m_EditorClassIdentifier: 
+  areaName: Level-02
+  areaInfo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus
+    nisl in condimentum porttitor. Duis vitae elementum quam. Phasellus at varius
+    lacus. Sed sed pretium magna. Curabitur ac venenatis est. Phasellus euismod magna
+    magna, eget fermentum sapien convallis nec. Pellentesque habitant morbi tristique
+    senectus et netus et malesuada fames ac turpis egestas.
+  active: 0
+  available: 0
+  links:
+  - {fileID: 11400000, guid: af41fd63ac31dbc469e3f64ee9c6c00c, type: 2}
+  - {fileID: 11400000, guid: 4bc7769269225cc469b515763b89c6eb, type: 2}

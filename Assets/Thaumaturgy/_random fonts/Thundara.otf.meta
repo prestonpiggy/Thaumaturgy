@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c112e41ebec378541967f99c8b7687a4
+timeCreated: 1511821312
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Thundara
+  fontNames:
+  - Thundara
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

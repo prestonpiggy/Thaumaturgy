@@ -26,3 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Thaumaturgy/Scenes/Levels/Level-02.unity
     guid: 1f91fa35d2a985946b9cc77bfc83657b
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/HUD.unity
+    guid: 0e34a3d117b33fb46a52724f474d4a87
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/World Map.unity
+    guid: 6ad069e6252b07242a9fc97f2df4b831
