@@ -17,8 +17,13 @@ namespace TurkeyWork.Networking {
 
         public BoltEntity SpawnPlayer () {
             if (PlayerEntity == null) {
-                PlayerEntity = BoltNetwork.Instantiate (BoltPrefabs.Player, SpawnManager.GetSpawnPoint (), Quaternion.identity);
-
+                if (SpawnManager.HasSpawnPoints)
+                    PlayerEntity = BoltNetwork.Instantiate (BoltPrefabs.Player, SpawnManager.GetSpawnPoint (), Quaternion.identity);
+                else
+                {
+                    PlayerEntity = BoltNetwork.Instantiate(BoltPrefabs.Player);
+                    PlayerEntity.gameObject.SetActive(false);
+                }
                 if (IsServer)
                     PlayerEntity.TakeControl ();
                 else

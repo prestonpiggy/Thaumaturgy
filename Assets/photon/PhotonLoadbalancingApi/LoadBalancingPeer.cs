@@ -251,7 +251,7 @@ namespace ExitGames.Client.Photon.LoadBalancing
                 if (opParams.PlayerProperties != null && opParams.PlayerProperties.Count > 0)
                 {
                     op[ParameterCode.PlayerProperties] = opParams.PlayerProperties;
-                    op[ParameterCode.Broadcast] = true; // TODO: check if this also makes sense when creating a room?! // broadcast actor properties
+                    op[ParameterCode.Broadcast] = true; 
                 }
 
                 this.RoomOptionsToOpParameters(op, opParams.RoomOptions);

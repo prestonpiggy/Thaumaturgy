@@ -8,7 +8,7 @@ public class AttackState : State
 {
     public override void Execute(AIController ai)
     {       
-        if(ai.cdTimer > 1.0f)
+        if(ai.cdTimer > 0.5f)
         {
             Debug.Log ("FUCK");
             //aI.target?.GetComponent<Player>().TakeDamage(aI.damage);

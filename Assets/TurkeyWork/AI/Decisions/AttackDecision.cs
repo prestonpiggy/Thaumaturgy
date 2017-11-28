@@ -15,7 +15,7 @@ public class AttackDecision : Decision
             var distanceToPlayer = aI.transform.position - aI.target.transform.position;
             var x = Mathf.Abs(distanceToPlayer.x);
             var y = Mathf.Abs(distanceToPlayer.y);
-            if (x < 1.5f && y < 1.5f)
+            if (x < 1.0f && y < 1.0f)
                 return true;
         }
         return false;
