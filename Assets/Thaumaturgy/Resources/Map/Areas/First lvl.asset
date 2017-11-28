@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c22e7c3aff100e49aeebf9c01624cbe, type: 3}
   m_Name: First lvl
   m_EditorClassIdentifier: 
-  areaName: First lvl
+  areaName: Level-02
   areaInfo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus
     nisl in condimentum porttitor. Duis vitae elementum quam. Phasellus at varius
     lacus. Sed sed pretium magna. Curabitur ac venenatis est. Phasellus euismod magna
@@ -22,4 +22,3 @@ MonoBehaviour:
   links:
   - {fileID: 11400000, guid: af41fd63ac31dbc469e3f64ee9c6c00c, type: 2}
   - {fileID: 11400000, guid: 4bc7769269225cc469b515763b89c6eb, type: 2}
-  - {fileID: 11400000, guid: ba150fa126e9a9f4b9966c978250c868, type: 2}

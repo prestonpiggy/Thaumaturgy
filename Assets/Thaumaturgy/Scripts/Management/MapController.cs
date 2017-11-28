@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +36,7 @@ public class MapController : MonoBehaviour {
     {
         for (int i = 0; i < worldMap.Areas.Length; i++)
         {
+            areaButtons[i].GetComponentInChildren<Text>().text = worldMap.Areas[i].AreaName;
             areaPairs.Add(new KeyValuePair<Area, Button>(worldMap.Areas[i], areaButtons[i]));
             // Set the first area of map available from the start
             if (i == 0)

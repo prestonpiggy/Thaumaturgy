@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c22e7c3aff100e49aeebf9c01624cbe, type: 3}
   m_Name: Root
   m_EditorClassIdentifier: 
-  areaName: Root
+  areaName: Level-01
   areaInfo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus
     nisl in condimentum porttitor. Duis vitae elementum quam. Phasellus at varius
     lacus. Sed sed pretium magna. Curabitur ac venenatis est. Phasellus euismod magna

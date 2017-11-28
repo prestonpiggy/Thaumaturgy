@@ -6,7 +6,6 @@ public class Area : ScriptableObject {
     [SerializeField]
     private string areaName, areaInfo;
     [SerializeField]
-    [HideInInspector]
     private bool active, available;
     public Area[] links;
 

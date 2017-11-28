@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c22e7c3aff100e49aeebf9c01624cbe, type: 3}
   m_Name: Third lvl
   m_EditorClassIdentifier: 
-  areaName: Third lvl
+  areaName: Soosi-Arena
   areaInfo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus
     nisl in condimentum porttitor. Duis vitae elementum quam. Phasellus at varius
     lacus. Sed sed pretium magna. Curabitur ac venenatis est. Phasellus euismod magna
     magna, eget fermentum sapien convallis nec. Pellentesque habitant morbi tristique
     senectus et netus et malesuada fames ac turpis egestas.
-  active: 0
-  available: 0
+  active: 1
+  available: 1
   links:
   - {fileID: 11400000, guid: 8a38c516d6de35a4dba4f0fed1189952, type: 2}
