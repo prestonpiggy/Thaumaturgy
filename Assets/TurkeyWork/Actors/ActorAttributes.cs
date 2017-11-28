@@ -27,16 +27,16 @@ namespace TurkeyWork.Actors {
         [FoldoutGroup ("MANA", expanded: false), HideLabel]
         public Resource Mana;
 
-        [FoldoutGroup ("Defenses"), Title ("Armor"), HideLabel]
+        [FoldoutGroup ("ARMOR", expanded: false), HideLabel]
         public Resource Armor;
-        [FoldoutGroup ("Defenses"), Title ("Aegis"), HideLabel]
+        [FoldoutGroup ("AEGIS", expanded: false), HideLabel]
         public Resource Aegis; // Like magic resistance
 
-        [FoldoutGroup ("Movement"), Title ("Speed"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Speed"), HideLabel]
         public Stat MovementSpeed = new Stat (300);
-        [FoldoutGroup ("Movement"), Title ("Jump Height"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Jump Height"), HideLabel]
         public Stat JumpHeight = new Stat (240);
-        [FoldoutGroup ("Movement"), Title ("Gravity Scale"), HideLabel]
+        [FoldoutGroup ("MOVEMENT"), Title ("Gravity Scale"), HideLabel]
         public Stat GravityScale = new Stat (200); 
 
         public bool TryGetStat (string name, out Stat stat) {
@@ -85,6 +85,10 @@ namespace TurkeyWork.Actors {
 
         private void OnValidate () {
             Health.Percent = Health.Current.Value / (float) Health.MaxValue.Value;
+            Mana.Percent = Health.Current.Value / (float) Mana.MaxValue.Value;
+            Stamina.Percent = Health.Current.Value / (float) Stamina.MaxValue.Value;
+            Armor.Percent = Health.Current.Value / (float) Armor.MaxValue.Value;
+            Aegis.Percent = Health.Current.Value / (float) Aegis.MaxValue.Value;
         }
 
         void RegisterStats () {
@@ -92,27 +96,27 @@ namespace TurkeyWork.Actors {
                 { "Health Current", Health.Current },
                 { "Health Max", Health.MaxValue },
                 { "Health Regen", Health.Regen },
-                { "Health Regen Start Delay", Health.RegenStartDelay },
+                { "Health Regen Delay", Health.RegenStartDelay },
 
                 { "Mana Current", Mana.Current },
                 { "Mana Max", Mana.MaxValue },
                 { "Mana Regen", Mana.Regen },
-                { "Mana Regen Start Delay", Mana.RegenStartDelay },
+                { "Mana Regen Delay", Mana.RegenStartDelay },
 
                 { "Stamina Current", Stamina.Current },
                 { "Stamina Max", Stamina.MaxValue },
                 { "Stamina Regen", Stamina.Regen },
-                { "Stamina Regen Start Delay", Stamina.RegenStartDelay },
+                { "Stamina Regen Delay", Stamina.RegenStartDelay },
 
                 { "Armor Current", Armor.Current },
                 { "Armor Max", Armor.MaxValue },
                 { "Armor Regen", Armor.Regen },
-                { "Armor Regen Start Delay", Armor.RegenStartDelay },
+                { "Armor Regen Delay", Armor.RegenStartDelay },
 
                 { "Aegis Current", Aegis.Current },
                 { "Aegis Max", Aegis.MaxValue },
                 { "Aegis Regen", Aegis.Regen },
-                { "Aegis Regen Start Delay", Aegis.RegenStartDelay },
+                { "Aegis Regen Delay", Aegis.RegenStartDelay },
 
                 { "Movement Speed", MovementSpeed },
                 { "Jump Height", JumpHeight },

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using TurkeyWork.Actors;
 
 namespace TurkeyWork.World {
 
@@ -14,7 +15,7 @@ namespace TurkeyWork.World {
         public Vector2 Target;
 
         private void OnTriggerEnter (Collider other) {
-            var player = other.GetComponent<Player> ();
+            var player = other.GetComponent<PlayerController> ();
 
             if (player != null) {
                 switch (Mode) {

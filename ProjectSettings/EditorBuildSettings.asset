@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Thaumaturgy/Scenes/Start Scene.unity
+    path: Assets/Thaumaturgy/Scenes/Start Screen.unity
     guid: c0f943495514ab84ba1ecf854c83a948
   - enabled: 1
     path: Assets/Thaumaturgy/Scenes/Logic.unity
@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Thaumaturgy/Scenes/Main Menu.unity
     guid: b59a1f0a63b2685428e4ca43f8e1284f
-  - enabled: 1
-    path: Assets/Thaumaturgy/Scenes/Test-Level.unity
+  - enabled: 0
+    path: Assets/_Dev/Hirame-Test-Level.unity
     guid: cc9966c4fcc608544a2d9960399112d0
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/Levels/Cavern-01.unity
+    guid: fdaf357e8bdc3cb4385ce5ed5573bb49
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/Levels/Level-01.unity
+    guid: 0da537d32b30e6f458ba8c132b4e3784
+  - enabled: 1
+    path: Assets/Thaumaturgy/Scenes/Levels/Level-02.unity
+    guid: 1f91fa35d2a985946b9cc77bfc83657b
