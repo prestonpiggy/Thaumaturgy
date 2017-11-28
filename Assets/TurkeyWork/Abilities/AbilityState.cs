@@ -11,7 +11,7 @@ namespace TurkeyWork.Abilities {
         [System.Flags]
         internal enum AbilityPropertyFlag { Animated = 1, Cancelable = 2, Interruptable = 4}
 
-        [SerializeField, EnumToggleButtons, Title ("Common")]
+        [SerializeField, EnumToggleButtons, Title ("Common"), HideLabel]
         AbilityPropertyFlag propertyFlags;
 
         [ShowIf ("IsAnimated")]

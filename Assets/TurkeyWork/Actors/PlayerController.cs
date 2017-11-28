@@ -24,7 +24,6 @@ namespace TurkeyWork.Actors {
         float minJumpVelocity;
         byte currentMultiJump;
 
-        public IActorMotor Motor { get; protected set; }
         public ActorAttributes Attributes { get; protected set; }
 
         ICmdPlayerMovementInput input;
@@ -42,18 +41,18 @@ namespace TurkeyWork.Actors {
         // Shit implementation. For now.
         [System.NonSerialized] public bool OnLadder;
 
-        void Start () {
+        protected override void Awake () {
+            base.Awake ();
             Motor = GetComponent<IActorMotor> ();
             Attributes = GetComponent<ActorAttributes> ();
             RecalculateJump ();
+            enabled = false;
         }
 
         public override void Attached () {
+            enabled = true;
             state.SetTransforms (state.ActorTransform, transform);
-        }
-
-        public override void ControlGained () {
-            GameEvent.RaiseEvent ("Local Player Created");
+            RecalculateJump ();
         }
 
         private void Update () {

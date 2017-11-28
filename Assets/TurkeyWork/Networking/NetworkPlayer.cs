@@ -13,7 +13,7 @@ namespace TurkeyWork.Networking {
 
         public bool IsServer { get { return Connection == null; } }
         public bool IsClient { get { return Connection != null; } }
-        public bool IsLocal { get { return PlayerEntity.isControlled; } }
+        public bool IsLocal { get { return PlayerEntity.IsController (Connection); } }
 
         public BoltEntity SpawnPlayer () {
             if (PlayerEntity == null) {
@@ -22,12 +22,15 @@ namespace TurkeyWork.Networking {
                 else
                 {
                     PlayerEntity = BoltNetwork.Instantiate(BoltPrefabs.Player);
-                    PlayerEntity.gameObject.SetActive(false);
+                    PlayerEntity.gameObject.SetActive (false);
                 }
-                if (IsServer)
-                    PlayerEntity.TakeControl ();
-                else
-                    PlayerEntity.AssignControl (Connection);
+                if (PlayerEntity.gameObject.activeSelf) {
+                    if (IsServer)
+                        PlayerEntity.TakeControl ();
+                    else
+                        PlayerEntity.AssignControl (Connection);
+                }
+
             }
             return PlayerEntity;
         }

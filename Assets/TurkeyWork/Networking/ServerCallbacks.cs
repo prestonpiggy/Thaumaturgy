@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Bolt;
 
+using TurkeyWork.Events;
+
 namespace TurkeyWork.Networking {
 
     [BoltGlobalBehaviour (BoltNetworkModes.Host)]
     public class ServerCallbacks : GlobalEventListener {
+
+        public GameEvent LocalPlayerCreatedEvent;
 
         void Awake () {
             NetworkManager.CreateServerPlayer ();
@@ -26,7 +30,14 @@ namespace TurkeyWork.Networking {
 
         void SpawnPlayer (BoltConnection connection) {
             if (NetworkManager.InGame) {
-                NetworkManager.GetPlayer (connection).SpawnPlayer ();
+                var np = NetworkManager.GetPlayer (connection);
+                np.SpawnPlayer ();
+                if (np.IsLocal) {
+                    if (LocalPlayerCreatedEvent != null)
+                        LocalPlayerCreatedEvent.Raise ();
+                    else
+                        GameEvent.RaiseEvent ("Local Player Created");
+                }
             }
         }
 
