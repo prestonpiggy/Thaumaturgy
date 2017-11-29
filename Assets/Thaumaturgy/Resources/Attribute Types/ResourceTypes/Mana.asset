@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
   m_Name: Mana
   m_EditorClassIdentifier: 
-  current: {fileID: 0}
-  maximum: {fileID: 0}
-  regeneration: {fileID: 0}
-  regenerationDelay: {fileID: 0}
-  description: 
+  description: The source of the Aether.
+  current: {fileID: 11400000, guid: 739ebfab2b9eedd43a4b00466e87ca9b, type: 2}
+  maximum: {fileID: 11400000, guid: 8e1c3a4b8bd355042a5864d50ed915f7, type: 2}
+  regeneration: {fileID: 11400000, guid: 013ececed22edaf449125d55bbb84650, type: 2}
+  regenerationDelay: {fileID: 11400000, guid: 7096d477c9df62f45ac0d4b4847d6987, type: 2}

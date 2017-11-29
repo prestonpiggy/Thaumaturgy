@@ -7,16 +7,24 @@ namespace TurkeyWork.Stats {
 
     [System.Serializable]
     public class Stat {
+
+        public StatType Type;
+
         [HorizontalGroup, OnValueChanged ("Recalculate")]
-        public int Base;
-        [ReadOnly, HorizontalGroup] public int Value;
+        public int Base = 4;
+        [ReadOnly, HorizontalGroup] public int Value = 4;
 
         public float Value001 => Value / 100f;
 
         [ReadOnly]
         public List<Modifier> Modifiers = new List<Modifier>();
 
-        public Stat (int baseValue) {
+        public Stat (StatType type) {
+            Type = type;
+        }
+
+        public Stat (StatType type, int baseValue) {
+            Type = type;
             Base = baseValue;
             Value = baseValue;
         }

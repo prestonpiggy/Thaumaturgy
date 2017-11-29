@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  description: 
-  current: {fileID: 0}
-  maximum: {fileID: 0}
-  regeneration: {fileID: 0}
-  regenerationDelay: {fileID: 0}
+  description: Physical Resistance.
+  current: {fileID: 11400000, guid: f4cae253a1ae0ad4f866ff5ca8c64270, type: 2}
+  maximum: {fileID: 11400000, guid: f67b0a14a62b67a40b5b66c5896cd2bd, type: 2}
+  regeneration: {fileID: 11400000, guid: bc701fa3018c57444801b61c4fe7e495, type: 2}
+  regenerationDelay: {fileID: 11400000, guid: d1a0fc98440cdc04eba856bc2a7f2700, type: 2}

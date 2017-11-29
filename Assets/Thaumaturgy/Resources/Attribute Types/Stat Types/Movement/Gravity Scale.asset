@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
-  m_Name: Health Current
+  m_Name: Gravity Scale
   m_EditorClassIdentifier: 
-  isResourceComponent: 1
+  isResourceComponent: 0
   description: 

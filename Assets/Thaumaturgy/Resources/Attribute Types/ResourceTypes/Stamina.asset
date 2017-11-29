@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
   m_Name: Stamina
   m_EditorClassIdentifier: 
-  description: 
+  description: The huff-'n-puff.
   current: {fileID: 11400000, guid: a5762e55b23024c46b46faf00e492850, type: 2}
   maximum: {fileID: 11400000, guid: 3350ecdffab220a4c91d24115bae3499, type: 2}
   regeneration: {fileID: 11400000, guid: 8a02ea28304cffd4381bf96b47cccf0e, type: 2}

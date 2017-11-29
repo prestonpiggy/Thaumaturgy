@@ -7,12 +7,12 @@ namespace TurkeyWork.Management {
 
     public static class SaveSystem {
 
-        static string SAVE_PATH = Path.Combine (Application.persistentDataPath, "Profiles");
+        static string profileSavePath = ProfileManager.CurrentProfileDirectory;
 
         public static void Save<T> (string fileName, T objectToSave) {
-            var savePath = GetPath (fileName);
+            var fileSavePath = GetPath (fileName);
             var data = JsonUtility.ToJson (objectToSave);
-            File.WriteAllText (SAVE_PATH, data);
+            File.WriteAllText (fileSavePath, data);
         }
 
         public static bool Load<T> (string fileName, out T loadedObject) {
@@ -29,7 +29,7 @@ namespace TurkeyWork.Management {
         }
 
         static string GetPath (string fileName) {
-            return Path.Combine (SAVE_PATH, ProfileManager.CurrentProfile.Name, fileName); ;
+            return Path.Combine (profileSavePath, ProfileManager.CurrentProfile.Name, fileName); ;
         }
     }
 

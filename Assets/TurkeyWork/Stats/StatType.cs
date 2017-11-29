@@ -9,9 +9,13 @@ namespace TurkeyWork.Stats {
     public class StatType : ScriptableObject, IEqualityComparer<StatType> {
         [ReadOnly, ShowInInspector] int id;
 
+        [SerializeField] bool isResourceComponent;
+
+        [TextArea (4, 10)]
         [SerializeField] string description;
 
         public string Description => description;
+        public bool IsResourceComponent => isResourceComponent;
 
         public bool Equals (StatType x, StatType y) {
             return x.id == y.id;

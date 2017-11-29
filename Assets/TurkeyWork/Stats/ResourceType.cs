@@ -25,6 +25,7 @@ namespace TurkeyWork.Stats {
         [SerializeField, AssetsOnly] StatType regenerationDelay;
 
         public string Description => description;
+        public int ID => id;
 
         public StatType Curret => current;
         public StatType Maximum => maximum;
@@ -51,6 +52,10 @@ namespace TurkeyWork.Stats {
                 else if (stat.name.Contains ("Regeneration"))
                     regeneration = stat;
             }
+
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.SaveAssets ();
+#endif
         }
 
         public bool Equals (ResourceType x, ResourceType y) {

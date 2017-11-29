@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
   m_Name: Aegis
   m_EditorClassIdentifier: 
-  description: 
+  description: Magical Resistance.
   current: {fileID: 11400000, guid: 823587d77d8493d44949f836fee740c1, type: 2}
-  maximum: {fileID: 0}
-  regeneration: {fileID: 0}
-  regenerationDelay: {fileID: 0}
+  maximum: {fileID: 11400000, guid: 84e0cf95908df9845a887ecfb97445ee, type: 2}
+  regeneration: {fileID: 11400000, guid: a996f1cc7ba20f24892b78691bf79ffa, type: 2}
+  regenerationDelay: {fileID: 11400000, guid: 7c6b7c9ae8bffcd49ad151dccb95ee17, type: 2}

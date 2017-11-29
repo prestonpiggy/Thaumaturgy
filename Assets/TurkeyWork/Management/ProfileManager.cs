@@ -11,6 +11,14 @@ namespace TurkeyWork.Management {
 
         public static PlayerProfile CurrentProfile { get; private set; }
 
+        public static string CurrentProfileDirectory {
+            get {
+                if (CurrentProfile == null)
+                    return null;
+                return Path.Combine (Application.persistentDataPath, "Profiles", CurrentProfile.Name);
+            }
+        }
+
         public static bool LoadPlayerProfile (string name) {
             return true;
         }

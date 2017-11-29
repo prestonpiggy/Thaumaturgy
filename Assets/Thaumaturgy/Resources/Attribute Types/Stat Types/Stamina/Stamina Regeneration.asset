@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
   m_Name: Stamina Regeneration
   m_EditorClassIdentifier: 
+  isResourceComponent: 1
   description: 

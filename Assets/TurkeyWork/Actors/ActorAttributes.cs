@@ -34,16 +34,16 @@ namespace TurkeyWork.Actors {
         public Resource Aegis; // Like magic resistance
 
         [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Speed"), HideLabel]
-        public Stat MovementSpeed = new Stat (300);
+        public Stat MovementSpeed;
         [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Jump Height"), HideLabel]
-        public Stat JumpHeight = new Stat (240);
+        public Stat JumpHeight;
         [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Gravity Scale"), HideLabel]
-        public Stat GravityScale = new Stat (200);
+        public Stat GravityScale;
 
         [FoldoutGroup ("DAMAGE", expanded: false), Title ("Physical Damage"), HideLabel]
-        public Stat DamagePhysical = new Stat (10);
+        public Stat DamagePhysical;
         [FoldoutGroup ("DAMAGE", expanded: false), Title ("Magical Damage"), HideLabel]
-        public Stat DamageMagical = new Stat (10);
+        public Stat DamageMagical;
 
         [System.Obsolete ("Consider using a StatType instead")]
         public bool TryGetStat (string name, out Stat stat) {
