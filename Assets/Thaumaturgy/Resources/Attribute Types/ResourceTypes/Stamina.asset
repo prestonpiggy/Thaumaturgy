@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
+  m_Name: Stamina
+  m_EditorClassIdentifier: 
+  description: 
+  current: {fileID: 11400000, guid: a5762e55b23024c46b46faf00e492850, type: 2}
+  maximum: {fileID: 11400000, guid: 3350ecdffab220a4c91d24115bae3499, type: 2}
+  regeneration: {fileID: 11400000, guid: 8a02ea28304cffd4381bf96b47cccf0e, type: 2}
+  regenerationDelay: {fileID: 11400000, guid: 2b2afb1750424cb44a7d4530318f3c56, type: 2}

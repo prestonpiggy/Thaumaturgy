@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c06a1594ca2a142b6b6b56e81cec7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoadAtStart: 1
+  Delay: 4
   SceneToLoad: Main Menu
 --- !u!114 &14375803
 MonoBehaviour:
@@ -277,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764018077
 RectTransform:
   m_ObjectHideFlags: 0

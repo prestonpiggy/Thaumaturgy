@@ -10,11 +10,8 @@ namespace TurkeyWork.Management {
 
     public sealed partial class TurkeySettings : ScriptableObject {
 
-        private string gameVersion = "0.0.0.01a";
-        private string lastProfile;
-
-        public string GameVersion => gameVersion;
-        public string LastProfile => lastProfile;
+        public string GameVersion = "0.0.0.01a";
+        public string LastProfile;
     }
 
 #if UNITY_EDITOR

@@ -17,7 +17,18 @@ namespace TurkeyWork.Management {
         public UnityEvent OnProfileCreationFailed;
 
         public void TryCreateProfile () {
+            TryCreateProfile (ProfileNameInput.text);
+        }
 
+        public void TryCreateProfile (string name) {
+            ProfileNameInput.interactable = false;
+            CreateProfileButton.interactable = false;
+
+            if (TurkeyLauncher.CreateProfile (name)) {
+                OnProfileCreated.Invoke ();
+            } else {
+                OnProfileCreationFailed.Invoke ();
+            }
         }
 
         [Button]
