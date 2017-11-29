@@ -15,8 +15,6 @@ namespace TurkeyWork.Management {
         [SerializeField, HideInInspector] private TurkeySettings defaultSettings;
         private string settingsDataPath;
 
-        public static PlayerProfile CurrentProfile { get; private set; }
-
         private void Awake () {
             settingsDataPath = Path.Combine (Application.persistentDataPath, "LauncherSettings.json");
         }
@@ -31,36 +29,6 @@ namespace TurkeyWork.Management {
             }
             Settings = ScriptableObject.CreateInstance<TurkeySettings> ();
             JsonUtility.FromJsonOverwrite (data, Settings);
-        }
-
-        public static bool LoadPlayerProfile (string name) {
-            return true;
-        }
-
-        public static bool CreateProfile (string name) {
-            var path = Path.Combine (Application.persistentDataPath, "Profiles", name);
-            if (Directory.Exists (path))
-                return false;
-            Directory.CreateDirectory (path);
-            path = Path.Combine (path, "PlayerProfile.json");
-            CurrentProfile = new PlayerProfile (name);
-
-            Instance.Settings.LastProfile = name;
-
-            File.WriteAllText (path, JsonUtility.ToJson (CurrentProfile));
-            Debug.Log ($"[TurkeyLauncher]: Player Profile created ({name}).");
-            return true;
-        }
-
-        public static bool TryLoadLastProfile () {
-            if (string.IsNullOrEmpty (Instance.Settings.LastProfile)) {
-                Debug.Log ("[TurkeyLauncher]: Could not load last Player Profile.");
-                return false;
-            }
-            var path = Path.Combine (Application.persistentDataPath, "Profiles", Instance.Settings.LastProfile, "PlayerProfile.json");
-            var json = File.ReadAllText (path);
-            CurrentProfile = JsonUtility.FromJson<PlayerProfile> (json);
-            return true;
         }
 
         [RuntimeInitializeOnLoadMethod]

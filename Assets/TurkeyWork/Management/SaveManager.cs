@@ -29,7 +29,7 @@ namespace TurkeyWork.Management {
         }
 
         static string GetPath (string fileName) {
-            return Path.Combine (SAVE_PATH, TurkeyLauncher.CurrentProfile.Name, fileName); ;
+            return Path.Combine (SAVE_PATH, ProfileManager.CurrentProfile.Name, fileName); ;
         }
     }
 

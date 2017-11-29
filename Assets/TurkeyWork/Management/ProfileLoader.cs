@@ -17,8 +17,8 @@ namespace TurkeyWork.Management {
         
         void Start () {
             if (LoadAtStart) {
-                if (TurkeyLauncher.CurrentProfile == null) {
-                    if (TurkeyLauncher.TryLoadLastProfile ()) {
+                if (ProfileManager.CurrentProfile == null) {
+                    if (ProfileManager.TryLoadLastProfile ()) {
                         PlayerLoadedEvent.Raise ();
                     } else {
                         SceneManager.LoadScene (CreateProfileScene, LoadSceneMode.Additive);
