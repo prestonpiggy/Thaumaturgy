@@ -1,36 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
 using TurkeyWork.Players;
-namespace TurkeyWork.Launcher {
+using TurkeyWork.Events;
+
+namespace TurkeyWork.Management {
 
     public sealed class TurkeyLauncher : SingletonBehaviour<TurkeyLauncher> {
-
-        public event System.Action PlayerProfileLoaded;
-        public event System.Action<PlayerProfile> PlayerProfileUpdated;
 
         public TurkeySettings Settings { get; private set; }
         [SerializeField, HideInInspector] private TurkeySettings defaultSettings;
         private string settingsDataPath;
 
-        public PlayerProfile CurrentProfile { get; private set; }
-
-        public string currentProfile;
+        public static PlayerProfile CurrentProfile { get; private set; }
 
         private void Awake () {
-            settingsDataPath = Path.Combine (Application.persistentDataPath, "settings.json");
-        }
-
-        private void Start () {
-            // TEMP!
-            LoadProfile (Settings.LastProfile);
+            settingsDataPath = Path.Combine (Application.persistentDataPath, "LauncherSettings.json");
         }
 
         public void ReloadSettings () {
-            print (settingsDataPath);
             string data;
             if (!File.Exists (settingsDataPath)) {
                 data = JsonUtility.ToJson (defaultSettings ?? ScriptableObject.CreateInstance<TurkeySettings> ());
@@ -42,10 +33,34 @@ namespace TurkeyWork.Launcher {
             JsonUtility.FromJsonOverwrite (data, Settings);
         }
 
-        public void LoadProfile (string profileName) {
-            CurrentProfile = new PlayerProfile ();
-            // Else just load the profile.
-            PlayerProfileUpdated?.Invoke (CurrentProfile);
+        public static bool LoadPlayerProfile (string name) {
+            return true;
+        }
+
+        public static bool CreateProfile (string name) {
+            var path = Path.Combine (Application.persistentDataPath, "Profiles", name);
+            if (Directory.Exists (path))
+                return false;
+            Directory.CreateDirectory (path);
+            path = Path.Combine (path, "PlayerProfile.json");
+            CurrentProfile = new PlayerProfile (name);
+
+            Instance.Settings.LastProfile = name;
+
+            File.WriteAllText (path, JsonUtility.ToJson (CurrentProfile));
+            Debug.Log ($"[TurkeyLauncher]: Player Profile created ({name}).");
+            return true;
+        }
+
+        public static bool TryLoadLastProfile () {
+            if (string.IsNullOrEmpty (Instance.Settings.LastProfile)) {
+                Debug.Log ("[TurkeyLauncher]: Could not load last Player Profile.");
+                return false;
+            }
+            var path = Path.Combine (Application.persistentDataPath, "Profiles", Instance.Settings.LastProfile, "PlayerProfile.json");
+            var json = File.ReadAllText (path);
+            CurrentProfile = JsonUtility.FromJson<PlayerProfile> (json);
+            return true;
         }
 
         [RuntimeInitializeOnLoadMethod]

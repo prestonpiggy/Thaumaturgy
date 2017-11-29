@@ -6,12 +6,12 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace TurkeyWork.Launcher {
+namespace TurkeyWork.Management {
 
     public sealed partial class TurkeySettings : ScriptableObject {
 
-        public string GameVersion { get; private set; } = "0.0.0.01a";
-        public string LastProfile { get; private set; } = "Default";
+        public string GameVersion = "0.0.0.01a";
+        public string LastProfile;
     }
 
 #if UNITY_EDITOR
