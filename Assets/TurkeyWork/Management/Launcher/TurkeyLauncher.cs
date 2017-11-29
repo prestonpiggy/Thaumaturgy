@@ -19,6 +19,13 @@ namespace TurkeyWork.Management {
             settingsDataPath = Path.Combine (Application.persistentDataPath, "LauncherSettings.json");
         }
 
+        public void SaveSettings () {
+            if (Settings == null)
+                return;
+            var data = JsonUtility.ToJson (Settings);
+            File.WriteAllText (settingsDataPath, data);
+        }
+
         public void ReloadSettings () {
             string data;
             if (!File.Exists (settingsDataPath)) {

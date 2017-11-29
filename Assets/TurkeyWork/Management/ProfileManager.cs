@@ -24,15 +24,16 @@ namespace TurkeyWork.Management {
             CurrentProfile = new PlayerProfile (name);
 
             TurkeyLauncher.Instance.Settings.LastProfile = name;
-
+            TurkeyLauncher.Instance.SaveSettings ();
+            
             File.WriteAllText (path, JsonUtility.ToJson (CurrentProfile));
-            Debug.Log ($"[TurkeyLauncher]: Player Profile created ({name}).");
+            Debug.Log ($"[{nameof (ProfileManager)}]: Player Profile created ({name}).");
             return true;
         }
 
         public static bool TryLoadLastProfile () {
             if (string.IsNullOrEmpty (TurkeyLauncher.Instance.Settings.LastProfile)) {
-                Debug.Log ("[TurkeyLauncher]: Could not load last Player Profile.");
+                Debug.Log ($"[{nameof (ProfileManager)}]: Could not load last Player Profile.");
                 return false;
             }
             var path = Path.Combine (
