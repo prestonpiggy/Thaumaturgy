@@ -9,6 +9,10 @@ namespace TurkeyWork.Players {
 
         [SerializeField] private string name = "<PlayerName>";
         public string Name => name;
+
+        public PlayerProfile (string name) {
+            this.name = name;
+        }
     }
 
 }

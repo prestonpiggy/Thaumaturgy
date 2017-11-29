@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: e916cf7313a6b2d44bd4ed137a2464c2
-timeCreated: 1511565817
+timeCreated: 1511954873
 licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PlayerCreatedEvent: {fileID: 11400000, guid: 02e7d21a154acb144bcaf3c3598e49e1,
+      type: 2}
+  - defaultSettings: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

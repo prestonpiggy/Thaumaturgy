@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 public class ScrollRect : MonoBehaviour {
 
     public bool ScrollAtStart;
+    public bool AutoUpdate;
     public float StartDelay = 0f;
     public float ScrollDuration = 4f;
 
@@ -19,9 +20,15 @@ public class ScrollRect : MonoBehaviour {
     [CustomContextMenu ("From Object", "SetTargetFromObject")]
     public Rect TargetRect;
 
+    Coroutine scrollRoutine;
+
     private void Start () {
         if (ScrollAtStart)
             StartCoroutine (Scroll ());
+    }
+
+    public void StartScroll () {
+        scrollRoutine = StartCoroutine (Scroll ());
     }
 
     IEnumerator Scroll () {
@@ -34,20 +41,25 @@ public class ScrollRect : MonoBehaviour {
         }
         ScrollPercent = 1;
         rectTransform.position = StartRect.position + (TargetRect.position - StartRect.position) * Curve.Evaluate (ScrollPercent);
-        yield return null;
+        scrollRoutine = null;
     }
 
     void SetStartFromObject () {
         StartRect = GetComponent<RectTransform> ().rect;
         StartRect.x = -StartRect.x;
+        //TargetRect.y = -TargetRect.y;
     }
 
     void SetTargetFromObject () {
         TargetRect = GetComponent<RectTransform> ().rect;
         TargetRect.x = -TargetRect.x;
+        //TargetRect.y = -TargetRect.y;
     }
 
     private void OnValidate () {
+        if (!AutoUpdate)
+            return;
+
         var rectTransform = GetComponent<RectTransform> ();
         rectTransform.position = StartRect.position + (TargetRect.position - StartRect.position) * Curve.Evaluate (ScrollPercent);
     }

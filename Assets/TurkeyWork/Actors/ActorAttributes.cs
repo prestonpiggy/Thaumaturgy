@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -15,7 +16,7 @@ namespace TurkeyWork.Actors {
         static bool buffUpdateDone;
 
         // This will probably get replaced with a static string to int table and a list for all actors containen indexed references 
-        Dictionary<string, Stat> statsRegistry;
+        Dictionary<string, Stat> statsDictionary;
 
         [AssetsOnly]
         public GameEvent OnDeathEvent;
@@ -46,11 +47,11 @@ namespace TurkeyWork.Actors {
 
         [System.Obsolete ("Consider using a StatType instead")]
         public bool TryGetStat (string name, out Stat stat) {
-            return statsRegistry.TryGetValue (name, out stat);
+            return statsDictionary.TryGetValue (name, out stat);
         }
 
         public bool TryGetStat (StatType type, out Stat stat) {
-            return statsRegistry.TryGetValue (type.name, out stat);
+            return statsDictionary.TryGetValue (type.name, out stat);
         }
 
         public void RegisterTimedBuff (Stat stat, Modifier buff) {
@@ -71,7 +72,7 @@ namespace TurkeyWork.Actors {
                     if (timedBuffs[i].Buff.ExpireTime <= Time.time) {
                         timedBuffs[i].RemoveBuff ();
                         timedBuffs.RemoveAt (i);
-                        --i;
+                        i--;
                     }
                 }
                 buffUpdateDone = true;
@@ -102,7 +103,7 @@ namespace TurkeyWork.Actors {
         }
 
         void RegisterStats () {
-            statsRegistry = new Dictionary<string, Stat> () {
+            statsDictionary = new Dictionary<string, Stat> () {
                 { "Health Current", Health.Current },
                 { "Health Max", Health.MaxValue },
                 { "Health Regen", Health.Regen },
@@ -135,6 +136,35 @@ namespace TurkeyWork.Actors {
                 { "Damage Physical", DamagePhysical },
                 { "Damage Macigal", DamageMagical },
             };
+        }
+
+        void LoadData () {
+            List<StatData> saveData;
+
+            if (Management.SaveSystem.Load ("Stats", out saveData)) {
+                foreach (var stat in saveData) {
+                    if (statsDictionary.ContainsKey (stat.Name))
+                        statsDictionary[stat.Name] = stat.Data;
+                    else
+                        statsDictionary.Add (stat.Name, stat.Data);
+                }
+            }
+        }
+
+        void SaveData () {
+           var saveData = new List<StatData> (statsDictionary.Keys.Count);
+            foreach (var entry in statsDictionary) {
+                saveData.Add (new StatData () {
+                    Name = entry.Key,
+                    Data = entry.Value
+                });
+            }
+            Management.SaveSystem.Save ("Stats", saveData);
+        }
+
+        struct StatData {
+            public string Name;
+            public Stat Data;
         }
 
         struct BuffStatLink {

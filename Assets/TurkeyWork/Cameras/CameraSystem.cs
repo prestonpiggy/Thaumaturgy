@@ -19,8 +19,6 @@ namespace TurkeyWork.Cameras
         public CinemachineVirtualCamera cam;
         public CinemachineTransposer cam1;
         public Queue postmoves = new Queue();
-        [AssetsOnly]
-        public GameEvent LocalPlayerCreated;
 
         GameObject player;
         Camera mainCamera;
@@ -33,17 +31,15 @@ namespace TurkeyWork.Cameras
         float TimeSpend = 0;
         // Use this for initialization
         void Start () {
+            enabled = false;
+
             DontDestroyOnLoad (this);
             cam = Instantiate (cam, transform.position, Quaternion.identity, transform);
-  
-            
+          
             mainCamera = Camera.main;
             cam1 = cam.GetComponentInChildren<Cinemachine.CinemachineTransposer>();
-
-
         }
 
-        // Starts on event playercreated
         public void GetPlayerInfo () {
             player = Networking.NetworkManager.GetLocalPlayer ().PlayerEntity.gameObject;
             actorMotor = player.GetComponent<IActorMotor> ();
@@ -56,44 +52,39 @@ namespace TurkeyWork.Cameras
 
 
         void LateUpdate () {
+                
+            actorVelocity = actorMotor.Velocity;
 
-            if (start == true)
+                
+            //x = Input.mousePosition.x;   Used when camera on mouse
+            //y = Input.mousePosition.y;
+            //p = mainCamera.ScreenToWorldPoint(actorVelocity);
+            //x = p.x- player.transform.position.x;
+            //y = p.y - player.transform.position.y;
+            if (actorVelocity == Vector3.zero && cam1.m_FollowOffset != new Vector3(0, 0, -10))
             {
-                
-                actorVelocity = actorMotor.Velocity;
-
-                
-                //x = Input.mousePosition.x;   Used when camera on mouse
-                //y = Input.mousePosition.y;
-                //p = mainCamera.ScreenToWorldPoint(actorVelocity);
-                //x = p.x- player.transform.position.x;
-                //y = p.y - player.transform.position.y;
-                if (actorVelocity == Vector3.zero && cam1.m_FollowOffset != new Vector3(0, 0, -10))
-                {
-                    TimeSpend = Time.time;
-                    if (TimeSpend>=CenterCamTimer)
-                    {                      
-                        actorVelocity = new Vector3(-cam1.m_FollowOffset.x * 0.1f, -cam1.m_FollowOffset.y * 0.1f, -10f);
-                    }
-                    
+                TimeSpend = Time.time;
+                if (TimeSpend>=CenterCamTimer)
+                {                      
+                    actorVelocity = new Vector3(-cam1.m_FollowOffset.x * 0.1f, -cam1.m_FollowOffset.y * 0.1f, -10f);
                 }
-
-                var frameOffset = new Vector3(
-                    Mathf.Clamp(actorVelocity.x, -MaxLook.x, MaxLook.x),
-                    Mathf.Clamp(actorVelocity.y, -MaxLook.y, MaxLook.y),
-                    -10f);
-
-                cam1.m_FollowOffset = new Vector3(
-                    Mathf.Clamp(cam1.m_FollowOffset.x + frameOffset.x/25, -3, 3),
-                    Mathf.Clamp(cam1.m_FollowOffset.y + frameOffset.y/100, 0, 2),
-                    -10f);
-               
-
+                    
             }
+
+            var frameOffset = new Vector3(
+                Mathf.Clamp(actorVelocity.x, -MaxLook.x, MaxLook.x),
+                Mathf.Clamp(actorVelocity.y, -MaxLook.y, MaxLook.y),
+                -10f);
+
+            cam1.m_FollowOffset = new Vector3(
+                Mathf.Clamp(cam1.m_FollowOffset.x + frameOffset.x/25, -3, 3),
+                Mathf.Clamp(cam1.m_FollowOffset.y + frameOffset.y/100, 0, 2),
+                -10f);
+               
         }
         public void SetTrue()
         {
-            start = true;
+            enabled = true;
         }
     }
 }
