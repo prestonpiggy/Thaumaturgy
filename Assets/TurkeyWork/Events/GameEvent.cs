@@ -10,7 +10,11 @@ namespace TurkeyWork.Events {
 
         static Dictionary<string, GameEvent> gameEvents = new Dictionary<string, GameEvent> ();
 
-        [ReadOnly, ShowInInspector] List<GameEventListener> listeners = new List<GameEventListener> ();
+        [ReadOnly, ShowInInspector]
+        List<GameEventListener> listeners = new List<GameEventListener> ();
+
+        [System.NonSerialized]
+        public object EventData;
 
         public static void RaiseEvent (string eventName) {
             GameEvent gameEvent;
@@ -19,10 +23,24 @@ namespace TurkeyWork.Events {
             Debug.Log ($"Raised Event {gameEvent?.name}");
         }
 
+        public static void RaiseEventWithData (string eventName, object eventData) {
+            GameEvent gameEvent;
+            if (gameEvents.TryGetValue (eventName, out gameEvent)) {
+                gameEvent.RaiseWithData (eventData);
+            }
+            Debug.Log ($"Raised Event {gameEvent?.name}");
+        }
+
         [Button]
         public void Raise () {
             for (int i = listeners.Count -1; i >= 0; i--)
                 listeners[i].OnEventRaised ();
+        }
+
+        public void RaiseWithData (object eventData) {
+            EventData = eventData;
+            Raise ();
+            eventData = null;
         }
 
         public void AddListener (GameEventListener listener) {

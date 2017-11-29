@@ -9,6 +9,8 @@ namespace TurkeyWork.World {
 
         static SpawnManager instance;
 
+        public static bool HasSpawnPoints => instance.spawnPoints.Count > 0;
+
         List<SpawnPoint> spawnPoints = new List<SpawnPoint> ();
         int spawnIndex;
 

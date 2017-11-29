@@ -33,7 +33,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 1
+      Data: World Map
+    - Name: 
+      Entry: 1
+      Data: World Map
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 
@@ -54,43 +66,7 @@ MonoBehaviour:
       Data: Level-02
     - Name: 
       Entry: 1
-      Data: Level-01
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: Main Menu
-    - Name: 
-      Entry: 1
-      Data: Main Menu
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: World Map
-    - Name: 
-      Entry: 1
-      Data: Level-01
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: Cavern
-    - Name: 
-      Entry: 1
-      Data: Cavern
+      Data: Level-02
     - Name: 
       Entry: 8
       Data: 

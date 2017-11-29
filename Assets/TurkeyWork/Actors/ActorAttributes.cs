@@ -32,15 +32,25 @@ namespace TurkeyWork.Actors {
         [FoldoutGroup ("AEGIS", expanded: false), HideLabel]
         public Resource Aegis; // Like magic resistance
 
-        [FoldoutGroup ("MOVEMENT"), Title ("Speed"), HideLabel]
+        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Speed"), HideLabel]
         public Stat MovementSpeed = new Stat (300);
-        [FoldoutGroup ("MOVEMENT"), Title ("Jump Height"), HideLabel]
+        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Jump Height"), HideLabel]
         public Stat JumpHeight = new Stat (240);
-        [FoldoutGroup ("MOVEMENT"), Title ("Gravity Scale"), HideLabel]
-        public Stat GravityScale = new Stat (200); 
+        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Gravity Scale"), HideLabel]
+        public Stat GravityScale = new Stat (200);
 
+        [FoldoutGroup ("DAMAGE", expanded: false), Title ("Physical Damage"), HideLabel]
+        public Stat DamagePhysical = new Stat (10);
+        [FoldoutGroup ("DAMAGE", expanded: false), Title ("Magical Damage"), HideLabel]
+        public Stat DamageMagical = new Stat (10);
+
+        [System.Obsolete ("Consider using a StatType instead")]
         public bool TryGetStat (string name, out Stat stat) {
             return statsRegistry.TryGetValue (name, out stat);
+        }
+
+        public bool TryGetStat (StatType type, out Stat stat) {
+            return statsRegistry.TryGetValue (type.name, out stat);
         }
 
         public void RegisterTimedBuff (Stat stat, Modifier buff) {
@@ -120,7 +130,10 @@ namespace TurkeyWork.Actors {
 
                 { "Movement Speed", MovementSpeed },
                 { "Jump Height", JumpHeight },
-                { "Gravity Scale", GravityScale }
+                { "Gravity Scale", GravityScale },
+
+                { "Damage Physical", DamagePhysical },
+                { "Damage Macigal", DamageMagical },
             };
         }
 

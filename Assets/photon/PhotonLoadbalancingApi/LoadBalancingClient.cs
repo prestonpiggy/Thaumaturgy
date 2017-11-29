@@ -874,7 +874,6 @@ namespace ExitGames.Client.Photon.LoadBalancing
                 return true;
             }
 
-            // TODO: handle error "cant connect to GS"
             return false;
         }
 
@@ -1803,7 +1802,6 @@ namespace ExitGames.Client.Photon.LoadBalancing
                             this.DebugReturn(DebugLevel.INFO, "Most likely the game became empty during the switch to GameServer.");
                         }
 
-                        // TODO: add callback to join failed
                         break;
                 }
 
@@ -1814,7 +1812,7 @@ namespace ExitGames.Client.Photon.LoadBalancing
             this.CurrentRoom = this.CreateRoom(this.enterRoomParamsCache.RoomName, this.enterRoomParamsCache.RoomOptions);
             this.CurrentRoom.LoadBalancingClient = this;
             this.CurrentRoom.IsLocalClientInside = true;
-            this.State = ClientState.Joined;    // TODO: maybe this set should be done later (when the room is fully setup with props and all)
+            this.State = ClientState.Joined;   
 
             if (operationResponse.Parameters.ContainsKey(ParameterCode.ActorList))
             {
@@ -1834,11 +1832,9 @@ namespace ExitGames.Client.Photon.LoadBalancing
             switch (operationResponse.OperationCode)
             {
                 case OperationCode.CreateGame:
-                    // TODO: add callback "game created"
                     break;
                 case OperationCode.JoinGame:
                 case OperationCode.JoinRandomGame:
-                    // TODO: add callback "game joined"
                     break;
             }
         }
@@ -2076,17 +2072,9 @@ namespace ExitGames.Client.Photon.LoadBalancing
                         }
                         else
                         {
-                            // TODO: handle more error cases
                             if (operationResponse.ReturnCode != 0)
                             {
                                 this.State = (this.inLobby) ? ClientState.JoinedLobby : ClientState.ConnectedToMaster;
-
-                                // TODO: error callbacks?! at the moment, developers have to implement this.OnOpResponseAction to get error cases of this.
-                                //if (operationResponse.ReturnCode == ErrorCode.NoRandomMatchFound)
-                                //{
-                                //    // this happens only for JoinRandomRoom
-                                //    break;
-                                //}
 
                                 if (this.loadBalancingPeer.DebugOut >= DebugLevel.ERROR)
                                 {
@@ -2208,7 +2196,6 @@ namespace ExitGames.Client.Photon.LoadBalancing
                     {
                         this.State = ClientState.ConnectedToNameServer;
 
-                        // TODO: should we automatically get the regions?!
                     }
 
                     if (this.Server != ServerConnection.NameServer && (this.AuthMode == AuthModeOption.AuthOnce || this.AuthMode == AuthModeOption.AuthOnceWss))
