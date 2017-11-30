@@ -20,6 +20,7 @@ namespace TurkeyWork.Stats {
 
         [TextArea (4, 10)]
         [SerializeField] string description;
+        [SerializeField] Color displayColor = Color.white;
 
         [BoxGroup ("Linked Stats")]
         [SerializeField, AssetsOnly] StatType current;
