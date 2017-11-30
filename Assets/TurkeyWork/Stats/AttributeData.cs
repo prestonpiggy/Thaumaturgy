@@ -64,6 +64,7 @@ namespace TurkeyWork.Stats {
             recourceDictionary = new Dictionary<ResourceType, Resource> ();
         }
 
+#if UNITY_EDITOR
         [Button]
         void AddAllFromProject () {
             var resourceTypes = UnityEngine.Resources.LoadAll<ResourceType> ("");
@@ -83,7 +84,9 @@ namespace TurkeyWork.Stats {
 
             resources.Sort ((x, y) => x.Type.name.CompareTo (y.Type.name));
             simpleStats.Sort ((x, y) => x.Type.name.CompareTo (y.Type.name));
+            UnityEditor.AssetDatabase.SaveAssets ();
         }
+#endif
     }
 
 }

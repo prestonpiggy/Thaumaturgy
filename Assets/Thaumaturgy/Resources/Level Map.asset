@@ -14,7 +14,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 114059497224071510, guid: a4fb232f86b9bc54f9a245070ca57357, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -22,8 +23,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: LevelLoadMap
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
-        mscorlib]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[TurkeyWork.World.WordLevelLayout+LevelInfo,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 7
       Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
@@ -33,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -41,8 +42,20 @@ MonoBehaviour:
       Entry: 1
       Data: World Map
     - Name: 
+      Entry: 7
+      Data: TurkeyWork.World.WordLevelLayout+LevelInfo, Assembly-CSharp
+    - Name: Name
       Entry: 1
       Data: World Map
+    - Name: IsLevel
+      Entry: 5
+      Data: false
+    - Name: LoadingPrefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -53,8 +66,20 @@ MonoBehaviour:
       Entry: 1
       Data: Level-01
     - Name: 
+      Entry: 7
+      Data: TurkeyWork.World.WordLevelLayout+LevelInfo, Assembly-CSharp
+    - Name: Name
       Entry: 1
       Data: Level-01
+    - Name: IsLevel
+      Entry: 5
+      Data: true
+    - Name: LoadingPrefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -65,8 +90,68 @@ MonoBehaviour:
       Entry: 1
       Data: Level-02
     - Name: 
+      Entry: 7
+      Data: TurkeyWork.World.WordLevelLayout+LevelInfo, Assembly-CSharp
+    - Name: Name
       Entry: 1
       Data: Level-02
+    - Name: IsLevel
+      Entry: 5
+      Data: true
+    - Name: LoadingPrefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 1
+      Data: Cavern-01
+    - Name: 
+      Entry: 7
+      Data: TurkeyWork.World.WordLevelLayout+LevelInfo, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Cavern-01
+    - Name: IsLevel
+      Entry: 5
+      Data: true
+    - Name: LoadingPrefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 1
+      Data: Main Menu
+    - Name: 
+      Entry: 7
+      Data: TurkeyWork.World.WordLevelLayout+LevelInfo, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Main Menu
+    - Name: IsLevel
+      Entry: 5
+      Data: false
+    - Name: LoadingPrefab
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -77,3 +162,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
   active: 1
+  OnLoadingStarted: {fileID: 11400000, guid: 0b619ab57333e7248b6120d91140a614, type: 2}
+  OnLevelLoaded: {fileID: 11400000, guid: 69adc3d2aab017c47aaf679c968a36fc, type: 2}
