@@ -10,8 +10,6 @@ namespace TurkeyWork.Networking {
     [BoltGlobalBehaviour (BoltNetworkModes.Host)]
     public class ServerCallbacks : GlobalEventListener {
 
-        public GameEvent LocalPlayerCreatedEvent;
-
         void Awake () {
             NetworkManager.CreateServerPlayer ();
         }
@@ -21,24 +19,11 @@ namespace TurkeyWork.Networking {
         }
 
         public override void SceneLoadLocalDone (string map) {
-            SpawnPlayer (null);
+            //SpawnPlayer (null);
         }
 
         public override void SceneLoadRemoteDone (BoltConnection connection) {
-            SpawnPlayer (connection);
-        }
-
-        void SpawnPlayer (BoltConnection connection) {
-            if (NetworkManager.InGame) {
-                var np = NetworkManager.GetPlayer (connection);
-                np.SpawnPlayer ();
-                if (np.IsLocal) {
-                    if (LocalPlayerCreatedEvent != null)
-                        LocalPlayerCreatedEvent.Raise ();
-                    else
-                        GameEvent.RaiseEvent ("Local Player Created");
-                }
-            }
+            //SpawnPlayer (connection);
         }
 
     }

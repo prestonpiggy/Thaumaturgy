@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TurkeyWork.Events;
+
 namespace TurkeyWork.Networking {
 
     [BoltGlobalBehaviour]
     public class NetworkManager : Bolt.GlobalEventListener {
 
         static NetworkManager instance;
+
+        public GameEvent LocalPlayerCreatedEvent;
 
         List<NetworkPlayer> players;
 
@@ -28,6 +32,19 @@ namespace TurkeyWork.Networking {
 
         public static NetworkPlayer CreateClientPlayer (BoltConnection connection) {
             return CreatePlayer (connection);
+        }
+
+        public void SpawnPlayer (BoltConnection connection) {
+            if (NetworkManager.InGame) {
+                var np = NetworkManager.GetPlayer (connection);
+                np.SpawnPlayer ();
+                if (np.IsLocal) {
+                    if (LocalPlayerCreatedEvent != null)
+                        LocalPlayerCreatedEvent.Raise ();
+                    else
+                        GameEvent.RaiseEvent ("Local Player Created");
+                }
+            }
         }
 
         static NetworkPlayer CreatePlayer (BoltConnection connection) {

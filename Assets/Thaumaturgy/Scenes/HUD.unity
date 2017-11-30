@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da7a08bc2f229448b6387ee43108b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributeName: Stamina
+  resourceType: {fileID: 11400000, guid: 0a076622e41089d45aa701dc53afb169, type: 2}
   IndicatorTemplate: {fileID: 11400000, guid: 68f5b60b9827339409d1fc0bb0d535a7, type: 2}
   Foreground: {fileID: 970084828}
   Background: {fileID: 96867978}
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da7a08bc2f229448b6387ee43108b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributeName: Mana
+  resourceType: {fileID: 11400000, guid: c8936bac54eb90e40b74af76afc92707, type: 2}
   IndicatorTemplate: {fileID: 11400000, guid: 259deb542c2d7fc448796aff2e218011, type: 2}
   Foreground: {fileID: 1313407671}
   Background: {fileID: 1707005481}
@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da7a08bc2f229448b6387ee43108b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributeName: Health
+  resourceType: {fileID: 11400000, guid: e93b4e66c1b25be46ae74f81ec241c8b, type: 2}
   IndicatorTemplate: {fileID: 11400000, guid: 8018ebfc0cb69cc4f85491b6bf41fad5, type: 2}
   Foreground: {fileID: 1616044896}
   Background: {fileID: 1711802701}
