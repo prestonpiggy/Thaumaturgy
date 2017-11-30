@@ -7,11 +7,27 @@ namespace TurkeyWork.Stats {
 
     [CreateAssetMenu (menuName = "TurkeyWork/Stats/Stat Type")]
     public class StatType : ScriptableObject, IEqualityComparer<StatType> {
+
+        static Dictionary<string, StatType> statTypeDictionary = new Dictionary<string, StatType> ();
+
         [ReadOnly, ShowInInspector] int id;
 
+        [SerializeField, ReadOnly] internal bool isResourceComponent;
+
+        [TextArea (4, 10)]
         [SerializeField] string description;
 
         public string Description => description;
+        public bool IsResourceComponent => isResourceComponent;
+        public int ID => id;
+
+        StatType () {
+            isResourceComponent = true;
+        }
+
+        public static StatType FromName (string name) {
+            return statTypeDictionary[name];
+        }
 
         public bool Equals (StatType x, StatType y) {
             return x.id == y.id;
@@ -33,6 +49,7 @@ namespace TurkeyWork.Stats {
 
         private void OnEnable () {
             id = GetInstanceID ();
+            statTypeDictionary.Add (name, this);
         }
     }
 

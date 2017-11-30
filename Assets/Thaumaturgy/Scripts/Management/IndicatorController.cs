@@ -27,21 +27,20 @@ public class IndicatorController : MonoBehaviour {
         targetActor = NetworkManager.GetLocalPlayer ().PlayerEntity.GetComponent<PlayerController> ();  
         actorAttributes = targetActor?.Attributes;
 
-        switch (attributeName.ToLower())
-        {
-            case "health":
-                resource = actorAttributes.Health;
-                break;
+        switch (attributeName.ToLower ()) {
+        case "health":
+            resource = actorAttributes[ResourceType.FromName ("Health")];
+            break;
 
-            case "mana":
-                resource = actorAttributes.Mana;
-                break;
-            case "stamina":
-                resource = actorAttributes.Stamina;
-                break;
+        case "mana":
+            resource = actorAttributes[ResourceType.FromName ("Mana")];
+            break;
+        case "stamina":
+            resource = actorAttributes[ResourceType.FromName ("Stamina")];
+            break;
 
-            default:
-                break;
+        default:
+            break;
         }
         Debug.Log(resource);
     }

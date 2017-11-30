@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 namespace TurkeyWork.Stats {
 
     [System.Serializable]
-    public class Stat {
+    public abstract class StatBase {
 
         public StatType Type;
 
@@ -17,13 +17,13 @@ namespace TurkeyWork.Stats {
         public float Value001 => Value / 100f;
 
         [ReadOnly]
-        public List<Modifier> Modifiers = new List<Modifier> ();
+        public List<Modifier> Modifiers = new List<Modifier>();
 
-        public Stat (StatType type) {
+        public StatBase (StatType type) {
             Type = type;
         }
 
-        public Stat (StatType type, int baseValue) {
+        public StatBase (StatType type, int baseValue) {
             Type = type;
             Base = baseValue;
             Value = baseValue;
@@ -64,7 +64,7 @@ namespace TurkeyWork.Stats {
             }
         }
 
-        void ApplyMult () {
+        void ApplyMult () {           
             if (Modifiers.Count > 0) {
                 float mult = 0;
 
@@ -72,9 +72,8 @@ namespace TurkeyWork.Stats {
                     mult += mod.Multiplier;
                 }
                 Value = (int) (Value * Mathf.Clamp (mult, 0, float.MaxValue));
-            }
+            }         
         }
-
     }
 
 }

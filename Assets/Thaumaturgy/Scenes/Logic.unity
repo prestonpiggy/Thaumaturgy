@@ -260,7 +260,6 @@ GameObject:
   - component: {fileID: 857218021}
   - component: {fileID: 857218026}
   - component: {fileID: 857218027}
-  - component: {fileID: 857218028}
   - component: {fileID: 857218029}
   - component: {fileID: 857218025}
   m_Layer: 0
@@ -437,23 +436,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &857218028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 857218020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d7b23474ce69b4f92926fe63554c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 9819f32fc1d4ab04e9c5a65c74f34a50, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &857218029
 MonoBehaviour:
   m_ObjectHideFlags: 0

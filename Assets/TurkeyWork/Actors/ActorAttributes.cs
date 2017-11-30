@@ -10,51 +10,54 @@ using TurkeyWork.Stats;
 namespace TurkeyWork.Actors {
 
     [HideMonoScript]
-    public class ActorAttributes : ActorComponent {
+    public class ActorAttributes : ActorComponent, Management.ISaveHandler {
+
+        [AssetsOnly]
+        public AttributeData DefaultAttributeData;
 
         static List<BuffStatLink> timedBuffs = new List<BuffStatLink> ();
         static bool buffUpdateDone;
 
-        // This will probably get replaced with a static string to int table and a list for all actors containen indexed references 
-        Dictionary<string, Stat> statsDictionary;
+        Dictionary<StatType, Stat> statsDictionary = new Dictionary<StatType, Stat> ();
 
-        [AssetsOnly]
-        public GameEvent OnDeathEvent;
+        Resource[] resources;
+        Stat[] stats;
 
-        [FoldoutGroup ("HEALTH", expanded: false), HideLabel]
-        public Resource Health;
-        [FoldoutGroup ("STAMINA", expanded: false), HideLabel]
-        public Resource Stamina;
-        [FoldoutGroup ("MANA", expanded: false), HideLabel]
-        public Resource Mana;
+        #region Fetches
+        public Stat this[StatType type] {
+            get {
+                return statsDictionary[type];
+            }
+        }
 
-        [FoldoutGroup ("ARMOR", expanded: false), HideLabel]
-        public Resource Armor;
-        [FoldoutGroup ("AEGIS", expanded: false), HideLabel]
-        public Resource Aegis; // Like magic resistance
+        /// <summary>
+        /// Not recomended! This is error prone and slower than the StatType alternative.
+        /// </summary>
+        /// <param name="typeName"></param>
+        /// <returns></returns>
+        public Stat this[string typeName] {
+            get {
+                return statsDictionary[StatType.FromName (typeName)];
+            }
+        }
 
-        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Speed"), HideLabel]
-        public Stat MovementSpeed = new Stat (300);
-        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Jump Height"), HideLabel]
-        public Stat JumpHeight = new Stat (240);
-        [FoldoutGroup ("MOVEMENT", expanded: false), Title ("Gravity Scale"), HideLabel]
-        public Stat GravityScale = new Stat (200);
-
-        [FoldoutGroup ("DAMAGE", expanded: false), Title ("Physical Damage"), HideLabel]
-        public Stat DamagePhysical = new Stat (10);
-        [FoldoutGroup ("DAMAGE", expanded: false), Title ("Magical Damage"), HideLabel]
-        public Stat DamageMagical = new Stat (10);
+        public Resource this[ResourceType type] {
+            get {
+                return resources.First ((res) => res.Type.Equals (type));
+            }
+        }
 
         [System.Obsolete ("Consider using a StatType instead")]
-        public bool TryGetStat (string name, out Stat stat) {
-            return statsDictionary.TryGetValue (name, out stat);
+        public bool TryGetStat (string typeName, out Stat stat) {
+            return statsDictionary.TryGetValue (StatType.FromName (typeName), out stat);
         }
 
         public bool TryGetStat (StatType type, out Stat stat) {
-            return statsDictionary.TryGetValue (type.name, out stat);
+            return statsDictionary.TryGetValue (type, out stat);
         }
+        #endregion Fetches
 
-        public void RegisterTimedBuff (Stat stat, Modifier buff) {
+        public void RegisterTimedBuff (StatBase stat, Modifier buff) {
             // Check if the buff is actually permanent and, thus, should not be added.
             if (buff.IsPermanent)
                 return;
@@ -63,31 +66,11 @@ namespace TurkeyWork.Actors {
 
         protected override void Awake () {
             base.Awake ();
-            RegisterStats ();
+            //RegisterStats ();
         }
 
         private void Update () {
-            if (!buffUpdateDone) {
-                for (int i = 0; i < timedBuffs.Count; i++) {
-                    if (timedBuffs[i].Buff.ExpireTime <= Time.time) {
-                        timedBuffs[i].RemoveBuff ();
-                        timedBuffs.RemoveAt (i);
-                        i--;
-                    }
-                }
-                buffUpdateDone = true;
-            }
 
-            if (Health.Current.Value <= 0) {
-                Health.Current.Value = 0;
-                OnDeathEvent.Raise ();
-                gameObject.SetActive (false);
-                return;
-            }
-
-            Health.Regenerate (Time.deltaTime);
-            Stamina.Regenerate (Time.deltaTime);
-            Mana.Regenerate (Time.deltaTime);
         }
 
         private void LateUpdate () {
@@ -95,83 +78,34 @@ namespace TurkeyWork.Actors {
         }
 
         private void OnValidate () {
+            /*
             Health.Percent = Health.Current.Value / (float) Health.MaxValue.Value;
             Mana.Percent = Health.Current.Value / (float) Mana.MaxValue.Value;
             Stamina.Percent = Health.Current.Value / (float) Stamina.MaxValue.Value;
             Armor.Percent = Health.Current.Value / (float) Armor.MaxValue.Value;
             Aegis.Percent = Health.Current.Value / (float) Aegis.MaxValue.Value;
+            */
         }
 
-        void RegisterStats () {
-            statsDictionary = new Dictionary<string, Stat> () {
-                { "Health Current", Health.Current },
-                { "Health Max", Health.MaxValue },
-                { "Health Regen", Health.Regen },
-                { "Health Regen Delay", Health.RegenStartDelay },
+        public void OnLoadData () {
+            AttributeData saveData;
 
-                { "Mana Current", Mana.Current },
-                { "Mana Max", Mana.MaxValue },
-                { "Mana Regen", Mana.Regen },
-                { "Mana Regen Delay", Mana.RegenStartDelay },
-
-                { "Stamina Current", Stamina.Current },
-                { "Stamina Max", Stamina.MaxValue },
-                { "Stamina Regen", Stamina.Regen },
-                { "Stamina Regen Delay", Stamina.RegenStartDelay },
-
-                { "Armor Current", Armor.Current },
-                { "Armor Max", Armor.MaxValue },
-                { "Armor Regen", Armor.Regen },
-                { "Armor Regen Delay", Armor.RegenStartDelay },
-
-                { "Aegis Current", Aegis.Current },
-                { "Aegis Max", Aegis.MaxValue },
-                { "Aegis Regen", Aegis.Regen },
-                { "Aegis Regen Delay", Aegis.RegenStartDelay },
-
-                { "Movement Speed", MovementSpeed },
-                { "Jump Height", JumpHeight },
-                { "Gravity Scale", GravityScale },
-
-                { "Damage Physical", DamagePhysical },
-                { "Damage Macigal", DamageMagical },
-            };
-        }
-
-        void LoadData () {
-            List<StatData> saveData;
-
-            if (Management.SaveSystem.Load ("Stats", out saveData)) {
-                foreach (var stat in saveData) {
-                    if (statsDictionary.ContainsKey (stat.Name))
-                        statsDictionary[stat.Name] = stat.Data;
-                    else
-                        statsDictionary.Add (stat.Name, stat.Data);
+            if (Management.SaveSystem.Load ("Attributes", out saveData)) {
+                foreach (var stat in saveData.Resources) {
+                   
                 }
             }
         }
 
-        void SaveData () {
-           var saveData = new List<StatData> (statsDictionary.Keys.Count);
-            foreach (var entry in statsDictionary) {
-                saveData.Add (new StatData () {
-                    Name = entry.Key,
-                    Data = entry.Value
-                });
-            }
-            Management.SaveSystem.Save ("Stats", saveData);
-        }
+        public void OnSaveData () {
 
-        struct StatData {
-            public string Name;
-            public Stat Data;
         }
 
         struct BuffStatLink {
-            public readonly Stat Stat;
+            public readonly StatBase Stat;
             public readonly Modifier Buff;
 
-            public BuffStatLink (Stat stat, Modifier buff) {
+            public BuffStatLink (StatBase stat, Modifier buff) {
                 Stat = stat;
                 Buff = buff;
             }

@@ -10,23 +10,32 @@ using UnityEditor;
 namespace TurkeyWork.Stats {
 
     [System.Serializable]
-    public class Resource {
-        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")] public Stat Current = new Stat (100);
-        [ProgressBar (0, 1, ColorMember = "EDITOR_BarColor"), ReadOnly, HideLabel]
-        [CustomContextMenu ("Blue", "ColorBlue"), CustomContextMenu ("Green", "ColorGreen"), 
-            CustomContextMenu ("Red", "ColorRed"), CustomContextMenu ("Yellow", "ColorYellow"),
-            CustomContextMenu ("White", "ColorWhite"), CustomContextMenu ("Cyan", "ColorCyan")]
+    public class Resource : IEqualityComparer<Resource> {
+
+        public ResourceType Type;
         public float Percent;
 
+        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")]
+        public Stat Current;
+       
         [Title ("Max"), HideLabel, OnValueChanged ("Recalculate")]
-        public Stat MaxValue = new Stat (100);
+        public Stat MaxValue;
 
         [Title ("Regeneration"), HideLabel]
         public Stat Regen;
+
         [Title ("Regen Delay"), HideLabel]
         public Stat RegenStartDelay;
 
         [SerializeField, ReadOnly] private float lastExpenditure;
+
+        public Resource (ResourceType type) {
+            Type = type;
+            Current = new Stat (type.Curret);
+            MaxValue = new Stat (type.Maximum);
+            Regen = new Stat (type.Regeneration);
+            RegenStartDelay = new Stat (type.RegenerationDelay);
+        }
 
         public void SetFull () {
             Current.Value = MaxValue.Value;
@@ -44,6 +53,14 @@ namespace TurkeyWork.Stats {
             MaxValue.Recalculate ();
             Current.Value = Mathf.Clamp (Current.Value, 0, MaxValue.Value);
             Percent = Current.Value / (float) MaxValue.Value;
+        }
+
+        public bool Equals (Resource x, Resource y) {
+            return x.Type.Equals (y.Type);
+        }
+
+        public int GetHashCode (Resource obj) {
+            return obj.Type.ID;
         }
 
 #if UNITY_EDITOR

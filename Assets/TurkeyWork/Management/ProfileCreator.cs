@@ -24,7 +24,7 @@ namespace TurkeyWork.Management {
             ProfileNameInput.interactable = false;
             CreateProfileButton.interactable = false;
 
-            if (TurkeyLauncher.CreateProfile (name)) {
+            if (ProfileManager.CreateProfile (name)) {
                 OnProfileCreated.Invoke ();
             } else {
                 OnProfileCreationFailed.Invoke ();
