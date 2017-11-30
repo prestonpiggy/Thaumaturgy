@@ -4,9 +4,8 @@ using Bolt;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-using TurkeyWork.Actors;
-using TurkeyWork.Abilities;
-using TurkeyWork.Events;
+using TurkeyWork.Stats;
+
 
 namespace TurkeyWork.Actors {
 
@@ -38,19 +37,22 @@ namespace TurkeyWork.Actors {
         Vector2 directionInput;
         bool jumpFlag;
 
+        Stat movementSpeed;
+        Stat gravityScale;
+        Stat jumpHeight;
+        Stat multiJump;
+
         // Shit implementation. For now.
         [System.NonSerialized] public bool OnLadder;
 
         protected override void Awake () {
             base.Awake ();
             Motor = GetComponent<IActorMotor> ();
-            Attributes = GetComponent<ActorAttributes> ();
+            GetStats ();
             RecalculateJump ();
-            enabled = false;
         }
 
         public override void Attached () {
-            enabled = true;
             state.SetTransforms (state.ActorTransform, transform);
             RecalculateJump ();
         }
@@ -108,7 +110,7 @@ namespace TurkeyWork.Actors {
             var effectiveAcceleration = motorState.OnGround ? AccelerationTime : AccelerationTime / AirControl;
             return Mathf.SmoothDamp (
                             frameVelocity.x,
-                            inputCommand.Input.Direction.x * Attributes.MovementSpeed.Value001,
+                            inputCommand.Input.Direction.x * movementSpeed.Value001,
                             ref currentHorizontal,
                             effectiveAcceleration
                             );
@@ -116,9 +118,9 @@ namespace TurkeyWork.Actors {
 
         float GetVerticalMove () {
             return OnLadder ?
-                inputCommand.Input.Direction.y * Attributes.MovementSpeed.Value001 * 0.7f
+                inputCommand.Input.Direction.y * movementSpeed.Value001 * 0.7f
                 :
-                frameVelocity.y + Physics2D.gravity.y * Attributes.GravityScale.Value001 * BoltNetwork.frameDeltaTime;
+                frameVelocity.y + Physics2D.gravity.y * gravityScale.Value001 * BoltNetwork.frameDeltaTime;
         }
 
         void CheckJump () {
@@ -142,10 +144,10 @@ namespace TurkeyWork.Actors {
         }
 
         void RecalculateJump () {
-            var gravityY = Physics2D.gravity.y * Attributes.GravityScale.Value001;
+            var gravityY = Physics2D.gravity.y * gravityScale.Value001;
             var gravitySign = Mathf.Sign (gravityY);
             var absGravity = gravitySign * gravityY;
-            var timeToApex = Mathf.Sqrt (2 * Attributes.JumpHeight.Value001 / absGravity);
+            var timeToApex = Mathf.Sqrt (2 * jumpHeight.Value001 / absGravity);
 
             maxJumpVelocity = absGravity * timeToApex;
             minJumpVelocity = -gravitySign * Mathf.Sqrt (2 * gravitySign * gravityY * timeToApex);
@@ -154,6 +156,14 @@ namespace TurkeyWork.Actors {
         void ResetInputs () {
             directionInput = Vector2.zero;
             jumpFlag = false;
+        }
+
+        void GetStats () {
+            Attributes = GetComponent<ActorAttributes> ();
+            movementSpeed = Attributes["Movement Speed"];
+            jumpHeight = Attributes["Jump Height"];
+            gravityScale = Attributes["Gravity Scale"];
+            multiJump = Attributes["Multi Jump"];
         }
     }
 

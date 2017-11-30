@@ -13,15 +13,17 @@ namespace TurkeyWork.Stats {
     public class Resource : IEqualityComparer<Resource> {
 
         public ResourceType Type;
-
-        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")] public Stat Current;
         public float Percent;
 
+        [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")]
+        public Stat Current;
+       
         [Title ("Max"), HideLabel, OnValueChanged ("Recalculate")]
         public Stat MaxValue;
 
         [Title ("Regeneration"), HideLabel]
         public Stat Regen;
+
         [Title ("Regen Delay"), HideLabel]
         public Stat RegenStartDelay;
 

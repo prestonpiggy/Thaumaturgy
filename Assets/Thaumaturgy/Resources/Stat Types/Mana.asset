@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
+  m_Name: Mana
+  m_EditorClassIdentifier: 
+  description: 
+  current: {fileID: 114797282471017158}
+  maximum: {fileID: 114599996803806574}
+  regeneration: {fileID: 114210306704731306}
+  regenerationDelay: {fileID: 114562862468941560}
+--- !u!114 &114210306704731306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Mana Regen
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114562862468941560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Mana Regen Delay
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114599996803806574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Mana Max
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114797282471017158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Mana Current
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 

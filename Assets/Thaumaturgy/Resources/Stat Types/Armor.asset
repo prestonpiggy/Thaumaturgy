@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390632e4483fd1d4eb04ae1fc75bc440, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  description: 
+  current: {fileID: 114939830396666670}
+  maximum: {fileID: 114173865825998680}
+  regeneration: {fileID: 114972218588121140}
+  regenerationDelay: {fileID: 114715002592124994}
+--- !u!114 &114173865825998680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Armor Max
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114715002592124994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Armor Regen Delay
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114939830396666670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Armor Current
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
+--- !u!114 &114972218588121140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff71589c76126e34597d5e5984d3c50d, type: 3}
+  m_Name: Armor Regen
+  m_EditorClassIdentifier: 
+  isResourceComponent: 1
+  description: 
