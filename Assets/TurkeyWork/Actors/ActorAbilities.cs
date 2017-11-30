@@ -21,7 +21,7 @@ namespace TurkeyWork.Actors {
         public bool DeductStat (StatCost statCost) {
             Stat stat;
 
-            if (!attributes.TryGetStat (statCost.StatName, out stat))
+            if (!attributes.TryGetStat (statCost.StatType, out stat))
                 return false;
 
             return true;

@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8cf3ca11a864740ad00dfd32839c60, type: 3}
+  m_Name: Player Stats
+  m_EditorClassIdentifier: 
+  Resources:
+  - Type: {fileID: 11400000, guid: eb290115438947e41b8c32b04213351f, type: 2}
+    Current:
+      Type: {fileID: 11400000, guid: 823587d77d8493d44949f836fee740c1, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Percent: 0
+    MaxValue:
+      Type: {fileID: 11400000, guid: 84e0cf95908df9845a887ecfb97445ee, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Regen:
+      Type: {fileID: 11400000, guid: a996f1cc7ba20f24892b78691bf79ffa, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    RegenStartDelay:
+      Type: {fileID: 11400000, guid: 7c6b7c9ae8bffcd49ad151dccb95ee17, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
+  - Type: {fileID: 11400000, guid: 591112c6fe87e7740a646920d8483bcf, type: 2}
+    Current:
+      Type: {fileID: 11400000, guid: f4cae253a1ae0ad4f866ff5ca8c64270, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Percent: 0
+    MaxValue:
+      Type: {fileID: 11400000, guid: f67b0a14a62b67a40b5b66c5896cd2bd, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Regen:
+      Type: {fileID: 11400000, guid: bc701fa3018c57444801b61c4fe7e495, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    RegenStartDelay:
+      Type: {fileID: 11400000, guid: d1a0fc98440cdc04eba856bc2a7f2700, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
+  - Type: {fileID: 11400000, guid: 4550b400d201b4d498971028f00bc783, type: 2}
+    Current:
+      Type: {fileID: 11400000, guid: 70ae1e78258a7c949818a2ef78642041, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Percent: 0
+    MaxValue:
+      Type: {fileID: 11400000, guid: 0d886ccb97bf9d44fac560c65af7bfe5, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Regen:
+      Type: {fileID: 11400000, guid: 161e13a80b603b044a0b039f09d9f31b, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    RegenStartDelay:
+      Type: {fileID: 11400000, guid: a558bbdd7adea98448f82cbcad244d9a, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
+  - Type: {fileID: 11400000, guid: 910f444bead66ef4ca1ce6fc5b84915d, type: 2}
+    Current:
+      Type: {fileID: 11400000, guid: 739ebfab2b9eedd43a4b00466e87ca9b, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Percent: 0
+    MaxValue:
+      Type: {fileID: 11400000, guid: 8e1c3a4b8bd355042a5864d50ed915f7, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Regen:
+      Type: {fileID: 11400000, guid: 013ececed22edaf449125d55bbb84650, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    RegenStartDelay:
+      Type: {fileID: 11400000, guid: 7096d477c9df62f45ac0d4b4847d6987, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
+  - Type: {fileID: 11400000, guid: 44aa411647bfc9d4f937e06ce7d9e9d7, type: 2}
+    Current:
+      Type: {fileID: 11400000, guid: a5762e55b23024c46b46faf00e492850, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Percent: 0
+    MaxValue:
+      Type: {fileID: 11400000, guid: 3350ecdffab220a4c91d24115bae3499, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    Regen:
+      Type: {fileID: 11400000, guid: 8a02ea28304cffd4381bf96b47cccf0e, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    RegenStartDelay:
+      Type: {fileID: 11400000, guid: 2b2afb1750424cb44a7d4530318f3c56, type: 2}
+      Base: 4
+      Value: 4
+      Modifiers: []
+    lastExpenditure: 0
+    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
+  SimpleStats:
+  - Type: {fileID: 11400000, guid: 3e647dbdc870b1f4a8f1398602643d0b, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
+  - Type: {fileID: 11400000, guid: b043c9d696569544a9b5399711112675, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
+  - Type: {fileID: 11400000, guid: 859fdd6492b0c884b858c4847c2c3a9a, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
+  - Type: {fileID: 11400000, guid: 2241258c02cc696419e4997f59892e0a, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
+  - Type: {fileID: 11400000, guid: 937cbcddef6a91349ace9f58574a4c84, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
+  - Type: {fileID: 11400000, guid: ce0f8f56b534aaf4797bc51a389055f2, type: 2}
+    Base: 4
+    Value: 4
+    Modifiers: []
