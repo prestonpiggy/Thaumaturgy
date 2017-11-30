@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 
 using TurkeyWork.Events;
 using TurkeyWork.Stats;
+using TurkeyWork.Management;
 
 namespace TurkeyWork.Actors {
 
@@ -13,107 +14,66 @@ namespace TurkeyWork.Actors {
     public class ActorAttributes : ActorComponent, Management.ISaveHandler {
 
         [AssetsOnly]
-        public AttributeData DefaultAttributeData;
+        [SerializeField] AttributeData DefaultAttributeData;
+        [ShowInInspector, ReadOnly, InlineEditor] AttributeData runtimeData;
 
-        static List<BuffStatLink> timedBuffs = new List<BuffStatLink> ();
-        static bool buffUpdateDone;
+        public AttributeData RuntimeData => runtimeData;
 
-        Dictionary<StatType, Stat> statsDictionary = new Dictionary<StatType, Stat> ();
+        public string SaveFileName => "Attributes.json";
 
-        Resource[] resources;
-        Stat[] stats;
-
-        #region Fetches
+        #region Gettters
         public Stat this[StatType type] {
             get {
-                return statsDictionary[type];
+                return runtimeData[type];
             }
         }
 
-        /// <summary>
-        /// Not recomended! This is error prone and slower than the StatType alternative.
-        /// </summary>
-        /// <param name="typeName"></param>
-        /// <returns></returns>
         public Stat this[string typeName] {
             get {
-                return statsDictionary[StatType.FromName (typeName)];
+                return runtimeData[typeName];
             }
         }
 
         public Resource this[ResourceType type] {
             get {
-                return resources.First ((res) => res.Type.Equals (type));
+                return runtimeData[type];
             }
         }
 
         [System.Obsolete ("Consider using a StatType instead")]
         public bool TryGetStat (string typeName, out Stat stat) {
-            return statsDictionary.TryGetValue (StatType.FromName (typeName), out stat);
+            return runtimeData.TryGetStat (typeName, out stat);
         }
 
         public bool TryGetStat (StatType type, out Stat stat) {
-            return statsDictionary.TryGetValue (type, out stat);
+            return runtimeData.TryGetStat (type, out stat);
         }
-        #endregion Fetches
+        #endregion Getters
 
-        public void RegisterTimedBuff (StatBase stat, Modifier buff) {
-            // Check if the buff is actually permanent and, thus, should not be added.
-            if (buff.IsPermanent)
-                return;
-            timedBuffs.Add (new BuffStatLink (stat, buff));
-        }
-
-        protected override void Awake () {
-            base.Awake ();
-            //RegisterStats ();
-        }
-
-        private void Update () {
-
-        }
-
-        private void LateUpdate () {
-            buffUpdateDone = false;
-        }
-
-        private void OnValidate () {
-            /*
-            Health.Percent = Health.Current.Value / (float) Health.MaxValue.Value;
-            Mana.Percent = Health.Current.Value / (float) Mana.MaxValue.Value;
-            Stamina.Percent = Health.Current.Value / (float) Stamina.MaxValue.Value;
-            Armor.Percent = Health.Current.Value / (float) Armor.MaxValue.Value;
-            Aegis.Percent = Health.Current.Value / (float) Aegis.MaxValue.Value;
-            */
-        }
-
+        #region Save/Load
         public void OnLoadData () {
-            AttributeData saveData;
-
-            if (Management.SaveSystem.Load ("Attributes", out saveData)) {
-                foreach (var stat in saveData.Resources) {
-                   
-                }
+            if (!SaveManager.Load (SaveFileName, runtimeData)) {
+                runtimeData = Instantiate (DefaultAttributeData);
             }
+            foreach (var res in runtimeData.Resources)
+                res.Recalculate ();
         }
 
         public void OnSaveData () {
+            SaveManager.Save (SaveFileName, runtimeData ?? DefaultAttributeData);
+        }
+        #endregion Save/laod
 
+        protected override void Awake () {
+            base.Awake ();
+            runtimeData = Instantiate (DefaultAttributeData);
         }
 
-        struct BuffStatLink {
-            public readonly StatBase Stat;
-            public readonly Modifier Buff;
-
-            public BuffStatLink (StatBase stat, Modifier buff) {
-                Stat = stat;
-                Buff = buff;
-            }
-
-            public void RemoveBuff () {
-                Stat.RemoveBuffAndRecalculate (Buff);
-            }
+        // This shuold happen in Refresh Update
+        private void Update () {
+            runtimeData.UpdateStats (Time.deltaTime);
         }
+
     }
 
 }

@@ -50,6 +50,10 @@ namespace TurkeyWork.Management {
                 TurkeyLauncher.Instance.Settings.LastProfile,
                 "PlayerProfile.json"
                 );
+
+            if (!File.Exists (path))
+                return false;
+
             var json = File.ReadAllText (path);
             CurrentProfile = JsonUtility.FromJson<PlayerProfile> (json);
             return true;

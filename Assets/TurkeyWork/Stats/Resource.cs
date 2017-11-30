@@ -13,6 +13,8 @@ namespace TurkeyWork.Stats {
     public class Resource : IEqualityComparer<Resource> {
 
         public ResourceType Type;
+
+        [ProgressBar (0, 1)]
         public float Percent;
 
         [Title ("Current"), HideLabel, OnValueChanged ("Recalculate")]
@@ -35,13 +37,14 @@ namespace TurkeyWork.Stats {
             MaxValue = new Stat (type.Maximum);
             Regen = new Stat (type.Regeneration);
             RegenStartDelay = new Stat (type.RegenerationDelay);
+            Percent = Mathf.Clamp01 (Current.Value / MaxValue.Value);
         }
 
         public void SetFull () {
             Current.Value = MaxValue.Value;
         }
 
-        public void Regenerate (float deltaTime) {
+        public void Update (float deltaTime) {
             if (Time.time < lastExpenditure + RegenStartDelay.Value)
                 return;
 
@@ -53,6 +56,7 @@ namespace TurkeyWork.Stats {
             MaxValue.Recalculate ();
             Current.Value = Mathf.Clamp (Current.Value, 0, MaxValue.Value);
             Percent = Current.Value / (float) MaxValue.Value;
+            Debug.Log ($"Resource ({Type.name} -> {Percent})");
         }
 
         public bool Equals (Resource x, Resource y) {

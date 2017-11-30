@@ -6,6 +6,8 @@ namespace TurkeyWork.Management {
 
     public interface ISaveHandler {
 
+        string SaveFileName { get; }
+
         void OnSaveData ();
 
         void OnLoadData ();

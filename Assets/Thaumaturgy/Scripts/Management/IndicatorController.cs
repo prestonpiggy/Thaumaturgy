@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
+
 using TurkeyWork.Actors;
 using TurkeyWork.HUD;
 using TurkeyWork.Stats;
@@ -9,7 +11,8 @@ using TurkeyWork.Networking;
 
 public class IndicatorController : MonoBehaviour {
 
-    public string attributeName;
+    [AssetsOnly]
+    public ResourceType resourceType;
     public AttributeIndicatorTemplate IndicatorTemplate;
     public Image Foreground, Background;
 
@@ -25,31 +28,16 @@ public class IndicatorController : MonoBehaviour {
         Background.sprite = IndicatorTemplate.background ? IndicatorTemplate.background : Background.sprite;
 
         targetActor = NetworkManager.GetLocalPlayer ().PlayerEntity.GetComponent<PlayerController> ();  
-        actorAttributes = targetActor?.Attributes;
-
-        switch (attributeName.ToLower ()) {
-        case "health":
-            resource = actorAttributes[ResourceType.FromName ("Health")];
-            break;
-
-        case "mana":
-            resource = actorAttributes[ResourceType.FromName ("Mana")];
-            break;
-        case "stamina":
-            resource = actorAttributes[ResourceType.FromName ("Stamina")];
-            break;
-
-        default:
-            break;
-        }
-        Debug.Log(resource);
+        actorAttributes = targetActor.Attributes;
+        resource = actorAttributes[resourceType];
+        Debug.Log(resource.Type.name);
     }
 
     private void Reset()
     {
         Foreground = transform.Find("Foreground")?.GetComponent<Image>();
         Background = transform.Find("Background")?.GetComponent<Image>();
-        IndicatorTemplate = Resources.Load<AttributeIndicatorTemplate>(attributeName);
+        IndicatorTemplate = Resources.Load<AttributeIndicatorTemplate>(resourceType.name);
     }
 
     public void Update()

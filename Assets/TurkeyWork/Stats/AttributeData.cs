@@ -9,14 +9,60 @@ namespace TurkeyWork.Stats {
     [CreateAssetMenu (menuName = "TurkeyWork/Stats/Attribute Template")]
     public class AttributeData : ScriptableObject {
 
+        Dictionary<StatType, Stat> statDictionary;
+        Dictionary<ResourceType, Resource> recourceDictionary;
+
+        [SerializeField] AttributeData parent;
+
         [ListDrawerSettings (NumberOfItemsPerPage = 1)]
         [SerializeField] List<Resource> resources;
 
         [ListDrawerSettings (NumberOfItemsPerPage = 8)]
         [SerializeField] List<Stat> simpleStats;
 
-        public Resource[] Resources => resources.ToArray ();
-        public Stat[] Stats => simpleStats.ToArray ();
+        public IEnumerable<Resource> Resources => resources;
+        public IEnumerable<Stat> Stats => simpleStats;
+
+        #region Getters
+        public Stat this[StatType type] {
+            get {
+                return statDictionary[type];
+            }
+        }
+
+        public Stat this[string typeName] {
+            get {
+                return statDictionary[StatType.FromName (typeName)];
+            }
+        }
+
+        public Resource this[ResourceType type] {
+            get {
+                return resources.First ((res) => res.Type.Equals (type));
+            }
+        }
+
+        [System.Obsolete ("Consider using a StatType instead")]
+        public bool TryGetStat (string typeName, out Stat stat) {
+            return statDictionary.TryGetValue (StatType.FromName (typeName), out stat);
+        }
+
+        public bool TryGetStat (StatType type, out Stat stat) {
+            return statDictionary.TryGetValue (type, out stat);
+        }
+        #endregion Getters
+
+        public void UpdateStats (float deltaTime) {
+            foreach (var res in resources) {
+                res.Update (deltaTime);
+                Debug.Log (res.Type.name);
+            }
+        }
+
+        private void OnEnable () {
+            statDictionary = new Dictionary<StatType, Stat> ();
+            recourceDictionary = new Dictionary<ResourceType, Resource> ();
+        }
 
         [Button]
         void AddAllFromProject () {

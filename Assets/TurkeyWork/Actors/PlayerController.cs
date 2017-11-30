@@ -47,14 +47,18 @@ namespace TurkeyWork.Actors {
 
         protected override void Awake () {
             base.Awake ();
+            Attributes = GetComponent<ActorAttributes> ();
             Motor = GetComponent<IActorMotor> ();
+        }
+
+        private void Start () {
             GetStats ();
             RecalculateJump ();
         }
 
         public override void Attached () {
             state.SetTransforms (state.ActorTransform, transform);
-            RecalculateJump ();
+            //RecalculateJump ();
         }
 
         private void Update () {
@@ -159,7 +163,6 @@ namespace TurkeyWork.Actors {
         }
 
         void GetStats () {
-            Attributes = GetComponent<ActorAttributes> ();
             movementSpeed = Attributes["Movement Speed"];
             jumpHeight = Attributes["Jump Height"];
             gravityScale = Attributes["Gravity Scale"];

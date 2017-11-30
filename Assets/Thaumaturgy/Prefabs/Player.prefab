@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 61532827412422054}
   - component: {fileID: 95713077044768464}
   - component: {fileID: 114790967161082120}
+  - component: {fileID: 114900823505317558}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -346,6 +347,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95713077044768464}
+--- !u!114 &114900823505317558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568726939661336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2827ac952fdc1349aebf5f858abfb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveMode: 4
+  loadMode: 3
 --- !u!114 &114969154430776104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,127 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9259a9dd9af2354d92227343fae27c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeathEvent: {fileID: 11400000, guid: d67099ace44b7db4ca1ddcbe4488dc81, type: 2}
-  Health:
-    Current:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Percent: 1
-    MaxValue:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Regen:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    RegenStartDelay:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    lastExpenditure: 0
-    EDITOR_BarColor: {r: 1, g: 0, b: 0, a: 1}
-  Stamina:
-    Current:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Percent: 1
-    MaxValue:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Regen:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    RegenStartDelay:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    lastExpenditure: 0
-    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
-  Mana:
-    Current:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Percent: 1
-    MaxValue:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Regen:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    RegenStartDelay:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    lastExpenditure: 0
-    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
-  Armor:
-    Current:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Percent: 1
-    MaxValue:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Regen:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    RegenStartDelay:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    lastExpenditure: 0
-    EDITOR_BarColor: {r: 0, g: 1, b: 0, a: 1}
-  Aegis:
-    Current:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Percent: 1
-    MaxValue:
-      Base: 100
-      Value: 100
-      Modifiers: []
-    Regen:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    RegenStartDelay:
-      Base: 0
-      Value: 0
-      Modifiers: []
-    lastExpenditure: 0
-    EDITOR_BarColor: {r: 0, g: 0, b: 1, a: 1}
-  MovementSpeed:
-    Base: 300
-    Value: 300
-    Modifiers: []
-  JumpHeight:
-    Base: 150
-    Value: 150
-    Modifiers: []
-  GravityScale:
-    Base: 200
-    Value: 200
-    Modifiers: []
-  DamagePhysical:
-    Base: 10
-    Value: 10
-    Modifiers: []
-  DamageMagical:
-    Base: 10
-    Value: 10
-    Modifiers: []
+  DefaultAttributeData: {fileID: 11400000, guid: 83e119d99da168746a59270a91269c97,
+    type: 2}
 --- !u!212 &212007759357125132
 SpriteRenderer:
   m_ObjectHideFlags: 1
