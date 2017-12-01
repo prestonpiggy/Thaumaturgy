@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c8cf3ca11a864740ad00dfd32839c60, type: 3}
-  m_Name: Fiery  Sull Stats
+  m_Name: Lurker Stats
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   resources: []
