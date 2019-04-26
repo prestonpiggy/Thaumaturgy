@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Thaumaturgy/Scenes/HUD.unity
+  isLoaded: 1
+  isActive: 1
